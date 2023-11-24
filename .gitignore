@@ -1,2 +1,6 @@
 # Ignore all .env directories
 **/.env/
+*.pyc
+*.txt
+*.log
+**/.idea/
