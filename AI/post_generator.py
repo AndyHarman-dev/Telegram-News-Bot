@@ -1,6 +1,10 @@
+import asyncio
+
 import g4f
 from config import config
 from misc.log_helper import LogHelper, logging
+from misc.pexels_library import PexelsAPI
+
 
 TG_LOG_PG = LogHelper(__name__, "Post generator thread")
 
@@ -9,10 +13,10 @@ TOPIC_RELEVANCE_PROMPT = config.CONFIG_DICT['topic_relevance']
 
 # Generates post using AI chat technology and image generation
 class PostGenerator:
-    def __init__(self, topic, avoid_topics, image_type):
+    def __init__(self, topic, avoid_topics, images_count):
         self.topic = topic
         self.avoid_topics = avoid_topics
-        self.image_type = image_type
+        self.images_count = images_count
         TG_LOG_PG.log(logging.INFO, "Post generator initialized")
 
     # Generators
@@ -22,33 +26,31 @@ class PostGenerator:
         TG_LOG_PG.log(logging.INFO, f"Prompt is {prompt}")
         return prompt
 
-    # Generates a text part of a post
-    async def generate_post(self):
+    # Generates a text for a post and returns image urls
+    async def generate_post(self, images_count) -> (str, []):
 
         # Check if topic is relevant
         if await is_topic_relevant(self.topic):
             prompt = await self.__generate_prompt()
             # Use ChatGPT to generate the post based on the prompt
             try:
-                response = await g4f.ChatCompletion.create_async(
+                # Make async response
+                task = asyncio.create_task(g4f.ChatCompletion.create_async(
                     model=g4f.models.gpt_4,
                     messages=[
                         {"role": "system", "content": "Be precise and accurate. "},
                         {"role": "user", "content": prompt}
                     ]
-                )
-                return response
+                ))
+
+                # Request image urls and then await the task to complete
+                image_urls = PexelsAPI.search_images(self.topic)
+                return await task, image_urls
+
             except Exception as e:
                 err_msg = f"Exception was raised while generating post: {e}"
                 TG_LOG_PG.log(logging.ERROR, err_msg)
                 return err_msg
-
-    def generate_image(self):
-        prompt = self.__generate_prompt()
-        # Use ChatGPT to generate the image based on the prompt
-        # This is a placeholder for the actual implementation
-        image = "This is a generated image."
-        return image
 
 
 # Checks if the topic provided is relevant and indeed a topic for a post
@@ -61,7 +63,7 @@ async def is_topic_relevant(topic: str) -> bool:
         response = await g4f.ChatCompletion.create_async(
             model=g4f.models.gpt_35_turbo_16k,  # This model seems to answer more accurately
             messages=[
-                {"role": "user", "content": prompt},
+                {"role": "system", "content": prompt},
             ]
         )
 
