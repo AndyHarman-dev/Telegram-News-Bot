@@ -1,9 +1,6 @@
 from config import config
 from bot.bot import TelegramBot
 from misc.log_helper import LogHelper, logging
-from misc.pexels_library import PexelsAPI
-from AI import post_generator
-import asyncio
 
 TG_LOG_M = LogHelper(__name__, "Main thread")
 
