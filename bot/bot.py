@@ -4,6 +4,11 @@ from telegram.ext import filters, CommandHandler, MessageHandler, ContextTypes, 
 from misc.log_helper import LogHelper, logging
 from config import config
 from misc.pexels_library import PexelsAPI
+from database.database import Database
+from database.user import User, UserPreferences
+
+# TODO : Think through the chain of actions for a user, when to save him and udpate in the database
+# TODO : Realise the chain of actions for accounts creation
 
 # Create log helper and category for it
 TG_LOG_BOT = LogHelper(__name__, "Bot thread")
@@ -71,6 +76,7 @@ class TelegramBot:
         self.__token = token
         self.__bot_username = bot_username
         self.__bot_state = 0
+        self.__current_user = User()
 
         self.__create_application()
         TG_LOG_BOT.log(logging.INFO, "Bot initialized")
@@ -95,7 +101,7 @@ class TelegramBot:
 
     # Handles response
     async def handle_response(self, text: str, update: Update, context: ContextTypes.DEFAULT_TYPE) -> str:
-        response = PexelsAPI.test()
+        response = PexelsAPI.search_images()
 
         url = f"https://api.telegram.org/bot{self.__token}/sendPhoto"
         data = {'chat_id': get_chat_id(self.__token),
@@ -119,8 +125,9 @@ class TelegramBot:
     # Handle for buttons
     async def button_handle(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         query = update.callback_query
+
         # CallbackQueries need to be answered, even if no notification to the user is needed
-        query.answer()
+        await query.answer()
 
         if query.data == 'start':
             self.__update_bot_state(get_bot_state_index("start"))
@@ -138,6 +145,11 @@ class TelegramBot:
     # Start
     async def start_handle(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         user = update.effective_user
+        # Try to register user if not exists
+        Database.register_user_if_not_exists(user.id, f"{user.first_name} {user.last_name}", False, {})
+        # Independently of the initial existence, load the user to the class memory
+        self.__current_user = Database.get_user_if_exists(user.id)
+
         TG_LOG_BOT.log(logging.INFO, f"User {user.first_name} started the bot")
         # Create a keyboard for start handle
         keyboard = [
