@@ -27,6 +27,12 @@ class LogHelper:
         self.__logger_.log(level, formatted_msg)
         self.__print_console__(level, message)
 
+    def raise_exception_with_log(self, exception_type) -> None:
+        formatted_msg = self.logger_category_ + ": " + str(exception_type)
+        self.__logger_.exception(formatted_msg)
+        self.__print_console__(logging.ERROR, formatted_msg)
+        raise exception_type
+
     def __print_console__(self, level: int, message: str) -> None:
         formatted_msg = self.logger_category_ + " : " + logging.getLevelName(level) + " : " + message
         print(formatted_msg)

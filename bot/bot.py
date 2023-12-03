@@ -1,14 +1,17 @@
 import requests
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import filters, CommandHandler, MessageHandler, ContextTypes, Application, CallbackQueryHandler
+from telegram.ext import filters, CommandHandler, MessageHandler, ContextTypes, Application, CallbackQueryHandler, \
+    ConversationHandler
+
+from database import entity
 from misc.log_helper import LogHelper, logging
 from config import config
 from misc.pexels_library import PexelsAPI
 from database.database import Database
-from database.user import User, UserPreferences
-
-# TODO : Think through the chain of actions for a user, when to save him and udpate in the database
-# TODO : Realise the chain of actions for accounts creation
+from database.users import User, Preferences
+from SocialMediaAPIs.telegram_api import TelegramAPI
+import SocialMediaAPIs.social_media_api_defines as sm_api_defines
+import database.entity
 
 # Create log helper and category for it
 TG_LOG_BOT = LogHelper(__name__, "Bot thread")
@@ -16,35 +19,11 @@ TG_LOG_BOT = LogHelper(__name__, "Bot thread")
 # Text handles
 START_MESSAGE_TEXT = config.CONFIG_DICT['start_message']
 HELP_MESSAGE_TEXT = config.CONFIG_DICT['help_message']
+PLATFORMS_MESSAGE_TEXT = config.CONFIG_DICT['platforms_message']
+ACCOUNTS_MESSAGE_TEXT = config.CONFIG_DICT['accounts_message']
 
-# Define bot states
-BOT_STATES = {
-    0: "start",
-    1: "help",
-    2: "generate",
-    3: "accounts"
-}
-
-
-def get_bot_state_name(state: int) -> str:
-    if state not in BOT_STATES.keys():
-        err_msg = f"State {state} is not valid. Exception is raised!"
-        TG_LOG_BOT.log(logging.ERROR, err_msg)
-        raise ValueError(err_msg)
-
-    return BOT_STATES[state]
-
-
-def get_bot_state_index(state_name: str) -> int:
-    # Validate state name
-    if state_name not in BOT_STATES.values():
-        err_msg = f"State {state_name} is not valid. Exception is raised!"
-        TG_LOG_BOT.log(logging.ERROR, err_msg)
-        raise ValueError(err_msg)
-
-    for (i, state) in BOT_STATES.items():
-        if state == state_name:
-            return i
+# Define telegram bot states
+PLATFORMS, AUTHORIZE_PLATFORM, CHOOSE_GROUPS_ACCOUNTS, ENTITY, SET_PREFERENCES, SCHEDULE_GENERATION, GENERATE = range(7)
 
 
 # Helper function for getting telegram api url
@@ -63,8 +42,14 @@ def get_chat_id(bot_token):
             return chat_id
 
 
+def make_keyboard(mapped_btns):
+    keyboard = [InlineKeyboardButton(key, value) for key, value in mapped_btns.items()]
+    return keyboard
+
+
 # Interface for interacting with TG Bot
 class TelegramBot:
+    # Initializers =============================================================
     def __init__(self, token: str, bot_username: str) -> None:
 
         # Validate token
@@ -77,6 +62,8 @@ class TelegramBot:
         self.__bot_username = bot_username
         self.__bot_state = 0
         self.__current_user = User()
+        self.__current_platform = ""
+        self.__current_entity = object
 
         self.__create_application()
         TG_LOG_BOT.log(logging.INFO, "Bot initialized")
@@ -85,65 +72,57 @@ class TelegramBot:
     def __create_application(self):
         self.__app = Application.builder().token(self.__token).build()
 
-        self.__app.add_handlers(
-            [
-                CommandHandler("start", self.start_handle),
-                CommandHandler("create", self.create_account_handle),
-                CommandHandler("accounts", self.accounts_handle),
-                CommandHandler("generate", self.generate_handle),
-                CommandHandler("help", self.help_handle),
-                MessageHandler(filters.TEXT, self.handle_message)
-            ]
-        )
-        self.__app.add_handler(CallbackQueryHandler(self.button_handle))
+        # Conv handler
+        conv_handler = self.__create_conversation_handler()
+        self.__app.add_handler(conv_handler)
 
         self.__app.add_error_handler(self.error)
 
-    # Handles response
-    async def handle_response(self, text: str, update: Update, context: ContextTypes.DEFAULT_TYPE) -> str:
-        response = PexelsAPI.search_images()
+    """
+    Creates a ConversationHandler object and defines the main state of the telegram bot.
+    Also binds all the necessary message handlers and query handlers
 
-        url = f"https://api.telegram.org/bot{self.__token}/sendPhoto"
-        data = {'chat_id': get_chat_id(self.__token),
-                'photo': response.json()['photos'][0]['src']['original']}
-        r = requests.post(url, data=data)
+    Returns:
+        ConversationHandler: The created ConversationHandler object.
 
-        return "Image"
+    Parameters:
+        self: The instance of the class.
+    """
+    def __create_conversation_handler(self):
+        return ConversationHandler(
+            entry_points=[CommandHandler('start', self.handle_start), CallbackQueryHandler(self.handle_start_query)],
+            states={
+                PLATFORMS: [MessageHandler(filters.TEXT, self.handle_platforms),
+                            CallbackQueryHandler(self.handle_platforms_query)
+                            ],
+                CHOOSE_GROUPS_ACCOUNTS: [MessageHandler(filters.TEXT, self.handle_choose_groups_accounts),
+                                         CallbackQueryHandler(self.handle_choose_groups_accounts_query)],
+                ENTITY: [MessageHandler(filters.TEXT, self.handle_entity,),
+                         CallbackQueryHandler(self.handle_entity_query)],
+                SET_PREFERENCES: [MessageHandler(filters.TEXT, self.handle_set_preferences),
+                                  CallbackQueryHandler(self.handle_set_preferences_query)],
+                SCHEDULE_GENERATION: [MessageHandler(filters.TEXT, self.handle_schedule_generation),
+                                      CallbackQueryHandler(self.handle_schedule_generation_query)],
+                GENERATE: [MessageHandler(filters.TEXT, self.handle_generate),
+                           CallbackQueryHandler(self.handle_generate_query)]
+            },
+            fallbacks=[CommandHandler('cancel', self.handle_cancel)]
+        )
 
-    def __update_bot_state(self, state: int):
-        # Validate state
-        if state not in BOT_STATES:
-            err_msg = f"State {state} is not valid. Exception is raised!"
-            TG_LOG_BOT.log(logging.ERROR, err_msg)
-            raise ValueError(err_msg)
+    # Handlers =============================================================================================
 
-        TG_LOG_BOT.log(logging.INFO, f"Bot state updated to {BOT_STATES[state]}")
-        self.__bot_state = state
+    """
+    Handles the start command from the user.
 
-    # TG Functions ==============================================================
+    Parameters:
+        update (Update): The update object containing information about the incoming message.
+        context (ContextTypes.DEFAULT_TYPE): The context object providing additional functionality.
 
-    # Handle for buttons
-    async def button_handle(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        query = update.callback_query
+    Returns:
+        None
+    """
 
-        # CallbackQueries need to be answered, even if no notification to the user is needed
-        await query.answer()
-
-        if query.data == 'start':
-            self.__update_bot_state(get_bot_state_index("start"))
-            await query.edit_message_text(text="Executed start")
-        elif query.data == 'help':
-            self.__update_bot_state(get_bot_state_index("help"))
-            await query.edit_message_text(text="Executed help")
-        elif query.data == 'generate':
-            self.__update_bot_state(get_bot_state_index("generate"))
-            await query.edit_message_text(text="Executed generate")
-        elif query.data == 'accounts':
-            self.__update_bot_state(get_bot_state_index("accounts"))
-            await query.edit_message_text(text="Executed accounts")
-
-    # Start
-    async def start_handle(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    async def handle_start(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         user = update.effective_user
         # Try to register user if not exists
         Database.register_user_if_not_exists(user.id, f"{user.first_name} {user.last_name}", False, {})
@@ -154,53 +133,161 @@ class TelegramBot:
         # Create a keyboard for start handle
         keyboard = [
             [
-                InlineKeyboardButton("Start", callback_data='start'),
                 InlineKeyboardButton("Help", callback_data='help'),
-                InlineKeyboardButton("Generate", callback_data='generate'),
-                InlineKeyboardButton("Accounts", callback_data='accounts')
+                InlineKeyboardButton("Platforms", callback_data=PLATFORMS)
             ]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
-
         await update.message.reply_text(f'{START_MESSAGE_TEXT} Please choose:', reply_markup=reply_markup)
 
-    # Help
-    async def help_handle(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        user = update.effective_user
-        TG_LOG_BOT.log(logging.INFO, f"User {user.first_name} started the bot")
+    """
+    Called whenever a button called in the start phase
+
+    Args:
+        update (Update): The update object containing the query.
+        context (ContextTypes.DEFAULT_TYPE): The context object.
+
+    Returns:
+        Next state to go to
+    """
+
+    async def handle_start_query(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        query = update.callback_query
+        await query.answer()
+
+        if query.data == PLATFORMS:
+            return PLATFORMS
+        if query.data == 'help':
+            return self.handle_help(update, context)
+
+    """
+    Gives a user a list of all available platforms in our bot.
+
+    :param update: The update object containing information about the incoming message.
+    :type update: Update
+    :param context: The context object containing information about the conversation.
+    :type context: ContextTypes.DEFAULT_TYPE
+    :return: None
+    """
+
+    async def handle_platforms(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+        # Show the platforms to choose
+        keyboard_markup = list(
+            InlineKeyboardButton(key, value) for key, value in sm_api_defines.AVAILABLE_SOCIAL_MEDIA_APIs.items()
+        )
+        reply_markup = InlineKeyboardMarkup([keyboard_markup])
+
+        await update.message.reply_text(f"{PLATFORMS_MESSAGE_TEXT}. Please choose: ", reply_markup=reply_markup)
+
+    """
+    Called whenever a button called in a PLATFORMS state
+
+    :param update: The update object.
+    :type update: Update
+    :param context: The context object.
+    :type context: ContextTypes.DEFAULT_TYPE
+    :return: The next state.
+    :rtype: int
+    """
+
+    async def handle_platforms_query(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        query = update.callback_query
+        await query.answer()
+        # Validate the platform
+        if query.data not in sm_api_defines.AVAILABLE_SOCIAL_MEDIA_APIs.values():
+            raise ValueError(f"Invalid platform value: {query.data}")
+
+        self.__current_platform = query.data
+        return CHOOSE_GROUPS_ACCOUNTS
+
+    """
+    Handles the state switching to CHOOSE_GROUPS_ACCOUNTS state and shows all available groups and
+    accounts of a current user.
+
+    Args:
+        update (Update): The update object that contains information about the incoming message.
+        context (ContextTypes.DEFAULT_TYPE): The context object that provides access to user data and other functionality.
+
+    Returns:
+        None
+    """
+
+    async def handle_choose_groups_accounts(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        user = self.__current_user
+        current_platform = self.__current_platform
+
+        # Get groups and accounts for the current platform
+        groups, accounts = user.platform_entities.get(current_platform, ([], []))
+
+        # Create buttons for each group and account
+        buttons = [
+                      InlineKeyboardButton(text=group.entity_name, callback_data=group) for group in groups
+                  ] + [
+                      InlineKeyboardButton(text=account.entity_name, callback_data=account) for account in accounts
+                  ]
+
+        # Create a keyboard markup with the buttons
+        keyboard_markup = InlineKeyboardMarkup.from_column(buttons)
+
+        # Send a message with the keyboard
+        await update.message.reply_text("Choose a group or account:", reply_markup=keyboard_markup)
+
+
+    """
+    Handles choosing either a group or an account. Simply remembers a reference
+    and validate the right entity type
+
+    Args:
+        update (Update): The update object.
+        context (ContextTypes.DEFAULT_TYPE): The context object.
+
+    Returns:
+        ENTITY: The next entity state.
+    """
+
+    async def handle_choose_groups_accounts_query(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        query = update.callback_query
+        await query.answer()
+
+        # Validate correct entity type
+        if not isinstance(query.data, entity.Entity):
+            TG_LOG_BOT.raise_exception_with_log(ValueError("Invalid entity type provided in callback data"))
+        # Save the reference of entity
+        self.__current_entity = query.data
+        # Move to the next entity state
+        return ENTITY
+
+    async def handle_entity(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        pass
+
+    async def handle_entity_query(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        pass
+
+    async def handle_set_preferences(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        pass
+
+    async def handle_set_preferences_query(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        pass
+
+    async def handle_schedule_generation(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        pass
+
+    async def handle_schedule_generation_query(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        pass
+
+    async def handle_generate(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        pass
+
+    async def handle_generate_query(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        pass
+
+    async def handle_cancel(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        pass
+
+    async def handle_help(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(HELP_MESSAGE_TEXT)
-
-    # Handles TG Message
-    async def handle_message(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        message_type: str = update.message.chat.type
-        text: str = update.message.text
-
-        TG_LOG_BOT.log(logging.INFO,
-                       f"Message received from user {update.effective_user.first_name} in {message_type}: {text}")
-
-        if message_type == 'group':
-            if self.__bot_username in text.lower():
-                new_text: str = text.replace(self.__bot_username, "").strip()
-                response = await self.handle_response(new_text, update, context)
-            else:
-                return
-        else:
-            response = await self.handle_response(text, update, context)
-
-        TG_LOG_BOT.log(logging.INFO, f"Response from bot sent to user {update.message.chat.id}: {response}")
-        await update.message.reply_text(response)
-
-    # TODO : Realize a function for account creation for a social media platform
-    async def create_account_handle(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        pass
-
-    # TODO : Relize a function for listing accounts
-    async def accounts_handle(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        pass
-
-    # TODO : Realize a function for generating a post
-    async def generate_handle(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        pass
+        return None
 
     # Handle error
     async def error(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:

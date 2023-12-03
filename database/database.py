@@ -1,10 +1,11 @@
 import sqlite3
 import json
 from config import config
-from user import User
+from database.users import User
 from misc.log_helper import LogHelper, logging
 
 TG_DB_LOG = LogHelper(__name__, "Database thread")
+
 
 # Database API for interacting with SQLite database
 class DatabaseAPI:
@@ -159,7 +160,6 @@ DATABASE_API = DatabaseAPI(config.CONFIG_DICT['database_path'])
 
 # Database class for user-friendly interaction with the database
 class Database:
-
     """
     Registers a new user if the user does not already exist in the database.
 
@@ -172,6 +172,7 @@ class Database:
     Returns:
         None
     """
+
     @staticmethod
     def register_user_if_not_exists(user_id, user_name, has_pro: bool, preferences):
         if not DATABASE_API.user_exists(user_id):
@@ -180,10 +181,10 @@ class Database:
     @staticmethod
     def get_user_if_exists(user_id) -> (bool, User):
         try:
-            return True, DATABASE_API.get_user(user_id)
+            return DATABASE_API.get_user(user_id)
         except ValueError as e:
             TG_DB_LOG.log(logging.ERROR, str(e))
-            return (False, User())
+            return None
 
     @staticmethod
     def update_user(user_id, user_name=None, has_pro=None, preferences=None):
