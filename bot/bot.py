@@ -336,9 +336,9 @@ class TelegramBot:
                                         "frequency: daily/weekly/monthly")
 
     async def handle_edit_preferences_query(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        # Parse the user's input and update the preferences
+        # TODO : Parse the user's input and update the preferences
         preferences_text = update.message.text
-        # Parse the preferences_text and update the preferences for the current entity
+        # TODO : Parse the preferences_text and update the preferences for the current entity
         # ...
         # Return to the ENTITY state
         return ENTITY
@@ -348,15 +348,15 @@ class TelegramBot:
         await update.message.reply_text("Please enter the desired schedule time in the format: HH:MM")
 
     async def handle_schedule_generation_query(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        # Parse the user's input and schedule the generation
+        #  TODO : Parse the user's input and schedule the generation
         schedule_time_text = update.message.text
-        # Schedule the generation based on the schedule_time_text and the current entity's preferences
+        # TODO : Schedule the generation based on the schedule_time_text and the current entity's preferences
         # ...
         # Return to the ENTITY state
         return ENTITY
 
     async def handle_generate(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        # Generate a sample post based on the current entity's preferences
+        # TODO : Generate a sample post based on the current entity's preferences
         sample_post = "Sample post content"  # Replace this with the actual generated content
         await update.message.reply_text(f"Generated sample post:\n{sample_post}")
 
@@ -377,7 +377,7 @@ class TelegramBot:
         if query.data == 'back':
             return ENTITY
         elif query.data == 'post':
-            # Post the generated content to the selected entity
+            # TODO : Post the generated content to the selected entity
             # ...
             await update.message.reply_text("The post has been published.")
             return ENTITY
