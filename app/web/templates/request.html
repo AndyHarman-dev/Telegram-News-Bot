@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Command Sender</title>
+</head>
+<body>
+
+<h2>Send Command to Flask API</h2>
+
+<label for="commandInput">Command:</label><br>
+<input type="text" id="commandInput" name="commandInput"><br>
+
+<label for="argsInput">Arguments (in JSON format):</label><br>
+<textarea id="argsInput" name="argsInput" rows="4" cols="50"></textarea><br>
+
+<button onclick="sendCommand()">Send Command</button>
+
+<script>
+function sendCommand() {
+    var xhr = new XMLHttpRequest();
+    var url = "http://127.0.0.1:5000/api/action";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    var command = document.getElementById("commandInput").value;
+    var args = document.getElementById("argsInput").value;
+
+    try {
+        var parsedArgs = JSON.parse(args);
+    } catch(e) {
+        alert("Arguments must be in valid JSON format.");
+        return;
+    }
+
+    var data = JSON.stringify({ "command": command, "arguments": parsedArgs });
+    
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            alert("Response from server: " + xhr.responseText);
+        }
+    };
+
+    xhr.send(data);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,356 @@
+diff --git a/app/api/base_api_request.py b/app/api/base_api_request.py
+index b369aa3..9215175 100644
+--- a/app/api/base_api_request.py
++++ b/app/api/base_api_request.py
+@@ -1,9 +1,10 @@
+ from abc import ABC, abstractmethod
+ import aiohttp
+ from app.interfaces.api_request_interface import IAPIRequest, IResource, IRetValue
++from app.misc.prototype_registry import IPrototype
+ 
+ 
+-class BaseAPIRequest(IAPIRequest, ABC):
++class BaseAPIRequest(IAPIRequest, IPrototype, ABC):
+     """
+     Abstract base class for making API requests, adhering to the IAPIRequest interface.
+     This class provides common functionalities for API requests while allowing
+@@ -63,3 +64,13 @@ class BaseAPIRequest(IAPIRequest, ABC):
+         by child classes to handle specific response processing.
+         """
+         pass
++
++    def clone(self):
++        return self.copy(self)
++
++    def copy(self, source: 'BaseAPIRequest'):
++        return self.__class__(
++            url=source._URL,
++            api_key=source._API_KEY
++        )
++
+diff --git a/app/bot/config.py b/app/bot/config.py
+index 135119f..4157c4c 100644
+--- a/app/bot/config.py
++++ b/app/bot/config.py
+@@ -3,7 +3,6 @@ import os
+ 
+ from dotenv import load_dotenv
+ 
+-
+ # Read .env file
+ load_dotenv()
+ 
+@@ -39,7 +38,7 @@ openai_config = {
+     'image_style': os.environ.get('IMAGE_STYLE', 'vivid'),
+     'image_size': os.environ.get('IMAGE_SIZE', '512x512'),
+     'model': model,
+-   # 'enable_functions': os.environ.get('ENABLE_FUNCTIONS', str(functions_available)).lower() == 'true',
++    # 'enable_functions': os.environ.get('ENABLE_FUNCTIONS', str(functions_available)).lower() == 'true',
+     'functions_max_consecutive_calls': int(os.environ.get('FUNCTIONS_MAX_CONSECUTIVE_CALLS', 10)),
+     'presence_penalty': float(os.environ.get('PRESENCE_PENALTY', 0.0)),
+     'frequency_penalty': float(os.environ.get('FREQUENCY_PENALTY', 0.0)),
+@@ -110,6 +109,10 @@ class LLMModels:
+     CODELAMA_70B_INSTR = "codellama-70b-instruct"
+ 
+ 
++class ImageModels:
++    DALL_E_3 = "dall-e-3"
++
++
+ AVAILABLE_MODELS = [
+     LLMModels.GPT_4,
+     LLMModels.GPT_4_1106_PREVIEW,
+diff --git a/app/database/db_llm.py b/app/database/db_llm.py
+index cbfccf9..cb42f0b 100644
+--- a/app/database/db_llm.py
++++ b/app/database/db_llm.py
+@@ -3,7 +3,7 @@ import asyncio
+ 
+ from app.database.db_translation import TranslationManager
+ from app.factories.ai_factories import AIServiceFacade, AIFastServiceFactory
+-from app.llm.fallback_requester import LLMFallbackRequester
++from app.llm.fallback_requester import AIFallbackRequester
+ from app.misc.registry_objects.chat_completions_registry import register_llm_chat_completion_requests
+ 
+ import logging
+diff --git a/app/factories/ai_factories.py b/app/factories/ai_factories.py
+index 8d0512e..fd42914 100644
+--- a/app/factories/ai_factories.py
++++ b/app/factories/ai_factories.py
+@@ -4,12 +4,15 @@ from abc import ABC, abstractmethod
+ from app.interfaces.ai_service_interfaces import ILLMChatCompletion, ILLMImageGenerator, ILLMTranscriber, \
+     ILLMSpeechGenerator
+ from app.interfaces.factories import IAIServiceFactory
+-from app.bot.config import LLMModels
++from app.bot.config import LLMModels, ImageModels
+ from app.llm.resources import LLMRequestResource
+ from app.misc.prototype_registry import PrototypeRegistry
+ from app.misc.log_helper import LogHelper
+-from app.llm.fallback_requester import LLMFallbackRequester
+-from app.misc.registry_objects.chat_completions_registry import register_llm_chat_completion_requests
++from app.llm.fallback_requester import AIFallbackRequester
++from app.init import init_default_classes
++from app.llm.image_generator_facade import ImageGeneratorFacade
++from app.llm.resources import IMGRequestResource
++from app.llm.image_generation_requests import ImgPaths
+ 
+ AI_FACTORY_LOG = LogHelper(__name__, "AI Factory")
+ 
+@@ -19,7 +22,7 @@ class AIBaseServiceFactory(IAIServiceFactory, ABC):
+     of creating AI services for the client-code"""
+ 
+     async def create_chat_completion(self) -> ILLMChatCompletion:
+-        fr = LLMFallbackRequester(
++        fr = AIFallbackRequester(
+             functions=PrototypeRegistry.get_category_as_list("chat_completions"),
+         )
+ 
+@@ -36,7 +39,17 @@ class AIBaseServiceFactory(IAIServiceFactory, ABC):
+         return fr
+ 
+     async def create_image_generator(self) -> ILLMImageGenerator:
+-        pass  # TODO
++
++        f = ImageGeneratorFacade()
++        r = IMGRequestResource(
++            prompt="",
++            models=await self.get_image_models(),
++            n=1,
++            size="1024x1024"
++        )
++
++        await f.set_resource(r)
++        return f
+ 
+     async def create_transcriber(self) -> ILLMTranscriber:
+         pass  # TODO
+@@ -48,6 +61,11 @@ class AIBaseServiceFactory(IAIServiceFactory, ABC):
+     async def get_models(self) -> list[str]:
+         pass
+ 
++    async def get_image_models(self) -> list[str]:
++        return [
++            ImageModels.DALL_E_3
++        ]
++
+ 
+ class AIFastServiceFactory(AIBaseServiceFactory):
+ 
+@@ -95,7 +113,7 @@ class AIServiceFacade:
+         """
+         f = factory_type()  # Create factory
+         fr = await f.create_chat_completion()
+-        if isinstance(fr, LLMFallbackRequester):
++        if isinstance(fr, AIFallbackRequester):
+             r = await fr.get_resource()
+             for k, v in kwargs.items():
+                 if hasattr(r, k):
+@@ -103,19 +121,39 @@ class AIServiceFacade:
+             return fr
+ 
+         AI_FACTORY_LOG.raise_exception_with_log(ValueError("This facade works only with the type of "
+-                                                           "LLMFallbackRequester!"))
+-
++                                                           "AIFallbackRequester!"))
+ 
+-async def test():
+-    register_llm_chat_completion_requests()
++    @staticmethod
++    async def create_image_generator(factory_type: type[AIBaseServiceFactory] = AIFastServiceFactory, **kwargs) -> ILLMImageGenerator:
+ 
+-    fr = await AIServiceFacade.create_chat_completion(factory_type=AIQualityServiceFactory,
+-                                                      system="Be precise and concise.",
+-                                                      stream=True,
+-                                                      stream_delta_callback=lambda m: print(m, end="", flush=True))
++        f = factory_type()  # Create factory
++        ig = await f.create_image_generator()
++        if isinstance(ig, ImageGeneratorFacade):
++            r = await ig.get_resource()
++            for k, v in kwargs.items():
++                if hasattr(r, k):
++                    setattr(r, k, v)
++            return ig
+ 
+-    await fr.prompt("Hello there! Tell me a story about a cowboy")
++        AI_FACTORY_LOG.raise_exception_with_log(ValueError("This facade works only with the type of "
++                                                           "ImageGeneratorFacade!"))
+ 
+ 
+-if __name__ == "__main__":
+-    asyncio.run(test())
++async def test():
++    init_default_classes()
++
++    # fr = await AIServiceFacade.create_chat_completion(factory_type=AIQualityServiceFactory,
++    #                                                   system="Be precise and concise.",
++    #                                                   stream=True,
++    #                                                   stream_delta_callback=lambda m: print(m, end="", flush=True))
++    #
++    # await fr.prompt("Hello there! Tell me a story about a cowboy")
++
++    image_gen = await AIServiceFacade.create_image_generator(factory_type=AIQualityServiceFactory)
++    img_path = await image_gen.generate("A cowboy in the middle of a desert")
++    if isinstance(img_path, ImgPaths):
++        print(img_path)
++
++#
++# if __name__ == "__main__":
++#     asyncio.run(test())
+diff --git a/app/init.py b/app/init.py
+index f769169..be55710 100644
+--- a/app/init.py
++++ b/app/init.py
+@@ -1,4 +1,12 @@
++from app.bot import config
+ from app.misc.registry_objects.chat_completions_registry import register_llm_chat_completion_requests
++from app.llm.image_generation_requests import ImageGenerationRequest
++from app.misc.prototype_registry import PrototypeRegistry, LOG_REGISTRY
++
+ 
+ def init_default_classes():
+     register_llm_chat_completion_requests()
++
++    image_generator_request = ImageGenerationRequest(url="https://api.openai.com/v1/images/generations",
++                                                     api_key=config.openai_config["api_key"])
++    PrototypeRegistry.register_object("openai_image_generator", image_generator_request, "image_generators")
+diff --git a/app/interfaces/prototype.py b/app/interfaces/prototype.py
+index 626f394..cb11e4a 100644
+--- a/app/interfaces/prototype.py
++++ b/app/interfaces/prototype.py
+@@ -3,5 +3,5 @@ from abc import ABC, abstractmethod
+ 
+ class IPrototype(ABC):
+     @abstractmethod
+-    async def clone(self):
++    def clone(self):
+         pass
+diff --git a/app/llm/base_chat_completion.py b/app/llm/base_chat_completion.py
+index 063f184..a4073a4 100644
+--- a/app/llm/base_chat_completion.py
++++ b/app/llm/base_chat_completion.py
+@@ -26,7 +26,7 @@ def count_tokens(text: str):
+     return len(tokens)
+ 
+ 
+-class BaseChatCompletionRequest(BaseAPIRequest, IPrototype):
++class BaseChatCompletionRequest(BaseAPIRequest):
+     """Default base class for chat completions that adds two common variables and
+     overrides __call__ method to be a callable object
+ 
+@@ -43,7 +43,7 @@ class BaseChatCompletionRequest(BaseAPIRequest, IPrototype):
+ 
+     async def prepare_resource(self, *args, **kwargs) -> IResource:
+ 
+-        parameter = await args[0].clone()  # We don't want a reference to the original parameter
++        parameter = args[0].clone()  # We don't want a reference to the original parameter
+ 
+         if not isinstance(parameter, LLMRequestResource):
+             LOG_CHAT_COMPLETION.raise_exception_with_log(UnsupportedResource(f"{self.__class__.__name__} service does "
+@@ -195,11 +195,12 @@ class BaseChatCompletionRequest(BaseAPIRequest, IPrototype):
+     async def bind_to_stream_callback(self, stream_callback: Callable[[IRetValue], None]) -> None:
+         self._stream_callback = stream_callback
+ 
+-    async def _copy(self, source: 'BaseChatCompletionRequest'):
+-        # Only in this method we are going to violate the liskov subst. principal because we want to clone specific
+-        # object and the copy function is intel
+-        self._URL = source._URL
+-        self._API_KEY = source._API_KEY
++    def copy(self, source: 'BaseAPIRequest'):
++        copy = super().copy(source)
++        if isinstance(copy, self.__class__):
++            copy._stream_delta_callback = self._stream_delta_callback  # For calling each delta out
++            copy._stream_callback  = self._stream_callback # For calling the whole message
++            copy.current_model_index  = int(self.current_model_index)  # For iterating over models if some of them
++            # produce exceptions when requesting
+ 
+-    async def clone(self):
+-        return BaseChatCompletionRequest()._copy(self)
++            return copy
+diff --git a/app/llm/fallback_requester.py b/app/llm/fallback_requester.py
+index 4ec9594..c325a9d 100644
+--- a/app/llm/fallback_requester.py
++++ b/app/llm/fallback_requester.py
+@@ -11,10 +11,10 @@ from app.misc.log_helper import LogHelper
+ from app.interfaces.ai_service_interfaces import ILLMChatCompletion
+ from app.llm.resources import LLMRequestResource
+ 
+-LOG_REQUESTER = LogHelper(__name__, "LLMFallbackRequester")
++LOG_REQUESTER = LogHelper(__name__, "AIFallbackRequester")
+ 
+ 
+-class LLMFallbackRequester(BaseCircuitBreaker, IResourceHolder, ILLMChatCompletion):
++class AIFallbackRequester(BaseCircuitBreaker, IResourceHolder, ILLMChatCompletion):
+     """
+         A class designed to handle requests with a fallback mechanism, integrating circuit breaker pattern for
+         resilience and resource management for executing requests.
+@@ -33,7 +33,7 @@ class LLMFallbackRequester(BaseCircuitBreaker, IResourceHolder, ILLMChatCompleti
+         """
+ 
+     def __init__(self, functions: list[Callable[[Any], IRetValue]]):
+-        """Initializes the LLMFallbackRequester instance
++        """Initializes the AIFallbackRequester instance
+             with a list of functions that define the operations to be executed as part of the request processing.
+             These functions are passed to the superclass initializer."""
+         self._request_resource = None
+diff --git a/app/llm/image_generation_requests.py b/app/llm/image_generation_requests.py
+index 927811d..1715cfa 100644
+--- a/app/llm/image_generation_requests.py
++++ b/app/llm/image_generation_requests.py
+@@ -9,6 +9,7 @@ from app.interfaces.ret_val import IRetValue
+ from app.llm.resources import IMGRequestResource
+ from app.misc.log_helper import LogHelper
+ from app.llm.exceptions import InvalidResource
++from app.misc.prototype_registry import IPrototype
+ 
+ LOG_IMG_GENERATOR = LogHelper(__name__, "ImageGenerator")
+ 
+@@ -31,7 +32,7 @@ class ImageGenerationRequest(BaseAPIRequest):
+ 
+     async def prepare_resource(self, *args, **kwargs) -> IResource:
+ 
+-        parameter = await args[0].clone()  # We don't want a reference to the original parameter
++        parameter = args[0].clone()  # We don't want a reference to the original parameter
+ 
+         if not isinstance(parameter, IMGRequestResource):
+             LOG_IMG_GENERATOR.raise_exception_with_log(InvalidResource(
+diff --git a/app/llm/image_generator_facade.py b/app/llm/image_generator_facade.py
+index e69de29..96f0e98 100644
+--- a/app/llm/image_generator_facade.py
++++ b/app/llm/image_generator_facade.py
+@@ -0,0 +1,36 @@
++from app.interfaces.resource import IResourceHolder, IResource
++from app.interfaces.ai_service_interfaces import ILLMImageGenerator
++from app.misc.prototype_registry import PrototypeRegistry
++from app.misc.log_helper import LogHelper
++from app.llm.image_generation_requests import ImageGenerationRequest
++from app.llm.resources import IMGRequestResource
++
++LOG_IMG_GEN_FACADE = LogHelper(__name__, "ImageGeneratorFacade")
++
++
++class ImageGeneratorFacade(IResourceHolder, ILLMImageGenerator):
++
++    async def generate(self, prompt: str) -> str:
++
++        if not self._resource:
++            LOG_IMG_GEN_FACADE.raise_exception_with_log(ValueError("Resource not set!"))
++
++        generator = PrototypeRegistry.get_object("openai_image_generator", category="image_generators")
++
++        if not isinstance(generator, ImageGenerationRequest):
++            LOG_IMG_GEN_FACADE.raise_exception_with_log(ValueError("Image generator not registered!"))
++
++        if not isinstance(self._resource, IMGRequestResource):
++            LOG_IMG_GEN_FACADE.raise_exception_with_log(ValueError("Invalid resource for image generation request."))
++
++        self._resource.prompt = prompt
++        return await generator.request(self._resource)
++
++    def __init__(self):
++        self._resource = None
++
++    async def set_resource(self, res: IResource):
++        self._resource = res
++
++    async def get_resource(self) -> IResource:
++        return self._resource

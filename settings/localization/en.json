@@ -1,0 +1,807 @@
+{
+    "states": {
+        "start": {
+            "state_display_message": "Hi, I am AstroSynth AI. Finish the registration to start using me.\nWhat style should I use when communicating with you and presenting the news?"
+        },
+        "reset_styles": {
+            "state_display_message": "In order to change the bot settings to suit you, please answer the following questions correctly.\nWhat style should I use when communicating with you and presenting the news?"
+        },
+        "menu": {
+            "state_display_message": "Please choose action..."
+        },
+        "functions": {
+            "state_display_message": "Please, choose a function"
+        },
+        "subscription": {
+            "state_display_message": "Please, choose a subscription"
+        },
+        "settings": {
+            "state_display_message": "Please, choose a setting"
+        },
+        "warning_messages": {
+            "model_unavailable": "Sorry, the model you have selected is not available right now. It will be replaced by another model that will respond shortly. Please contact us if you have any questions.\n\n\n",
+            "exceeded_daily_quota": "You have exceeded your daily quota. Please, top up your tariff.",
+            "exceeded_monthly_quota": "You have exceeded your monthly quota. Please, top up your tariff.",
+            "old_menu_deleted": "The menu you were trying to use is obsolete due to a bot update, so it has been removed. Use the /1 command to create a new menu.",
+            "old_menu_cannot_be_deleted": "The menu you were trying to use is out of date due to a bot update. Use the /1 command to create a new menu."
+        },
+        "help": {
+            "state_display_message": "Describe your problem here..."
+        },
+        "contact_us": {
+            "state_display_message": "Help us serve you better. Choose an option to share your experience or ideas for improvement."
+        },
+        "init_hashtager": {
+            "state_display_message": "Please enter the topics you'd like to receive news about.",
+            "examples": "Here are examples of how you should design a post with a list of your interests:\n1) “Extreme sports, adventure travel, outdoor survival skills”\n2) “Classical literature, poetry, book reviews”\n3) “Rock art, graffiti; political analysis debate”\nYou can always adjust your list of interests in the future.",
+            "wait_message": "The bot needs time to find hashtags that match your interests. You can review and edit them later.\nThe bot will notify you when the hashtags have been selected, but in the meantime, check out the other features of the bot!",
+            "finish_hashtagization": "The appropriate hashtags have been selected."
+        },
+        "reset_hashtager": {
+            "finish_hashtagization": "The appropriate hashtags have been selected.\nBot settings have been changed!"
+        },
+        "init_hashtags": {
+            "state_display_message": {
+                "CategoryState": "Please, choose category...",
+                "HashtagState": "Please, choose hashtags..."
+            }
+        },
+        "hashtags": {
+            "state_display_message": {
+                "CategoryState": "Please, choose category...",
+                "HashtagState": "Please, choose hashtags..."
+            }
+        },
+        "blacklist": {
+            "state_display_message": {
+                "CategoryState": "Please, choose category...",
+                "HashtagState": "Please, choose hashtags..."
+            }
+        },
+        "language": {
+            "state_display_message": "Please, choose a language"
+        },
+        "utc_shift": {
+            "state_display_message": "Please, choose a time zone"
+        },
+        "init_styles": {
+            "state_display_message": "Please, choose a style"
+        },
+        "init_utc_shift": {
+            "state_display_message": "Please, choose a utc shift here"
+        },
+        "reset_utc_shift": {
+            "state_display_message": "Please, choose a utc shift here"
+        },
+        "style": {
+            "state_display_message": "Please, choose a style"
+        },
+        "pay": {
+            "tariffs_display_message": "Please, choose a tariff",
+            "provider_display_message": "Please, choose a payment provider",
+            "currency_display_message": "Please, choose a currency",
+            "pay_display_message": "Please, pay, to support us",
+            "title": "Bot subscription",
+            "description": "Begin your messaging adventure with our \uD83C\uDF1F **BASIC** plan for just **$0**! You'll get a daily message quota of ✉\uFE0F 20 messages and a monthly allowance of \uD83D\uDCEC 200 messages. Perfect for those just dipping their toes into messaging automation.\n\nStep up to our \uD83D\uDE80 **STANDARD** plan at only **$10**. This plan boosts your daily message capacity to ✉\uFE0F 50 messages and a monthly quota of \uD83D\uDCEC 500 messages. Plus, you'll gain access to \uD83D\uDCE1 5 custom channels for a broader communication scope.\n\nElevate your messaging game with our \uD83D\uDCBC **PRO** plan for **$19**. Enjoy a robust daily allowance of ✉\uFE0F 150 messages and an impressive \uD83D\uDD04 unlimited monthly message limit. You'll also unlock exclusive access to \uD83C\uDF10 20 custom channels, maximizing your reach and engagement potential.\n\n Embark on a luxurious messaging experience with our ✨ **PREMIUM** plan, designed for those who appreciate the finer things and demand the best service. For just **$50** per month, indulge in:\n\n- A lavish daily message quota of ✉\uFE0F **150 messages**\n- A generous monthly message allowance of \uD83D\uDCEC **1500 messages**\n- An exclusive channel quota of \uD83C\uDF10 **50 custom channels**\n\nElevate your communication to premium status and connect with elegance and efficiency.\n\n"
+        },
+        "pay_to_pasha": {
+            "state_display_message": "If you like our bot, you can support us with any donation. In return, you get priority support in the current and future Telegram bots of our team, as well as an increase in the maximum number of messages (per day, per month) when communicating with the bot.\nBy clicking on the button below, you will get into a chat with the developer, where you can agree on the amount of donation and on increasing the limit of messages when using the bot."
+        },
+        "info": {
+            "state_display_message": "TODO, show info in different languages"
+        },
+        "get_news": {
+            "state_display_message": "Gathering news..."
+        },
+        "generate_image": {
+            "state_display_message": "Enter prompt to generate image"
+        },
+        "models": {
+            "state_display_message": "Please, choose a model"
+        },
+        "start_guide": {
+            "state_display_message": "Welcome!\nThe main functions of the bot:\n1) Free communication with the user in the user's language;\n2) Generation of images at the user's request;\n3) What you are here for: searching and sending news to the user, according to the user's preferences!"
+        },
+        "new_llm_communication": {
+            "state_display_message": "First, see how the bot can respond to your queries.\nTry asking something!",
+            "auxiliary_message": "If you want, you can choose one of the questions below"
+        },
+        "show_llm_communication": {
+            "state_display_message": "This is how the bot can respond to your queries. Try asking something!",
+            "auxiliary_message": "If you want, you can choose one of the questions below"
+        },
+        "news_sending": {
+            "state_display_message": "The bot can also send you the latest news. Here is an example:"
+        },
+        "new_image_generation": {
+            "state_display_message": "When the bot generates a response to your request, you will receive a notification in chat.\nYou don't have to wait for the bot to finish working on a particular task, you can continue to use other bot features! \nEnter a query for the image you want to create.",
+            "auxiliary_message": "If you want, you can choose one of the options below",
+            "update_state": {
+                "process": "Generating image for the prompt: ",
+                "success": "Here is your generated image:",
+                "wrong": "Sorry, something went wrong with the connection: "
+            }
+        },
+        "image_generation_prompt": {
+            "state_display_message": "Now, let's generate an image. Please type a prompt for the image you want to generate.",
+            "auxiliary_message": "If you want, you can choose one of the options below"
+        },
+        "guided_generate_image": {
+            "state_display_message": {
+                "process": "Generating image for the prompt: ",
+                "success": "Here is your generated image:",
+                "wrong": "Sorry, something went wrong with the connection. Please, try again."
+            }
+        },
+        "new_end": {
+            "state_display_message": "At the same time as generating a response to your query, the bot will try to find relevant news for you. You don't have to wait for anything, you can continue to use the full functionality of the bot!\nYou can use the following commands:\n/1 - open menu;\n/2 - open help;\n/3 - reset bot settings.",
+            "update_state": "All the news has already been sent.\nNow you know everything about the main features of the bot! Use all its power to achieve your goals!"
+        },
+        "end": {
+            "state_display_message": "Welcome to the bot! Good luck and have fun using it!"
+        },
+        "help_command": {
+            "state_display_message": "How can we assist you today?"
+        },
+        "bot_skills": {
+            "state_display_message": "This bot sends you news at regular intervals on topics you have chosen. Messages are not sent during your nighttime hours.\nBasic commands:\n/menu - open the main menu\n/help - access help\n/reset - restore default settings\nTo receive news immediately without waiting, select \"Features\" in the menu, then choose \"Get news\".\nTo customize your language, time zone, interests, and the AI model used for communication and news processing, select \"Settings\" in the menu.\nYou can report a bug or share an idea by selecting \"Contact Us\" in the bot's help section."
+        },
+        "setting_reset": {
+            "state_display_message": "Are you sure you want to reset all bot settings? If you answer “Yes”, all settings will return to their original state, after which you will have the opportunity to customize the bot for yourself again."
+        },
+        "are_you_sure": {
+            "state_display_message": "Please wait, all settings will return to their default state."
+        },
+        "faq": {
+            "state_display_message": "Below are the most frequently asked questions and their answers.\n\n<b>Question:</b> I have exhausted my daily (monthly) message limit, how do I continue communicating with the bot?\n<i>Answer:</i> You can support the project with a small donation in the menu ‘Help the project’, in return we will slightly increase your limits.\n\n<b>Question:</b> How can I support the developers of this bot?\n<i>Answer:</i> You can send any donation you think is acceptable.\n\n<b>Question:</b> Are there non-financial ways to reward developers?\n<i>Answer:</i> Yes, you can submit a bug report or suggest an idea using the corresponding option in the bot's help.\n\nIf your question is not on the list, you can write it in the chat right now!",
+            "state_update_display_message": "The question has been sent to the bot administrator. If you still have questions, you can send one or more."
+        },
+        "write_problem": {
+            "state_display_message": "Help shape our product! Use the chat to share your feedback directly with our development experts.",
+            "state_update_display_message": "We appreciate your feedback! Our development team has received your insights and will use them to enhance your experience. Have more to share? Keep the conversation going – we're all ears!"
+        },
+        "suggest_idea": {
+            "state_display_message": "If you want to share an idea, send it to the chat right now! One of the managers of our company will definitely read it.",
+            "state_update_display_message": "Thank you for sharing your innovative idea! We're excited to confirm that your suggestion has been successfully forwarded to our product development team. We encourage you to continue sharing your insights - feel free to submit additional ideas in subsequent messages. As a token of our appreciation, if any of your ideas are selected for implementation, you may be eligible for a complimentary upgrade to your plan level. Your creativity helps us grow and improve!"
+        },
+        "unread_news": {
+            "some_news": "The bot has selected /1 news items especially for you today! Click on the \"/2\" button to read them.",
+            "a_lot_of_news": "The bot has selected /1 news items especially for you today! Click on the \"/2\" button to read the first 5 of them.",
+            "no_news": "Soon the bot will select news especially for you!\nIf you do not want to wait, you can use the corresponding function in the menu (/1), then the bot will start selecting news immediately!",
+            "update_news": "All sources that were added by the bot not today have been removed from your news pocket.\nThey may be added again if no more relevant topics of your interests appear today."
+        }
+    },
+    "misc": {
+        "keyboard": {
+            "done": "Done ✅",
+            "cancel": "Cancel ❌",
+            "back": "Back",
+            "back_arrow": "⬅️",
+            "info": "Info",
+            "pay": "Pay",
+            "menu": "Menu",
+            "functions": "Functions",
+            "settings": "Settings",
+            "subscription": "Subscription",
+            "contact_us": "Contact Us",
+            "help": "Help",
+            "get_news": "Get News",
+            "generate_post": "Generate Post",
+            "generate_image": "Generate Image",
+            "hashtags": "Hashtags",
+            "blacklist": "Blacklist",
+            "language": "Language",
+            "style": "Style",
+            "models": "Models",
+            "utc_shift": "Timezone",
+            "fast": "Fast",
+            "common": "Common",
+            "smart": "Smart",
+            "pay_to_pasha": "\uD83D\uDC9D Help the project",
+            "pay_to_pasha_button": "Go to chat with the developer",
+            "pay_to_pasha_text": "Hi, I'd like to support your team with a nice cup of coffee. How can I transfer you a donation?",
+            "-11": "American Samoa, Pago Pago",
+            "-10": "USA, Hawaii, Honolulu",
+            "-9": "USA, Alaska, Anchorage",
+            "-8": "USA, California, Los Angeles",
+            "-7": "USA, Colorado, Denver",
+            "-6": "Mexico, Mexico City",
+            "-5": "USA, New York, New York",
+            "-4": "Venezuela, Caracas",
+            "-3": "Argentina, Buenos Aires",
+            "-2": "Brazil, Sao Paulo",
+            "-1": "Cape Verde, Praia",
+            "0": "United Kingdom, London",
+            "1": "France, Paris",
+            "2": "Egypt, Cairo",
+            "3": "Russia, Moscow",
+            "4": "UAE, Dubai",
+            "5": "Pakistan, Islamabad",
+            "6": "Bangladesh, Dhaka",
+            "7": "Thailand, Bangkok",
+            "8": "China, Beijing",
+            "9": "Japan, Tokyo",
+            "10": "Australia, Canberra",
+            "11": "Solomon Islands, Honiara",
+            "12": "New Zealand, Wellington"
+        },
+        "guide_keyboard": {
+            "question_1": "How can you be of any use to me?",
+            "question_2": "How broad is your horizons?",
+            "question_3": "What topics are you most competent in?",
+            "image_1": "A futuristic city floating in the clouds",
+            "image_2": "An ancient forest with fantastic creatures",
+            "image_3": "Underwater world with bioluminescent plants",
+            "image_4": "A steampunk version of the Eiffel Tower",
+            "image_5": "A Japanese garden in a cyberpunk city",
+            "image_6": "A library with flying books",
+            "image_7": "Nature takes over the ruins of cities",
+            "image_8": "A city-ship sailing on an ocean of stars",
+            "image_9": "A station orbiting a bright star",
+            "image_10": "A quantum lab inside a giant crystal"
+        },
+        "help_keyboard": {
+            "help_command": "Help",
+            "bot_skills": "What can the bot do?",
+            "setting_reset": "Reset settings",
+            "are_you_sure": "Yes",
+            "faq": "FAQ",
+            "contact_us": "Contact Us",
+            "write_problem": "Write feedback",
+            "suggest_idea": "Suggest an idea",
+            "back": "Back"
+        },
+        "reply_keyboard": {
+            "get_5": "\uD83D\uDFE2 Get news!"
+        }
+    },
+    "hashtag_categories": {
+        "politics & government": [
+            "Politics & Government",
+            {
+                "#politics": "#Politics",
+                "#diplomacy": "#Diplomacy",
+                "#government": "#Government",
+                "#centrism": "#Centrism",
+                "#socialism": "#Socialism",
+                "#libertarianism": "#Libertarianism",
+                "#anarchism": "#Anarchism",
+                "#politicalanalysis": "#PoliticalAnalysis",
+                "#policymaking": "#PolicyMaking",
+                "#civicengagement": "#CivicEngagement"
+            }
+        ],
+        "economics & finance": [
+            "Economics & Finance",
+            {
+                "#economy": "#Economy",
+                "#financialnews": "#FinancialNews",
+                "#trade": "#Trade",
+                "#crypto": "#Crypto",
+                "#stockmarket": "#StockMarket",
+                "#financialfreedom": "#FinancialFreedom",
+                "#investor": "#Investor",
+                "#budgeting": "#Budgeting",
+                "#wealthbuilding": "#WealthBuilding",
+                "#realestateinvestor": "#RealEstateInvestor",
+                "#economicdevelopment": "#EconomicDevelopment",
+                "#emergingmarkets": "#EmergingMarkets",
+                "#globaltrade": "#GlobalTrade",
+                "#economicpolicy": "#EconomicPolicy",
+                "#startups": "#Startups",
+                "#businessstrategy": "#BusinessStrategy",
+                "#entrepreneurship": "#Entrepreneurship",
+                "#marketing": "#Marketing",
+                "#ecommerce": "#ECommerce"
+            }
+        ],
+        "society & social issues": [
+            "Society & Social Issues",
+            {
+                "#socialissue": "#SocialIssue",
+                "#humanrights": "#HumanRights",
+                "#justice": "#Justice",
+                "#conservative": "#Conservative",
+                "#liberal": "#Liberal",
+                "#activist": "#Activist",
+                "#feminist": "#Feminist",
+                "#lgbtqsupporter": "#LGBTQSupporter",
+                "#environmentaladvocate": "#EnvironmentalAdvocate",
+                "#humanrightsdefender": "#HumanRightsDefender",
+                "#socialjusticewarrior": "#SocialJusticeWarrior",
+                "#globalwarming": "#GlobalWarming",
+                "#refugeecrisis": "#RefugeeCrisis",
+                "#worldhunger": "#WorldHunger",
+                "#watercrisis": "#WaterCrisis",
+                "#globalhealth": "#GlobalHealth",
+                "#justicesystem": "#JusticeSystem",
+                "#humanrightslaw": "#HumanRightsLaw"
+            }
+        ],
+        "health & well-being": [
+            "Health & Well-being",
+            {
+                "#healthupdate": "#HealthUpdate",
+                "#mentalhealth": "#MentalHealth",
+                "#publichealth": "#PublicHealth",
+                "#mentalhealthawareness": "#MentalHealthAwareness",
+                "#wellnessjourney": "#WellnessJourney",
+                "#selfcare": "#SelfCare",
+                "#healthyliving": "#HealthyLiving",
+                "#mindfulness": "#Mindfulness",
+                "#meditationenthusiast": "#MeditationEnthusiast",
+                "#covid19": "#COVID19",
+                "#chronicillness": "#ChronicIllness",
+                "#healthcarereform": "#HealthcareReform",
+                "#nutrition": "#Nutrition",
+                "#fitnesstrends": "#FitnessTrends",
+                "#mentalwellness": "#MentalWellness",
+                "#alternativemedicine": "#AlternativeMedicine",
+                "#healthtech": "#HealthTech"
+            }
+        ],
+        "science & technology & education": [
+            "Science & Technology & Education",
+            {
+                "#technews": "#TechNews",
+                "#scienceupdate": "#ScienceUpdate",
+                "#innovation": "#Innovation",
+                "#space": "#Space",
+                "#education": "#Education",
+                "#research": "#Research",
+                "#learning": "#Learning",
+                "#lifelonglearner": "#LifelongLearner",
+                "#onlinecourse": "#OnlineCourse",
+                "#diy": "#DIY",
+                "#skilldevelopment": "#SkillDevelopment",
+                "#languagelearner": "#LanguageLearner",
+                "#educator": "#Educator",
+                "#studentlife": "#StudentLife",
+                "#stem": "#STEM",
+                "#techenthusiast": "#TechEnthusiast",
+                "#blockchain": "#Blockchain",
+                "#cybersecurity": "#Cybersecurity",
+                "#datascience": "#DataScience",
+                "#machinelearning": "#MachineLearning",
+                "#augmentedreality": "#AugmentedReality",
+                "#internetofthings": "#InternetOfThings",
+                "#5g": "#5G",
+                "#quantumcomputing": "#QuantumComputing",
+                "#genomics": "#Genomics",
+                "#astrophysics": "#Astrophysics",
+                "#sustainableenergy": "#SustainableEnergy",
+                "#medicalresearch": "#MedicalResearch",
+                "#physics": "#Physics",
+                "#biotechnology": "#Biotechnology",
+                "#environmentalscience": "#EnvironmentalScience",
+                "#astronomy": "#Astronomy",
+                "#edutech": "#EduTech",
+                "#onlinelearning": "#OnlineLearning",
+                "#academicresearch": "#AcademicResearch",
+                "#aisafety": "#AISafety",
+                "#rocketscience": "#RocketScience",
+                "#programming": "#Programming"
+            }
+        ],
+        "culture": [
+            "Culture",
+            {
+                "#culturalevent": "#CulturalEvent",
+                "#culturalfestivals": "#CulturalFestivals",
+                "#culturalheritage": "#CulturalHeritage",
+                "#bookclub": "#BookClub",
+                "#literaryreadings": "#LiteraryReadings",
+                "#culturalexplorer": "#CulturalExplorer",
+                "#historicaldrama": "#HistoricalDrama",
+                "#culturalexchange": "#CulturalExchange",
+                "#culturalhistory": "#CulturalHistory",
+                "#ethnography": "#Ethnography",
+                "#museums": "#Museums",
+                "#culturaltraditions": "#CulturalTraditions",
+                "#folklore": "#Folklore",
+                "#anthropology": "#Anthropology",
+                "#culturalcelebrations": "#CulturalCelebrations"
+            }
+        ],
+        "arts": [
+            "Arts",
+            {
+                "#art": "#Art",
+                "#contemporaryart": "#ContemporaryArt",
+                "#artexhibitions": "#ArtExhibitions",
+                "#artgalleries": "#ArtGalleries",
+                "#sculpture": "#Sculpture",
+                "#arthistory": "#ArtHistory",
+                "#painting": "#Painting",
+                "#streetart": "#StreetArt",
+                "#photography": "#Photography",
+                "#digitalart": "#DigitalArt",
+                "#finearts": "#FineArts",
+                "#artistsspotlight": "#ArtistsSpotlight",
+                "#performanceart": "#PerformanceArt",
+                "#visualarts": "#VisualArts",
+                "#artinstallations": "#ArtInstallations",
+                "#graphicdesign": "#GraphicDesign",
+                "#artfairs": "#ArtFairs",
+                "#arttherapy": "#ArtTherapy",
+                "#artcollectors": "#ArtCollectors",
+                "#artauctions": "#ArtAuctions",
+                "#crafts": "#Crafts",
+                "#ceramics": "#Ceramics",
+                "#printmaking": "#Printmaking",
+                "#illustration": "#Illustration",
+                "#publicart": "#PublicArt"
+            }
+        ],
+        "entertainment": [
+            "Entertainment",
+            {
+                "#entertainment": "#Entertainment",
+                "#movies": "#Movies",
+                "#tv": "#TV",
+                "#webseries": "#WebSeries",
+                "#podcasts": "#Podcasts",
+                "#radioshows": "#RadioShows",
+                "#music": "#Music",
+                "#concerts": "#Concerts",
+                "#albumrelease": "#AlbumRelease",
+                "#musicvideos": "#MusicVideos",
+                "#awards": "#Awards",
+                "#popculture": "#PopCulture",
+                "#viraltrends": "#ViralTrends",
+                "#memes": "#Memes",
+                "#influencerculture": "#InfluencerCulture",
+                "#vloggers": "#Vloggers",
+                "#streamers": "#Streamers",
+                "#gamingnews": "#GamingNews",
+                "#fanconventions": "#FanConventions",
+                "#celebritynews": "#CelebrityNews",
+                "#moviereviews": "#MovieReviews",
+                "#tvshows": "#TVShows",
+                "#realityshows": "#RealityShows",
+                "#talkshows": "#Talk Shows",
+                "#comedyshows": "#ComedyShows",
+                "#theater": "#Theater",
+                "#broadwayshows": "#BroadwayShows",
+                "#musicals": "#Musicals",
+                "#livecomedy": "#LiveComedy",
+                "#cinema": "#Cinema",
+                "#filmfestival": "#FilmFestival",
+                "#musicfestivals": "#MusicFestivals",
+                "#nightlife": "#Nightlife",
+                "#clubbing": "#Clubbing",
+                "#magicshows": "#MagicShows",
+                "#circus": "#Circus",
+                "#varietyshows": "#VarietyShows",
+                "#cosplay": "#Cosplay"
+            }
+        ],
+        "sports & athletics": [
+            "Sports & Athletics",
+            {
+                "#sports": "#Sports",
+                "#athletics": "#Athletics",
+                "#teamsports": "#TeamSports",
+                "#individualsports": "#IndividualSports",
+                "#olympics": "#Olympics",
+                "#worldcup": "#WorldCup",
+                "#football": "#Football",
+                "#basketball": "#Basketball",
+                "#baseball": "#Baseball",
+                "#cricket": "#Cricket",
+                "#tennis": "#Tennis",
+                "#golf": "#Golf",
+                "#rugby": "#Rugby",
+                "#hockey": "#Hockey",
+                "#mma": "#MMA",
+                "#boxing": "#Boxing",
+                "#cycling": "#Cycling",
+                "#swimming": "#Swimming",
+                "#trackandfield": "#TrackAndField",
+                "#volleyball": "#Volleyball",
+                "#gymnastics": "#Gymnastics",
+                "#skating": "#Skating",
+                "#skiing": "#Skiing",
+                "#snowboarding": "#Snowboarding",
+                "#surfing": "#Surfing",
+                "#motorsport": "#Motorsport",
+                "#f1": "#F1",
+                "#nascar": "#NASCAR",
+                "#esports": "#Esports",
+                "#badminton": "#Badminton",
+                "#tabletennis": "#TableTennis",
+                "#marathon": "#Marathon",
+                "#triathlon": "#Triathlon",
+                "#equestrian": "#Equestrian",
+                "#skateboarding": "#Skateboarding",
+                "#climbing": "#Climbing",
+                "#wrestling": "#Wrestling",
+                "#judo": "#Judo",
+                "#taekwondo": "#Taekwondo",
+                "#karate": "#Karate",
+                "#archery": "#Archery",
+                "#shootingsports": "#ShootingSports",
+                "#fencing": "#Fencing",
+                "#weightlifting": "#Weightlifting",
+                "#bodybuilding": "#Bodybuilding",
+                "#yoga": "#Yoga",
+                "#pilates": "#Pilates",
+                "#dancesports": "#DanceSports",
+                "#parkour": "#Parkour"
+            }
+        ],
+        "environment & climate": [
+            "Environment & Climate",
+            {
+                "#climate": "#Climate",
+                "#environment": "#Environment",
+                "#sustainability": "#Sustainability",
+                "#greentech": "#GreenTech",
+                "#ecofriendly": "#EcoFriendly",
+                "#conservation": "#Conservation",
+                "#renewableenergy": "#RenewableEnergy"
+            }
+        ],
+        "crime & safety": [
+            "Crime & Safety",
+            {
+                "#crime": "#Crime",
+                "#safety": "#Safety",
+                "#legalnews": "#LegalNews",
+                "#regulations": "#Regulations",
+                "#compliance": "#Compliance",
+                "#corporatelaw": "#CorporateLaw"
+            }
+        ],
+        "lifestyle & personal characteristics": [
+            "Lifestyle & Personal Characteristics",
+            {
+                "#vegan": "#Vegan",
+                "#minimalist": "#Minimalist",
+                "#zerowaste": "#ZeroWaste",
+                "#digitalnomad": "#DigitalNomad",
+                "#parenting": "#Parenting",
+                "#petlover": "#PetLover",
+                "#homebody": "#Homebody",
+                "#fitnessenthusiast": "#FitnessEnthusiast",
+                "#traveljunkie": "#TravelJunkie",
+                "#introvert": "#Introvert",
+                "#extrovert": "#Extrovert",
+                "#ambivert": "#Ambivert",
+                "#empath": "#Empath",
+                "#optimist": "#Optimist",
+                "#pessimist": "#Pessimist",
+                "#realist": "#Realist",
+                "#sustainableliving": "#SustainableLiving",
+                "#digitallifestyle": "#DigitalLifestyle",
+                "#urbangardening": "#UrbanGardening",
+                "#tinyhomes": "#TinyHomes",
+                "#selfimprovement": "#SelfImprovement",
+                "#lifehacks": "#LifeHacks",
+                "#careeradvice": "#CareerAdvice",
+                "#successstories": "#SuccessStories",
+                "#mindset": "#Mind set",
+                "#fashiontrends": "#FashionTrends",
+                "#beautytips": "#BeautyTips",
+                "#streetstyle": "#StreetStyle"
+            }
+        ],
+        "hobbies & interests": [
+            "Hobbies & Interests",
+            {
+                "#bookworm": "#Bookworm",
+                "#traveler": "#Traveler",
+                "#foodie": "#Foodie",
+                "#gamer": "#Gamer",
+                "#musiclover": "#MusicLover",
+                "#fitnessfreak": "#FitnessFreak",
+                "#naturelover": "#NatureLover",
+                "#artaficionado": "#ArtAficionado",
+                "#sportsfan": "#SportsFan",
+                "#photographyenthusiast": "#PhotographyEnthusiast",
+                "#moviebuff": "#MovieBuff",
+                "#diyer": "#DIYer",
+                "#gardeninglover": "#GardeningLover",
+                "#fashionista": "#Fashionista",
+                "#gourmet": "#Gourmet",
+                "#homecooking": "#HomeCooking",
+                "#veganrecipes": "#VeganRecipes",
+                "#streetfood": "#StreetFood"
+            }
+        ],
+        "religion & spirituality": [
+            "Religion & Spirituality",
+            {
+                "#atheist": "#Atheist",
+                "#agnostic": "#Agnostic",
+                "#christian": "#Christian",
+                "#muslim": "#Muslim",
+                "#buddhist": "#Buddhist",
+                "#spiritualbutnotreligious": "#SpiritualButNotReligious",
+                "#hindu": "#Hindu",
+                "#pagan": "#Pagan",
+                "#spiritualseeker": "#SpiritualSeeker"
+            }
+        ],
+        "geography & travel": [
+            "Geography & Travel",
+            {
+                "#expatriate": "#Expatriate",
+                "#localtravel": "#LocalTravel",
+                "#worldtraveler": "#WorldTraveler",
+                "#urbanexplorer": "#UrbanExplorer",
+                "#ruraladventurer": "#RuralAdventurer",
+                "#adventuretravel": "#AdventureTravel",
+                "#ecotourism": "#EcoTourism",
+                "#citybreaks": "#CityBreaks",
+                "#culinarytravel": "#CulinaryTravel",
+                "#backpacking": "#Backpacking"
+            }
+        ],
+        "gaming & digital entertainment": [
+            "Gaming & Digital Entertainment",
+            {
+                "#gaming": "#Gaming",
+                "#gamerelease": "#GameRelease",
+                "#gamereview": "#GameReview",
+                "#platformgaming": "#PlatformGaming",
+                "#vrgaming": "#VRGaming",
+                "#gamingcommunity": "#GamingCommunity",
+                "#vr": "#VR"
+            }
+        ],
+        "legal & regulatory news": [
+            "Legal & Regulatory News",
+            {}
+        ],
+        "industry-specific news": [
+            "Industry-Specific News",
+            {
+                "#automotivenews": "#AutomotiveNews",
+                "#fashionindustry": "#FashionIndustry",
+                "#agriculturenews": "#AgricultureNews"
+            }
+        ],
+        "historical context": [
+            "Historical Context",
+            {
+                "#onthisday": "#OnThisDay",
+                "#historyfacts": "#HistoryFacts",
+                "#historicalperspective": "#HistoricalPerspective"
+            }
+        ],
+        "special events & occasions": [
+            "Special Events & Occasions",
+            {
+                "#elections2024": "#Elections2024",
+                "#earthday": "#EarthDay",
+                "#internationalwomensday": "#InternationalWomensDay"
+            }
+        ],
+        "user-generated content": [
+            "User-Generated Content",
+            {
+                "#userstory": "#UserStory",
+                "#communityvoice": "#CommunityVoice",
+                "#diyprojects": "#DIYProjects",
+                "#traveldiaries": "#TravelDiaries",
+                "#foodblogging": "#FoodBlogging",
+                "#fashionblogging": "#FashionBlogging",
+                "#fitnessjourney": "#FitnessJourney",
+                "#artshare": "#ArtShare",
+                "#photographylovers": "#PhotographyLovers",
+                "#vlog": "#Vlog",
+                "#personalblog": "#PersonalBlog",
+                "#makeuptutorial": "#MakeupTutorial",
+                "#gamingcontent": "#GamingContent",
+                "#techreviews": "#TechReviews",
+                "#bookreviews": "#BookReviews",
+                "#musiccovers": "#MusicCovers",
+                "#dancevideos": "#DanceVideos",
+                "#comedyskits": "#ComedySkits",
+                "#petvideos": "#PetVideos",
+                "#parentingtips": "#ParentingTips",
+                "#gardeningtips": "#GardeningTips",
+                "#sustainabilityideas": "#SustainabilityIdeas",
+                "#healthtips": "#HealthTips",
+                "#motivationalposts": "#MotivationalPosts",
+                "#poetry": "#Poetry",
+                "#shortstories": "#ShortStories",
+                "#fanart": "#FanArt",
+                "#crafting": "#Crafting",
+                "#homedecorideas": "#HomeDecorIdeas",
+                "#fitnesschallenges": "#FitnessChallenges",
+                "#cookingrecipes": "#CookingRecipes",
+                "#travelvlogs": "#TravelVlogs",
+                "#studywithme": "#StudyWithMe",
+                "#productivitytips": "#ProductivityTips",
+                "#languagelearning": "#LanguageLearning",
+                "#virtualtours": "#VirtualTours",
+                "#remotework": "#RemoteWork",
+                "#volunteering": "#Volunteering",
+                "#charitywork": "#CharityWork",
+                "#socialactivism": "#SocialActivism"
+            }
+        ],
+        "fact-checking & misinformation": [
+            "Fact-Checking & Misinformation",
+            {
+                "#factcheck": "#FactCheck",
+                "#misinformation": "#Misinformation",
+                "#fakenewsalert": "#FakeNewsAlert"
+            }
+        ],
+        "music": [
+            "Music",
+            {
+                "#pop": "#Pop",
+                "#rock": "#Rock",
+                "#jazz": "#Jazz",
+                "#classical": "#Classical",
+                "#hiphop": "#HipHop",
+                "#electronic": "#Electronic",
+                "#country": "#Country",
+                "#blues": "#Blues",
+                "#indie": "#Indie",
+                "#folk": "#Folk",
+                "#reggae": "#Reggae",
+                "#soul": "#Soul",
+                "#metal": "#Metal",
+                "#punk": "#Punk",
+                "#rnb": "#RnB",
+                "#latin": "#Latin",
+                "#world": "#World",
+                "#edm": "#EDM",
+                "#kpop": "#KPop"
+            }
+        ],
+        "regional news": [
+            "Regional News",
+            {
+                "#internationalnews": "#InternationalNews",
+                "#northamerica": "#NorthAmerica",
+                "#southamerica": "#SouthAmerica",
+                "#europe": "#Europe",
+                "#asia": "#Asia",
+                "#africa": "#Africa",
+                "#middleeast": "#MiddleEast",
+                "#australia": "#Australia",
+                "#russia": "#Russia",
+                "#china": "#China",
+                "#india": "#India",
+                "#usa": "#USA",
+                "#uk": "#UK",
+                "#germany": "#Germany",
+                "#france": "#France",
+                "#japan": "#Japan",
+                "#brazil": "#Brazil",
+                "#canada": "#Canada",
+                "#italy": "#Italy",
+                "#spain": "#Spain",
+                "#mexico": "#Mexico",
+                "#taiwan": "#Taiwan",
+                "#singapore": "#Singapore",
+                "#egypt": "#Egypt",
+                "#saudiarabia": "#SaudiArabia",
+                "#uae": "#UAE",
+                "#iraq": "#Iraq",
+                "#indonesia": "#Indonesia",
+                "#portugal": "#Portugal",
+                "#quebec": "#Quebec",
+                "#austria": "#Austria",
+                "#switzerland": "#Switzerland",
+                "#ukraine": "#Ukraine",
+                "#belarus": "#Belarus"
+            }
+        ]
+    },
+    "styles": {
+        "casual": "Casual",
+        "concise": "Concise",
+        "professional": "Professional",
+        "enthusiastic": "Enthusiastic",
+        "humorous": "Humorous",
+        "empathetic": "Empathetic",
+        "sarcastic": "Sarcastic"
+    }
+}

@@ -1,0 +1,5 @@
+commands list:
+start - start bot
+menu - menu
+image - generate image
+news - get news

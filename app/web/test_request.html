@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Test Flask API</h2>
+
+Data: <input type="text" id="dataInput"><br>
+<button type="button" onclick="sendData()">Submit</button>
+
+<script>
+function sendData() {
+    var xhr = new XMLHttpRequest();
+    var url = "http://127.0.0.1:5000/api/action";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+        }
+    };
+
+    var data = JSON.stringify({ "data": document.getElementById("dataInput").value });
+    xhr.send(data);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+#activate VENV
+source venv/bin/activate
+#full
+source /home/botAI/SMM_Chat_Bot/venv/bin/activate
+
+
+#start main python script
+python -m app.bot.main
+
+# Celery 
+CONF_ENV_FILE="/home/linuxbrew/.linuxbrew/etc/rabbitmq/rabbitmq-env.conf" /home/linuxbrew/.linuxbrew/opt/rabbitmq/sbin/rabbitmq-server
+
+#add rules to group to github repo
+sudo chmod -R g+w /home/botAI/SMM_Chat_Bot
