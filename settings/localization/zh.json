@@ -1,0 +1,810 @@
+{
+    "states": {
+        "start": {
+            "state_display_message": "你好，我是 AstroSynth AI。完成注册即可开始使用我。\n我在与您沟通和介绍新闻时应该使用什么风格？"
+        },
+        "reset_styles": {
+            "state_display_message": "为了更改机器人设置以适合您，请正确回答以下问题。\n我应该使用什么风格与您沟通并介绍新闻？"
+        },
+        "menu": {
+            "state_display_message": "请选择操作..."
+        },
+        "functions": {
+            "state_display_message": "请选择一个功能"
+        },
+        "subscription": {
+            "state_display_message": "请选择订阅"
+        },
+        "settings": {
+            "state_display_message": "请选择设置"
+        },
+        "warning_messages": {
+            "model_unavailable": "抱歉，您选择的型号目前不可用。它将被另一个型号替换，该型号将很快做出响应。如果您有任何问题，请联系我们。\n\n",
+            "exceeded_daily_quota": "您已超出每日配额。请充值您的资费。",
+            "exceeded_monthly_quota": "您已超出每月配额。请充值您的资费。",
+            "old_menu_deleted": "您尝试使用的菜单由于机器人更新而过时，因此已被删除。使用 /1 命令创建新菜单。",
+            "old_menu_cannot_be_deleted": "由于机器人更新，您尝试使用的菜单已过期。使用 /1 命令创建新菜单。"
+        },
+        "help": {
+            "state_display_message": "在此描述您的问题..."
+        },
+        "contact_us": {
+            "state_display_message": "帮助我们更好地为您服务。选择一个选项来分享您的经验或改进想法。"
+        },
+        "init_hashtager": {
+            "state_display_message": "请输入您想要接收新闻的主题。",
+            "examples": "以下是如何设计包含兴趣列表的帖子的示例：\n1)“极限运动、探险旅行、户外生存技能”\n2)“古典文学、诗歌、书评”\n3)“岩画、涂鸦；政治分析辩论”\n以后您可以随时调整兴趣列表。",
+            "wait_message": "机器人需要时间来找到符合您兴趣的标签。您可以稍后再查看和编辑它们。\n选中标签后，机器人会通知您，但在此期间，请查看机器人的其他功能！",
+            "finish_hashtagization": "已选择适当的主题标签。"
+        },
+        "reset_hashtager": {
+            "finish_hashtagization": "已选择适当的主题标签。\n机器人设置已更改！"
+        },
+        "init_hashtags": {
+            "state_display_message": {
+                "CategoryState": "请选择类别...",
+                "HashtagState": "请选择主题标签..."
+            }
+        },
+        "hashtags": {
+            "state_display_message": {
+                "CategoryState": "请选择类别...",
+                "HashtagState": "请选择主题标签..."
+            }
+        },
+        "blacklist": {
+            "state_display_message": {
+                "CategoryState": "请选择类别...",
+                "HashtagState": "请选择主题标签..."
+            }
+        },
+        "language": {
+            "state_display_message": "请选择语言"
+        },
+        "utc_shift": {
+            "state_display_message": "请选择时区"
+        },
+        "init_styles": {
+            "state_display_message": "请选择款式"
+        },
+        "init_utc_shift": {
+            "state_display_message": "请在此选择 UTC 班次"
+        },
+        "reset_utc_shift": {
+            "state_display_message": "请在此选择 UTC 班次"
+        },
+        "style": {
+            "state_display_message": "请选择款式"
+        },
+        "pay": {
+            "tariffs_display_message": "请选择资费",
+            "provider_display_message": "请选择支付提供商",
+            "pay_display_message": "请付款来支持我们",
+            "title": "机器人订阅",
+            "description": "只需 **0 美元**，即可使用我们的 🌟 **基本** 计划开始您的消息传递冒险！您将获得 ✉️ 20 条消息的每日消息配额和 📬 200 条消息的每月配额。非常适合那些刚刚涉足消息传递自动化的人。\n\n只需 **10 美元**，即可升级到我们的 🚀 **标准** 计划。此计划将您的每日消息容量提升至 ✉️ 50 条消息，每月配额为 📬 500 条消息。此外，您还可以访问 📡 5 个自定义频道，以扩大通信范围。\n\n只需 **19 美元**，即可使用我们的 💼 **专业** 计划提升您的消息传递能力。享受强大的每日 ✉️ 150 条消息配额和令人印象深刻的 🔄 无限制每月消息限额。您还将解锁 🌐 20 个自定义频道的独家访问权限，从而最大限度地提高您的影响力和参与度。\n\n通过我们的 ✨ *PREMIUM** 计划开始奢华的消息传递体验，该计划专为那些欣赏精致事物并要求最佳服务的人而设计。每月只需 **50 美元**，即可享受：\n\n- ✉️ **150 条消息**的奢华每日消息配额\n- 📬 **1500 条消息**的慷慨每月消息配额\n- 🌐 **50 个自定义频道**的独家频道配额\n\n将您的沟通提升到高级状态，并以优雅和高效的方式进行联系。\n\n",
+            "currency_display_message": "请选择货币"
+        },
+        "pay_to_pasha": {
+            "state_display_message": "如果您喜欢我们的机器人，可以捐款支持我们。作为回报，您将获得我们团队当前和未来 Telegram 机器人的优先支持，并增加与机器人交流时的最大消息数（每天、每月）。\n点击下面的按钮，您就可以与开发人员聊天，在聊天中您可以就捐款金额和增加使用机器人时的消息上限达成一致。"
+        },
+        "info": {
+            "state_display_message": "TODO，以不同的语言显示信息"
+        },
+        "get_news": {
+            "state_display_message": "收集新闻..."
+        },
+        "generate_image": {
+            "state_display_message": "输入提示生成图像"
+        },
+        "models": {
+            "state_display_message": "请选择型号"
+        },
+        "start_guide": {
+            "state_display_message": "欢迎光临！\n机器人的主要功能\n1) 用用户的语言与用户自由交流；\n2) 根据用户要求生成图片；\n3) 您来这里的目的：根据用户的喜好搜索新闻并发送给用户！"
+        },
+        "new_llm_communication": {
+            "state_display_message": "首先，看看机器人如何回应您的询问。\n试着问一些问题！",
+            "auxiliary_message": "如果你愿意，你可以选择以下问题之一"
+        },
+        "show_llm_communication": {
+            "state_display_message": "这就是机器人如何响应您的查询。尝试问一些问题吧！",
+            "auxiliary_message": "如果你愿意，你可以选择以下问题之一"
+        },
+        "news_sending": {
+            "state_display_message": "该机器人还可以向你发送最新消息。以下是示例："
+        },
+        "new_image_generation": {
+            "state_display_message": "当机器人对您的请求做出响应时，您会在聊天中收到通知。\n您不必等待机器人完成特定任务，可以继续使用机器人的其他功能！\n输入您要创建的图片的查询。",
+            "auxiliary_message": "如果需要，您可以选择以下选项之一",
+            "update_state": {
+                "process": "生成提示的图像：",
+                "success": "这是您生成的图像：",
+                "wrong": "抱歉，连接出现问题："
+            }
+        },
+        "image_generation_prompt": {
+            "state_display_message": "现在，让我们生成一个图像。请输入要生成的图像的提示。",
+            "auxiliary_message": "如果需要，您可以选择以下选项之一"
+        },
+        "guided_generate_image": {
+            "state_display_message": {
+                "process": "生成提示的图像：",
+                "success": "这是您生成的图像：",
+                "wrong": "抱歉，连接出现问题。请重试。"
+            }
+        },
+        "new_end": {
+            "state_display_message": "在为您的查询生成回复的同时，机器人会尝试为您查找相关新闻。您无需等待，可以继续使用机器人的全部功能！\n您可以使用以下命令\n/1 - 打开菜单；\n/2 - 打开帮助；\n/3 - 重置机器人设置。",
+            "update_state": "所有新闻都已发送。\n现在，您对机器人的主要功能了如指掌！使用它的所有功能来实现你的目标吧"
+        },
+        "end": {
+            "state_display_message": "欢迎使用机器人！祝您好运，玩得开心！"
+        },
+        "help_command": {
+            "state_display_message": "我们今天可以为您提供什么帮助？"
+        },
+        "bot_skills": {
+            "state_display_message": "此机器人会定期向您发送有关您选择的主题的新闻。夜间不会发送消息。\n基本命令：\n/menu - 打开主菜单\n/help - 访问帮助\n/reset - 恢复默认设置\n要立即接收新闻而无需等待，请在菜单中选择“功能”，然后选择“获取新闻”。\n要自定义您的语言、时区、兴趣以及用于通信和新闻处理的 AI 模型，请在菜单中选择“设置”。\n您可以通过在机器人的帮助部分中选择“联系我们”来报告错误或分享想法。"
+        },
+        "setting_reset": {
+            "state_display_message": "您确定要重置所有机器人设置吗？如果您回答“是”，所有设置将恢复到原始状态，之后您将有机会再次为自己定制机器人。"
+        },
+        "are_you_sure": {
+            "state_display_message": "请等待，所有设置将恢复为默认状态。"
+        },
+        "faq": {
+            "state_display_message": "以下是最常见的问题及其答案。\n\n<b>问题：</b>我已经用完了每日（每月）消息限制，我该如何继续与机器人交流？\n<i>答案：</i>您可以在“帮助项目”菜单中通过小额捐赠来支持该项目，作为回报，我们会略微提高您的限制。\n\n<b>问题：</b>我如何支持这个机器人的开发者？\n<i>答案：</i>您可以发送任何您认为可以接受的捐赠。\n\n<b>问题：</b>有没有非财务的方式来奖励开发者？\n<i>答案：</i>是的，您可以使用机器人帮助中的相应选项提交错误报告或提出想法。\n\n如果您的问题不在列表中，您可以立即在聊天中写下它！",
+            "state_update_display_message": "问题已发送给机器人管理员。如果您还有问题，可以发送一个或多个问题。"
+        },
+        "write_problem": {
+            "state_display_message": "帮助我们改进产品！使用聊天功能直接与我们的开发专家分享您的反馈。",
+            "state_update_display_message": "我们非常感谢您提供反馈！我们的开发团队已收到您的意见，并将利用它们来提升您的体验。还有更多要分享的吗？继续对话吧——我们洗耳恭听！"
+        },
+        "suggest_idea": {
+            "state_display_message": "如果您想分享一个想法，请立即将其发送到聊天室！我们公司的一位经理肯定会阅读它。",
+            "state_update_display_message": "感谢您分享您的创新想法！我们很高兴地确认您的建议已成功转发给我们的产品开发团队。我们鼓励您继续分享您的见解 - 欢迎在后续消息中提交更多想法。为了表示感谢，如果您的任何想法被选中实施，您可能有资格免费升级您的计划级别。您的创造力有助于我们成长和进步！"
+        },
+        "unread_news": {
+            "some_news": "机器人今天特别为您挑选了 /1 条新闻！点击“/2”按钮即可阅读。",
+            "a_lot_of_news": "机器人今天特别为您挑选了 /1 条新闻！点击“/2”按钮阅读前 5 条。",
+            "no_news": "很快机器人就会为您挑选新闻！\n如果您不想等待，您可以使用菜单中的相应功能（/1），然后机器人将立即开始挑选新闻！",
+            "update_news": "所有今天未被机器人添加的信息源已从您的新闻袋中移除。\n如果今天没有出现您感兴趣的相关主题，则可以再次添加。"
+        }
+    },
+    "misc": {
+        "keyboard": {
+            "done": "完成✅",
+            "cancel": "取消 ❌",
+            "back": "后退",
+            "back_arrow": "⬅️",
+            "info": "信息",
+            "pay": "支付",
+            "menu": "菜单",
+            "functions": "功能",
+            "settings": "设置",
+            "subscription": "订阅",
+            "contact_us": "联系我们",
+            "help": "帮助",
+            "get_news": "获取新闻",
+            "generate_post": "生成帖子",
+            "generate_image": "生成图像",
+            "hashtags": "标签",
+            "blacklist": "黑名单",
+            "language": "语言",
+            "style": "风格",
+            "models": "楷模",
+            "utc_shift": "时区",
+            "question_1": "你能给我什么用处？",
+            "question_2": "你的眼界有多开阔？",
+            "question_3": "您最擅长什么主题？",
+            "fast": "快速",
+            "common": "普通",
+            "smart": "聪明",
+            "pay_to_pasha": "\uD83D\uDC9D 帮助项目",
+            "pay_to_pasha_button": "与开发人员聊天",
+            "pay_to_pasha_text": "你好，我想用一杯香浓的咖啡来支持你们的团队。如何转账？",
+            "-11": "美属萨摩亚, 帕果帕果",
+            "-10": "美国, 夏威夷, 檀香山",
+            "-9": "美国，阿拉斯加，安克雷奇",
+            "-8": "美国, 加利福尼亚州, 洛杉矶",
+            "-7": "美国, 科罗拉多州, 丹佛",
+            "-6": "墨西哥, 墨西哥城",
+            "-5": "美国，纽约，纽约",
+            "-4": "委内瑞拉 加拉加斯",
+            "-3": "阿根廷布宜诺斯艾利斯",
+            "-2": "巴西，圣保罗",
+            "-1": "佛得角, 普拉亚",
+            "0": "英国，伦敦",
+            "1": "法国 巴黎",
+            "2": "埃及，开罗",
+            "3": "俄罗斯，莫斯科",
+            "4": "阿拉伯联合酋长国，迪拜",
+            "5": "巴基斯坦，伊斯兰堡",
+            "6": "孟加拉国, 达卡",
+            "7": "泰国，曼谷",
+            "8": "中国，北京",
+            "9": "日本，东京",
+            "10": "澳大利亚堪培拉",
+            "11": "所罗门群岛，霍尼亚拉",
+            "12": "新西兰，惠灵顿"
+        },
+        "guide_keyboard": {
+            "question_1": "你能给我什么用处？",
+            "question_2": "你的眼界有多开阔？",
+            "question_3": "您最擅长什么主题？",
+            "image_1": "漂浮在云端的未来城市",
+            "image_2": "拥有奇妙生物的古老森林",
+            "image_3": "拥有生物发光植物的海底世界",
+            "image_4": "蒸汽朋克版的埃菲尔铁塔",
+            "image_5": "赛博朋克城市中的日本花园",
+            "image_6": "有会飞的书的图书馆",
+            "image_7": "大自然接管了城市的废墟",
+            "image_8": "航行在星海中的城市之船",
+            "image_9": "绕明亮恒星运行的空间站",
+            "image_10": "巨型晶体内的量子实验室"
+        },
+        "help_keyboard": {
+            "help_command": "帮助",
+            "bot_skills": "机器人可以做什么？",
+            "setting_reset": "重新设置",
+            "are_you_sure": "是的",
+            "faq": "常问问题",
+            "contact_us": "联系我们",
+            "write_problem": "写反馈",
+            "suggest_idea": "提出想法",
+            "back": "后退"
+        },
+        "reply_keyboard": {
+            "get_5": "\uD83D\uDFE2 获取新闻！"
+        }
+    },
+    "hashtag_categories": {
+        "politics & government": [
+            "政治与政府",
+            {
+                "#politics": "＃政治",
+                "#diplomacy": "＃外交",
+                "#government": "＃政府",
+                "#centrism": "#中间主义",
+                "#socialism": "＃社会主义",
+                "#libertarianism": "#自由主义",
+                "#anarchism": "#无政府主义",
+                "#politicalanalysis": "#政治分析",
+                "#policymaking": "#政策制定",
+                "#civicengagement": "#公民参与"
+            }
+        ],
+        "economics & finance": [
+            "经济与金融",
+            {
+                "#economy": "＃经济",
+                "#financialnews": "#财经新闻",
+                "#trade": "＃贸易",
+                "#crypto": "#加密",
+                "#stockmarket": "#股票市场",
+                "#financialfreedom": "＃财务自由",
+                "#investor": "＃投资者",
+                "#budgeting": "#预算",
+                "#wealthbuilding": "#财富建设",
+                "#realestateinvestor": "#房地产投资者",
+                "#economicdevelopment": "＃经济发展",
+                "#emergingmarkets": "＃新兴市场",
+                "#globaltrade": "＃全球交易",
+                "#economicpolicy": "＃经济政策",
+                "#startups": "#初创企业",
+                "#businessstrategy": "＃经营策略",
+                "#entrepreneurship": "#创业",
+                "#marketing": "＃营销",
+                "#ecommerce": "＃电子商务"
+            }
+        ],
+        "society & social issues": [
+            "社会与社会问题",
+            {
+                "#socialissue": "＃社会问题",
+                "#humanrights": "#人权",
+                "#justice": "＃正义",
+                "#conservative": "＃保守的",
+                "#liberal": "＃自由主义的",
+                "#activist": "＃活动家",
+                "#feminist": "#女权主义者",
+                "#lgbtqsupporter": "#LGBTQ支持者",
+                "#environmentaladvocate": "#环境倡导者",
+                "#humanrightsdefender": "#人权捍卫者",
+                "#socialjusticewarrior": "#社会正义战士",
+                "#globalwarming": "＃全球暖化",
+                "#refugeecrisis": "＃难民危机",
+                "#worldhunger": "＃世界饥饿",
+                "#watercrisis": "#水危机",
+                "#globalhealth": "#全球健康",
+                "#justicesystem": "＃司法系统",
+                "#humanrightslaw": "#人权法"
+            }
+        ],
+        "health & well-being": [
+            "健康与福祉",
+            {
+                "#healthupdate": "#健康更新",
+                "#mentalhealth": "＃精神健康",
+                "#publichealth": "＃公共卫生",
+                "#mentalhealthawareness": "#心理健康意识",
+                "#wellnessjourney": "#健康之旅",
+                "#selfcare": "＃自理",
+                "#healthyliving": "＃健康生活",
+                "#mindfulness": "#正念",
+                "#meditationenthusiast": "#冥想爱好者",
+                "#covid19": "＃新冠肺炎",
+                "#chronicillness": "＃久病",
+                "#healthcarereform": "#医疗改革",
+                "#nutrition": "＃营养",
+                "#fitnesstrends": "#健身趋势",
+                "#mentalwellness": "#心理健康",
+                "#alternativemedicine": "＃替代药物",
+                "#healthtech": "#健康科技"
+            }
+        ],
+        "science & technology & education": [
+            "科技与教育",
+            {
+                "#technews": "#科技新闻",
+                "#scienceupdate": "#科学更新",
+                "#innovation": "＃创新",
+                "#space": "＃空间",
+                "#education": "＃教育",
+                "#research": "＃研究",
+                "#learning": "＃学习",
+                "#lifelonglearner": "#终身学习者",
+                "#onlinecourse": "#在线课程",
+                "#diy": "＃DIY",
+                "#skilldevelopment": "＃技能提升",
+                "#languagelearner": "＃语言学习者",
+                "#educator": "＃教育家",
+                "#studentlife": "＃学生生活",
+                "#stem": "＃干",
+                "#techenthusiast": "#科技爱好者",
+                "#blockchain": "#区块链",
+                "#cybersecurity": "＃网络安全",
+                "#datascience": "#数据科学",
+                "#machinelearning": "#机器学习",
+                "#augmentedreality": "＃增强现实",
+                "#internetofthings": "＃物联网",
+                "#5g": "#5G",
+                "#quantumcomputing": "#量子计算",
+                "#genomics": "#基因组学",
+                "#astrophysics": "#天体物理学",
+                "#sustainableenergy": "＃可持续能源",
+                "#medicalresearch": "＃医学研究",
+                "#physics": "＃物理",
+                "#biotechnology": "#生物技术",
+                "#environmentalscience": "#环境科学",
+                "#astronomy": "＃天文学",
+                "#edutech": "#教育科技",
+                "#onlinelearning": "＃在线学习",
+                "#academicresearch": "＃学术研究",
+                "#aisafety": "#AI安全",
+                "#rocketscience": "＃火箭科学",
+                "#programming": "＃编程"
+            }
+        ],
+        "culture": [
+            "文化",
+            {
+                "#culturalevent": "#文化活动",
+                "#culturalfestivals": "#文化节",
+                "#culturalheritage": "＃文化遗产",
+                "#bookclub": "＃图书俱乐部",
+                "#literaryreadings": "#文学阅读",
+                "#culturalexplorer": "#文化探索者",
+                "#historicaldrama": "＃历史剧",
+                "#culturalexchange": "＃文化交流",
+                "#culturalhistory": "#文化历史",
+                "#ethnography": "#民族志",
+                "#museums": "#博物馆",
+                "#culturaltraditions": "＃文化传统",
+                "#folklore": "＃民俗学",
+                "#anthropology": "＃人类学",
+                "#culturalcelebrations": "#文化庆典"
+            }
+        ],
+        "arts": [
+            "艺术",
+            {
+                "#art": "＃艺术",
+                "#contemporaryart": "＃当代艺术",
+                "#artexhibitions": "#艺术展览",
+                "#artgalleries": "＃艺术画廊",
+                "#sculpture": "＃雕塑",
+                "#arthistory": "＃艺术史",
+                "#painting": "＃绘画",
+                "#streetart": "＃街头艺术",
+                "#photography": "＃摄影",
+                "#digitalart": "＃数字艺术",
+                "#finearts": "＃精美艺术",
+                "#artistsspotlight": "#艺术家聚焦",
+                "#performanceart": "＃表演艺术",
+                "#visualarts": "＃视觉艺术",
+                "#artinstallations": "#艺术装置",
+                "#graphicdesign": "＃平面设计",
+                "#artfairs": "#艺术博览会",
+                "#arttherapy": "#艺术治疗",
+                "#artcollectors": "#艺术收藏家",
+                "#artauctions": "#艺术品拍卖",
+                "#crafts": "＃工艺",
+                "#ceramics": "＃陶瓷",
+                "#printmaking": "#版画",
+                "#illustration": "＃插图",
+                "#publicart": "#公共艺术"
+            }
+        ],
+        "entertainment": [
+            "娱乐",
+            {
+                "#entertainment": "＃娱乐",
+                "#movies": "＃电影",
+                "#tv": "＃电视",
+                "#webseries": "#WebSeries",
+                "#podcasts": "#播客",
+                "#radioshows": "#广播节目",
+                "#music": "＃音乐",
+                "#concerts": "#音乐会",
+                "#albumrelease": "#专辑发布",
+                "#musicvideos": "＃音乐视频",
+                "#awards": "#奖项",
+                "#popculture": "＃流行文化",
+                "#viraltrends": "#病毒趋势",
+                "#memes": "#表情包",
+                "#influencerculture": "#影响力文化",
+                "#vloggers": "#视频博主",
+                "#streamers": "#彩带",
+                "#gamingnews": "#游戏新闻",
+                "#fanconventions": "#粉丝大会",
+                "#celebritynews": "#名人新闻",
+                "#moviereviews": "#电影评论",
+                "#tvshows": "＃电视节目",
+                "#realityshows": "＃真人秀",
+                "#talkshows": "＃脱口秀",
+                "#comedyshows": "#喜剧节目",
+                "#theater": "＃剧院",
+                "#broadwayshows": "#百老汇演出",
+                "#musicals": "#音乐剧",
+                "#livecomedy": "#现场喜剧",
+                "#cinema": "＃电影",
+                "#filmfestival": "#电影节",
+                "#musicfestivals": "＃音乐节",
+                "#nightlife": "#夜生活",
+                "#clubbing": "#泡吧",
+                "#magicshows": "#魔术表演",
+                "#circus": "＃马戏团",
+                "#varietyshows": "＃综艺节目",
+                "#cosplay": "＃角色扮演"
+            }
+        ],
+        "sports & athletics": [
+            "体育与竞技",
+            {
+                "#sports": "＃运动的",
+                "#athletics": "＃竞技",
+                "#teamsports": "＃团队竞技",
+                "#individualsports": "＃个人运动",
+                "#olympics": "#奥运会",
+                "#worldcup": "＃世界杯",
+                "#football": "＃足球",
+                "#basketball": "＃篮球",
+                "#baseball": "＃棒球",
+                "#cricket": "＃蟋蟀",
+                "#tennis": "＃网球",
+                "#golf": "＃高尔夫球",
+                "#rugby": "#橄榄球",
+                "#hockey": "＃曲棍球",
+                "#mma": "#综合格斗",
+                "#boxing": "＃拳击",
+                "#cycling": "＃骑自行车",
+                "#swimming": "＃游泳",
+                "#trackandfield": "#田径",
+                "#volleyball": "＃排球",
+                "#gymnastics": "＃体操",
+                "#skating": "＃溜冰",
+                "#skiing": "＃滑雪",
+                "#snowboarding": "#单板滑雪",
+                "#surfing": "＃冲浪",
+                "#motorsport": "#赛车运动",
+                "#f1": "#F1",
+                "#nascar": "#纳斯卡",
+                "#esports": "#电子竞技",
+                "#badminton": "＃羽毛球",
+                "#tabletennis": "＃乒乓球",
+                "#marathon": "＃马拉松",
+                "#triathlon": "#铁人三项",
+                "#equestrian": "#马术",
+                "#skateboarding": "＃滑板运动",
+                "#climbing": "＃攀登",
+                "#wrestling": "＃摔角",
+                "#judo": "＃柔道",
+                "#taekwondo": "＃跆拳道",
+                "#karate": "＃空手道",
+                "#archery": "＃射箭",
+                "#shootingsports": "#射击运动",
+                "#fencing": "＃击剑",
+                "#weightlifting": "＃举重",
+                "#bodybuilding": "#健美",
+                "#yoga": "＃瑜伽",
+                "#pilates": "#普拉提",
+                "#dancesports": "#舞蹈运动",
+                "#parkour": "#跑酷"
+            }
+        ],
+        "environment & climate": [
+            "环境与气候",
+            {
+                "#climate": "＃气候",
+                "#environment": "＃环境",
+                "#sustainability": "#可持续发展",
+                "#greentech": "#绿色科技",
+                "#ecofriendly": "＃环保的",
+                "#conservation": "＃保护",
+                "#renewableenergy": "＃再生能源"
+            }
+        ],
+        "crime & safety": [
+            "犯罪与安全",
+            {
+                "#crime": "＃犯罪",
+                "#safety": "＃安全",
+                "#legalnews": "#法律新闻",
+                "#regulations": "#法规",
+                "#compliance": "＃遵守",
+                "#corporatelaw": "＃公司法"
+            }
+        ],
+        "lifestyle & personal characteristics": [
+            "生活方式和个人特征",
+            {
+                "#vegan": "#素食",
+                "#minimalist": "＃极简主义者",
+                "#zerowaste": "#零浪费",
+                "#digitalnomad": "#DigitalNomad",
+                "#parenting": "#育儿",
+                "#petlover": "#宠物爱好者",
+                "#homebody": "#宅男",
+                "#fitnessenthusiast": "#健身爱好者",
+                "#traveljunkie": "#旅游迷",
+                "#introvert": "#内向者",
+                "#extrovert": "#外向",
+                "#ambivert": "#中向外向",
+                "#empath": "#共情",
+                "#optimist": "＃乐天派",
+                "#pessimist": "#悲观主义者",
+                "#realist": "#现实主义者",
+                "#sustainableliving": "#可持续生活",
+                "#digitallifestyle": "#数字生活方式",
+                "#urbangardening": "#城市园艺",
+                "#tinyhomes": "#小房子",
+                "#selfimprovement": "＃自我提升",
+                "#lifehacks": "＃生活技巧",
+                "#careeradvice": "＃职业咨询",
+                "#successstories": "＃成功的故事",
+                "#mindset": "＃心态",
+                "#fashiontrends": "＃时尚潮流",
+                "#beautytips": "＃美容秘诀",
+                "#streetstyle": "＃街头风"
+            }
+        ],
+        "hobbies & interests": [
+            "兴趣爱好",
+            {
+                "#bookworm": "＃书呆子",
+                "#traveler": "＃游客",
+                "#foodie": "＃美食家",
+                "#gamer": "#游戏玩家",
+                "#musiclover": "＃音乐爱好者",
+                "#fitnessfreak": "＃健身狂",
+                "#naturelover": "＃热爱大自然的人",
+                "#artaficionado": "#艺术爱好者",
+                "#sportsfan": "＃体育迷",
+                "#photographyenthusiast": "#摄影爱好者",
+                "#moviebuff": "＃电影迷",
+                "#diyer": "#DIYer",
+                "#gardeninglover": "#园艺爱好者",
+                "#fashionista": "#时尚达人",
+                "#gourmet": "#美食",
+                "#homecooking": "＃家常菜",
+                "#veganrecipes": "#素食食谱",
+                "#streetfood": "＃街头食品"
+            }
+        ],
+        "religion & spirituality": [
+            "宗教与灵性",
+            {
+                "#atheist": "＃无神论者",
+                "#agnostic": "#不可知论者",
+                "#christian": "＃基督教",
+                "#muslim": "＃穆斯林",
+                "#buddhist": "＃佛教徒",
+                "#spiritualbutnotreligious": "#有灵性但不信教",
+                "#hindu": "#印度教",
+                "#pagan": "＃异教徒",
+                "#spiritualseeker": "#精神追寻者"
+            }
+        ],
+        "geography & travel": [
+            "地理与旅游",
+            {
+                "#expatriate": "#外籍人士",
+                "#localtravel": "#本地旅游",
+                "#worldtraveler": "#世界旅行者",
+                "#urbanexplorer": "#城市探险家",
+                "#ruraladventurer": "#乡村冒险家",
+                "#adventuretravel": "#冒险旅行",
+                "#ecotourism": "#生态旅游",
+                "#citybreaks": "#城市假期",
+                "#culinarytravel": "#美食旅行",
+                "#backpacking": "#背包旅行"
+            }
+        ],
+        "gaming & digital entertainment": [
+            "游戏与数字娱乐",
+            {
+                "#gaming": "＃赌博",
+                "#gamerelease": "#GameRelease",
+                "#gamereview": "#游戏评论",
+                "#platformgaming": "#平台游戏",
+                "#vrgaming": "#VR游戏",
+                "#gamingcommunity": "#游戏社区",
+                "#vr": "#虚拟现实"
+            }
+        ],
+        "legal & regulatory news": [
+            "法律和监管新闻",
+            {}
+        ],
+        "industry-specific news": [
+            "行业新闻",
+            {
+                "#automotivenews": "#汽车新闻",
+                "#fashionindustry": "＃时尚产业",
+                "#agriculturenews": "#农业新闻"
+            }
+        ],
+        "historical context": [
+            "历史背景",
+            {
+                "#onthisday": "＃在这一天",
+                "#historyfacts": "#历史事实",
+                "#historicalperspective": "＃历史的角度"
+            }
+        ],
+        "special events & occasions": [
+            "特殊活动和场合",
+            {
+                "#elections2024": "#2024选举",
+                "#earthday": "＃地球日",
+                "#internationalwomensday": "＃国际妇女节"
+            }
+        ],
+        "user-generated content": [
+            "用户生成内容",
+            {
+                "#userstory": "＃用户故事",
+                "#communityvoice": "#社区之声",
+                "#diyprojects": "#DIY项目",
+                "#traveldiaries": "#旅行日记",
+                "#foodblogging": "#美食博客",
+                "#fashionblogging": "#时尚博客",
+                "#fitnessjourney": "#健身之旅",
+                "#artshare": "#艺术分享",
+                "#photographylovers": "#摄影爱好者",
+                "#vlog": "#视频博客",
+                "#personalblog": "#个人博客",
+                "#makeuptutorial": "＃化妆教学",
+                "#gamingcontent": "#游戏内容",
+                "#techreviews": "#技术评论",
+                "#bookreviews": "#书评",
+                "#musiccovers": "#音乐封面",
+                "#dancevideos": "#舞蹈视频",
+                "#comedyskits": "#喜剧短片",
+                "#petvideos": "#宠物视频",
+                "#parentingtips": "#育儿秘诀",
+                "#gardeningtips": "#园艺小贴士",
+                "#sustainabilityideas": "#可持续发展理念",
+                "#healthtips": "#健康小贴士",
+                "#motivationalposts": "#励志文章",
+                "#poetry": "＃诗歌",
+                "#shortstories": "＃短篇小说",
+                "#fanart": "#粉丝艺术",
+                "#crafting": "#制作",
+                "#homedecorideas": "#家居装饰理念",
+                "#fitnesschallenges": "#健身挑战",
+                "#cookingrecipes": "#烹饪食谱",
+                "#travelvlogs": "#旅行视频博客",
+                "#studywithme": "#StudyWithMe",
+                "#productivitytips": "#生产力提示",
+                "#languagelearning": "＃语言学习",
+                "#virtualtours": "#虚拟旅游",
+                "#remotework": "#远程工作",
+                "#volunteering": "#志愿服务",
+                "#charitywork": "＃慈善活动",
+                "#socialactivism": "#社会行动主义"
+            }
+        ],
+        "fact-checking & misinformation": [
+            "事实核查和虚假信息",
+            {
+                "#factcheck": "#事实核查",
+                "#misinformation": "＃误传",
+                "#fakenewsalert": "#假新闻警报"
+            }
+        ],
+        "music": [
+            "音乐",
+            {
+                "#pop": "＃流行音乐",
+                "#rock": "＃岩石",
+                "#jazz": "＃爵士乐",
+                "#classical": "＃古典",
+                "#hiphop": "＃嘻哈",
+                "#electronic": "＃电子的",
+                "#country": "＃国家",
+                "#blues": "#蓝调",
+                "#indie": "#独立",
+                "#folk": "＃民间",
+                "#reggae": "#雷鬼",
+                "#soul": "＃灵魂",
+                "#metal": "＃金属",
+                "#punk": "＃朋克",
+                "#rnb": "#RnB",
+                "#latin": "＃拉丁",
+                "#world": "＃世界",
+                "#edm": "#电子舞曲",
+                "#kpop": "#韩国流行音乐"
+            }
+        ],
+        "regional news": [
+            "区域新闻",
+            {
+                "#internationalnews": "＃国际新闻",
+                "#northamerica": "＃北美",
+                "#southamerica": "＃南美洲",
+                "#europe": "＃欧洲",
+                "#asia": "＃亚洲",
+                "#africa": "＃非洲",
+                "#middleeast": "＃中东",
+                "#australia": "＃澳大利亚",
+                "#russia": "＃俄罗斯",
+                "#china": "＃中国",
+                "#india": "＃印度",
+                "#usa": "＃美国",
+                "#uk": "＃英国",
+                "#germany": "＃德国",
+                "#france": "＃法国",
+                "#japan": "＃日本",
+                "#brazil": "＃巴西",
+                "#canada": "＃加拿大",
+                "#italy": "＃意大利",
+                "#spain": "＃西班牙",
+                "#mexico": "＃墨西哥",
+                "#taiwan": "＃台湾",
+                "#singapore": "＃新加坡",
+                "#egypt": "＃埃及",
+                "#saudiarabia": "＃沙特阿拉伯",
+                "#uae": "#阿联酋",
+                "#iraq": "＃伊拉克",
+                "#indonesia": "＃印度尼西亚",
+                "#portugal": "＃葡萄牙",
+                "#quebec": "#魁北克",
+                "#austria": "＃奥地利",
+                "#switzerland": "＃瑞士",
+                "#ukraine": "＃乌克兰",
+                "#belarus": "#白俄罗斯"
+            }
+        ]
+    },
+    "styles": {
+        "casual": "随意的",
+        "concise": "简洁的",
+        "professional": "专业的",
+        "enthusiastic": "热情的",
+        "humorous": "幽默",
+        "empathetic": "富有同情心",
+        "sarcastic": "讽刺"
+    }
+}

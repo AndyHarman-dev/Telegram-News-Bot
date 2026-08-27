@@ -1,0 +1,810 @@
+{
+    "states": {
+        "start": {
+            "state_display_message": "Hai, saya AstroSynth AI. Selesaikan pendaftaran untuk mulai menggunakan saya.\nGaya apa yang harus saya gunakan saat berkomunikasi dengan Anda dan menyajikan berita?"
+        },
+        "reset_styles": {
+            "state_display_message": "Untuk mengubah pengaturan bot sesuai keinginan Anda, harap jawab pertanyaan berikut dengan benar.\nGaya apa yang harus saya gunakan saat berkomunikasi dengan Anda dan menyajikan berita?"
+        },
+        "menu": {
+            "state_display_message": "Silakan pilih tindakan..."
+        },
+        "functions": {
+            "state_display_message": "Silakan pilih salah satu fungsi"
+        },
+        "subscription": {
+            "state_display_message": "Silakan pilih langganan"
+        },
+        "settings": {
+            "state_display_message": "Silakan pilih pengaturan"
+        },
+        "warning_messages": {
+            "model_unavailable": "Maaf, model yang Anda pilih tidak tersedia saat ini. Ini akan digantikan oleh model lain yang akan segera merespons. Silakan hubungi kami jika Anda memiliki pertanyaan.\n\n\n",
+            "exceeded_daily_quota": "Anda telah melampaui kuota harian Anda. Silakan isi ulang tarif Anda.",
+            "exceeded_monthly_quota": "Anda telah melampaui kuota bulanan Anda. Silakan isi ulang tarif Anda.",
+            "old_menu_deleted": "Menu yang Anda coba gunakan sudah usang karena pembaruan bot, sehingga telah dihapus. Gunakan perintah /1 untuk membuat menu baru.",
+            "old_menu_cannot_be_deleted": "Menu yang Anda coba gunakan sudah kedaluwarsa karena pembaruan bot. Gunakan perintah /1 untuk membuat menu baru."
+        },
+        "help": {
+            "state_display_message": "Jelaskan masalah Anda di sini..."
+        },
+        "contact_us": {
+            "state_display_message": "Bantu kami melayani Anda dengan lebih baik. Pilih opsi untuk berbagi pengalaman atau ide untuk perbaikan."
+        },
+        "init_hashtager": {
+            "state_display_message": "Silakan masukkan topik yang ingin Anda terima beritanya.",
+            "examples": "Berikut adalah contoh bagaimana Anda harus mendesain postingan dengan daftar minat Anda:\n1) “Olahraga ekstrem, perjalanan petualangan, keterampilan bertahan hidup di luar ruangan”\n2) “Sastra klasik, puisi, resensi buku”\n3) “Seni cadas, grafiti; debat analisis politik”\nAnda selalu dapat menyesuaikan daftar minat Anda di masa mendatang.",
+            "wait_message": "Bot membutuhkan waktu untuk menemukan hashtag yang sesuai dengan minat Anda. Anda dapat meninjau dan mengeditnya nanti.\nBot akan memberi tahu Anda ketika hashtag telah dipilih, tetapi sementara itu, lihat fitur-fitur lain dari bot!",
+            "finish_hashtagization": "Hashtag yang sesuai telah dipilih."
+        },
+        "reset_hashtager": {
+            "finish_hashtagization": "Hashtag yang sesuai telah dipilih.\nPengaturan bot telah diubah!"
+        },
+        "init_hashtags": {
+            "state_display_message": {
+                "CategoryState": "Silakan pilih kategori...",
+                "HashtagState": "Silakan pilih hashtag..."
+            }
+        },
+        "hashtags": {
+            "state_display_message": {
+                "CategoryState": "Silakan pilih kategori...",
+                "HashtagState": "Silakan pilih hashtag..."
+            }
+        },
+        "blacklist": {
+            "state_display_message": {
+                "CategoryState": "Silakan pilih kategori...",
+                "HashtagState": "Silakan pilih hashtag..."
+            }
+        },
+        "language": {
+            "state_display_message": "Silakan pilih bahasa"
+        },
+        "utc_shift": {
+            "state_display_message": "Silakan pilih zona waktu"
+        },
+        "init_styles": {
+            "state_display_message": "Silakan pilih gaya"
+        },
+        "init_utc_shift": {
+            "state_display_message": "Silakan pilih pergeseran utc di sini"
+        },
+        "reset_utc_shift": {
+            "state_display_message": "Silakan pilih pergeseran UTC di sini"
+        },
+        "style": {
+            "state_display_message": "Silakan pilih gaya"
+        },
+        "pay": {
+            "tariffs_display_message": "Silakan pilih tarif",
+            "provider_display_message": "Silakan pilih penyedia pembayaran",
+            "pay_display_message": "Tolong, bayar, untuk mendukung kami",
+            "title": "Berlangganan bot",
+            "description": "Mulailah petualangan pengiriman pesan Anda dengan paket 🌟 **BASIC** kami hanya dengan **$0**! Anda akan mendapatkan kuota pesan harian sebanyak ✉️ 20 pesan dan jatah bulanan sebesar 📬 200 pesan. Sempurna bagi mereka yang baru saja terjun ke otomatisasi perpesanan.\n\nTingkatkan paket 🚀 **STANDAR** kami hanya dengan **$10**. Paket ini meningkatkan kapasitas pesan harian Anda menjadi ✉️ 50 pesan dan kuota bulanan 📬 500 pesan. Selain itu, Anda akan mendapatkan akses ke 📡 5 saluran khusus untuk cakupan komunikasi yang lebih luas.\n\nTingkatkan permainan perpesanan Anda dengan paket 💼 **PRO** kami seharga **$19**. Nikmati tunjangan harian yang besar sebanyak ✉️ 150 pesan dan 🔄 batas pesan bulanan tak terbatas yang mengesankan. Anda juga akan mendapatkan akses eksklusif ke 🌐 20 saluran khusus, sehingga memaksimalkan jangkauan dan potensi keterlibatan Anda.\n\n Mulailah pengalaman berkirim pesan yang mewah dengan paket ✨ **PREMIUM** kami, yang dirancang bagi mereka yang menghargai hal-hal terbaik dan menginginkan layanan terbaik. Hanya dengan **$50** per bulan, nikmati:\n\n- Kuota pesan harian yang melimpah sebanyak ✉️ **150 pesan**\n- Tunjangan pesan bulanan sebesar 📬 **1500 pesan**\n- Kuota saluran eksklusif sebesar 🌐 **50 saluran khusus**\n\nTingkatkan komunikasi Anda ke status premium dan terhubung dengan keanggunan dan efisiensi.\n\n",
+            "currency_display_message": "Silakan pilih mata uang"
+        },
+        "pay_to_pasha": {
+            "state_display_message": "Jika Anda menyukai bot kami, Anda dapat mendukung kami dengan donasi. Sebagai imbalannya, Anda akan mendapatkan dukungan prioritas di bot Telegram tim kami saat ini dan yang akan datang, serta peningkatan jumlah maksimum pesan (per hari, per bulan) saat berkomunikasi dengan bot.\nDengan mengklik tombol di bawah ini, Anda akan masuk ke obrolan dengan pengembang, di mana Anda dapat menyetujui jumlah donasi dan meningkatkan batas pesan saat menggunakan bot."
+        },
+        "info": {
+            "state_display_message": "TODO, tampilkan info dalam berbagai bahasa"
+        },
+        "get_news": {
+            "state_display_message": "Mengumpulkan berita..."
+        },
+        "generate_image": {
+            "state_display_message": "Masukkan prompt untuk menghasilkan gambar"
+        },
+        "models": {
+            "state_display_message": "Silakan pilih modelnya"
+        },
+        "start_guide": {
+            "state_display_message": "Selamat datang!\nFungsi utama bot:\n1) Komunikasi gratis dengan pengguna dalam bahasa pengguna;\n2) Membuat gambar sesuai permintaan pengguna;\n3) Untuk apa Anda di sini: mencari dan mengirim berita kepada pengguna, sesuai dengan preferensi pengguna!"
+        },
+        "new_llm_communication": {
+            "state_display_message": "Pertama, lihat bagaimana bot dapat merespons pertanyaan Anda.\nCoba tanyakan sesuatu!",
+            "auxiliary_message": "Jika mau, Anda dapat memilih salah satu pertanyaan di bawah ini"
+        },
+        "show_llm_communication": {
+            "state_display_message": "Beginilah cara bot merespons pertanyaan Anda. Coba tanyakan sesuatu!",
+            "auxiliary_message": "Jika mau, Anda dapat memilih salah satu pertanyaan di bawah ini"
+        },
+        "news_sending": {
+            "state_display_message": "Bot juga dapat mengirimi Anda berita terbaru. Berikut ini contohnya:"
+        },
+        "new_image_generation": {
+            "state_display_message": "Ketika bot memberikan respons terhadap permintaan Anda, Anda akan menerima notifikasi di obrolan.\nAnda tidak perlu menunggu bot selesai mengerjakan tugas tertentu, Anda dapat terus menggunakan fitur bot lainnya! \nMasukkan kueri untuk gambar yang ingin Anda buat.",
+            "auxiliary_message": "Jika mau, Anda dapat memilih salah satu opsi di bawah ini",
+            "update_state": {
+                "process": "Menghasilkan gambar untuk prompt: ",
+                "success": "Inilah gambar yang Anda hasilkan:",
+                "wrong": "Maaf, ada yang salah dengan koneksinya: "
+            }
+        },
+        "image_generation_prompt": {
+            "state_display_message": "Sekarang, mari kita buat sebuah gambar. Silakan ketik prompt untuk gambar yang ingin Anda hasilkan.",
+            "auxiliary_message": "Jika mau, Anda dapat memilih salah satu opsi di bawah ini"
+        },
+        "guided_generate_image": {
+            "state_display_message": {
+                "process": "Menghasilkan gambar untuk prompt: ",
+                "success": "Inilah gambar yang Anda hasilkan:",
+                "wrong": "Maaf, ada yang salah dengan koneksinya. Silakan coba lagi."
+            }
+        },
+        "new_end": {
+            "state_display_message": "Pada saat yang sama dengan menghasilkan respons terhadap kueri Anda, bot akan mencoba menemukan berita yang relevan untuk Anda. Anda tidak perlu menunggu apa pun, Anda dapat terus menggunakan fungsionalitas penuh bot!\nAnda dapat menggunakan perintah berikut:\n/1 - buka menu;\n/2 - buka bantuan;\n/3 - mengatur ulang pengaturan bot.",
+            "update_state": "Semua berita telah dikirim.\nSekarang Anda sudah tahu segalanya tentang fitur utama bot! Gunakan semua kekuatannya untuk mencapai tujuan Anda!"
+        },
+        "end": {
+            "state_display_message": "Selamat datang di bot! Semoga berhasil dan bersenang-senang menggunakannya!"
+        },
+        "help_command": {
+            "state_display_message": "Bagaimana kami dapat membantu Anda hari ini?"
+        },
+        "bot_skills": {
+            "state_display_message": "Bot ini mengirimi Anda berita secara berkala tentang topik yang Anda pilih. Pesan tidak dikirim pada jam malam Anda.\nPerintah dasar:\n/menu - membuka menu utama\n/bantuan - akses bantuan\n/reset - mengembalikan pengaturan default\nUntuk menerima berita segera tanpa menunggu, pilih \"Fitur\" di menu, lalu pilih \"Dapatkan berita\".\nUntuk menyesuaikan bahasa, zona waktu, minat, dan model AI yang digunakan untuk komunikasi dan pemrosesan berita, pilih \"Pengaturan\" di menu.\nAnda dapat melaporkan bug atau berbagi ide dengan memilih \"Hubungi Kami\" di bagian bantuan bot."
+        },
+        "setting_reset": {
+            "state_display_message": "Apakah Anda yakin ingin menyetel ulang semua setelan bot? Jika Anda menjawab \"Ya\", semua pengaturan akan kembali ke keadaan semula, setelah itu Anda akan memiliki kesempatan untuk menyesuaikan bot lagi."
+        },
+        "are_you_sure": {
+            "state_display_message": "Harap tunggu, semua pengaturan akan kembali ke keadaan default."
+        },
+        "faq": {
+            "state_display_message": "Di bawah ini adalah pertanyaan yang paling sering diajukan dan jawabannya.\n\n<b>Pertanyaan:</b> Saya telah kehabisan batas pesan harian (bulanan) saya, bagaimana cara melanjutkan komunikasi dengan bot?\n<i>Jawaban:</i> Anda dapat mendukung proyek ini dengan donasi kecil di menu 'Bantu proyek', sebagai imbalannya kami akan sedikit meningkatkan batas Anda.\n\n<b>Pertanyaan:</b> Bagaimana saya dapat mendukung pengembang bot ini? \n<i>Jawaban:</i> Anda dapat mengirimkan donasi berapa pun yang menurut Anda dapat diterima.\n\n<b>Pertanyaan:</b> Apakah ada cara non-finansial untuk memberi penghargaan kepada pengembang?\n<i>Jawaban:</i> Ya, Anda dapat mengirimkan laporan bug atau menyarankan ide menggunakan opsi yang sesuai di bantuan bot.\n\nJika pertanyaan Anda tidak ada dalam daftar, Anda dapat menuliskannya di obrolan sekarang juga!",
+            "state_update_display_message": "Pertanyaan telah dikirim ke administrator bot. Jika Anda masih memiliki pertanyaan, Anda dapat mengirimkan satu atau lebih."
+        },
+        "write_problem": {
+            "state_display_message": "Bantu bentuk produk kami! Gunakan obrolan untuk menyampaikan masukan Anda secara langsung dengan pakar pengembangan kami.",
+            "state_update_display_message": "Kami menghargai masukan Anda! Tim pengembangan kami telah menerima wawasan Anda dan akan menggunakannya untuk meningkatkan pengalaman Anda. Punya lebih banyak hal untuk dibagikan? Lanjutkan percakapan – kita semua mendengarkan!"
+        },
+        "suggest_idea": {
+            "state_display_message": "Jika Anda ingin berbagi ide, kirimkan ke chat sekarang juga! Salah satu manajer perusahaan kami pasti akan membacanya.",
+            "state_update_display_message": "Terima kasih telah membagikan ide inovatif Anda! Kami dengan senang hati mengonfirmasi bahwa saran Anda telah berhasil diteruskan ke tim pengembangan produk kami. Kami mendorong Anda untuk terus membagikan wawasan Anda - jangan ragu untuk mengirimkan ide tambahan dalam pesan berikutnya. Sebagai bentuk apresiasi kami, jika ada ide Anda yang terpilih untuk diterapkan, Anda mungkin memenuhi syarat untuk mendapatkan peningkatan gratis ke tingkat paket Anda. Kreativitas Anda membantu kami tumbuh dan berkembang!"
+        },
+        "unread_news": {
+            "some_news": "Bot telah memilih /1 berita khusus untuk Anda hari ini! Klik tombol \"/2\" untuk membacanya.",
+            "a_lot_of_news": "Bot telah memilih /1 berita khusus untuk Anda hari ini! Klik tombol \"/2\" untuk membaca 5 yang pertama.",
+            "no_news": "Sebentar lagi bot akan memilih berita khusus untuk Anda!\nJika Anda tidak ingin menunggu, Anda dapat menggunakan fungsi yang sesuai di menu (/1), lalu bot akan segera mulai memilih berita!",
+            "update_news": "Semua sumber yang tidak ditambahkan oleh bot hari ini telah dihapus dari kantong berita Anda.\nSumber-sumber tersebut dapat ditambahkan lagi jika tidak ada lagi topik yang relevan dengan minat Anda yang muncul hari ini."
+        }
+    },
+    "misc": {
+        "keyboard": {
+            "done": "Selesai ✅",
+            "cancel": "Batalkan ❌",
+            "back": "Kembali",
+            "back_arrow": "⬅️",
+            "info": "Informasi",
+            "pay": "Membayar",
+            "menu": "Menu",
+            "functions": "Fungsi",
+            "settings": "Pengaturan",
+            "subscription": "Berlangganan",
+            "contact_us": "Hubungi kami",
+            "help": "Membantu",
+            "get_news": "Dapatkan Berita",
+            "generate_post": "Hasilkan Posting",
+            "generate_image": "Hasilkan Gambar",
+            "hashtags": "Tagar",
+            "blacklist": "Daftar Hitam",
+            "language": "Bahasa",
+            "style": "Gaya",
+            "models": "Model",
+            "utc_shift": "Zona waktu",
+            "question_1": "Bagaimana kamu bisa berguna bagiku?",
+            "question_2": "Seberapa luas wawasan Anda?",
+            "question_3": "Topik apa yang paling Anda kuasai?",
+            "fast": "Cepat",
+            "common": "Biasa",
+            "smart": "Cerdas",
+            "pay_to_pasha": "\uD83D\uDC9D Membantu proyek",
+            "pay_to_pasha_button": "Mengobrol dengan pengembang",
+            "pay_to_pasha_text": "Hai, saya ingin mendukung tim Anda dengan secangkir kopi. Bagaimana cara saya mentransfer donasi kepada Anda?",
+            "-11": "Samoa Amerika, Pago Pago",
+            "-10": "AS, Hawaii, Honolulu",
+            "-9": "AS, Alaska, Anchorage",
+            "-8": "AS, Kalifornia, Los Angeles",
+            "-7": "AS, Colorado, Denver",
+            "-6": "Meksiko, Kota Meksiko",
+            "-5": "AS, New York, New York",
+            "-4": "Venezuela Caracas",
+            "-3": "Argentina Buenos Aires",
+            "-2": "Brasil, Sao Paulo",
+            "-1": "Tanjung Verde, Praia",
+            "0": "Inggris Raya, London",
+            "1": "Perancis paris",
+            "2": "Mesir, Kairo",
+            "3": "Rusia, Moskow",
+            "4": "Uni Emirat Arab, Dubai",
+            "5": "Pakistan, Islamabad",
+            "6": "Bangladesh, Dhaka",
+            "7": "Thailand, Bangkok",
+            "8": "Cina, Beijing",
+            "9": "Jepang, Tokyo",
+            "10": "Australia, Canberra",
+            "11": "Kepulauan Solomon, Honiara",
+            "12": "Selandia Baru, Wellington"
+        },
+        "guide_keyboard": {
+            "question_1": "Bagaimana kamu bisa berguna bagiku?",
+            "question_2": "Seberapa luas wawasan Anda?",
+            "question_3": "Topik apa yang paling Anda kuasai?",
+            "image_1": "Kota futuristik yang mengambang di awan",
+            "image_2": "Hutan kuno dengan makhluk-makhluk fantastis",
+            "image_3": "Dunia bawah laut dengan tanaman bercahaya",
+            "image_4": "Menara Eiffel versi steampunk",
+            "image_5": "Taman Jepang di kota cyberpunk",
+            "image_6": "Perpustakaan dengan buku-buku terbang",
+            "image_7": "Alam mengambil alih reruntuhan kota",
+            "image_8": "Sebuah kapal kota berlayar di lautan bintang",
+            "image_9": "Stasiun yang mengorbit bintang terang",
+            "image_10": "Laboratorium kuantum di dalam kristal raksasa"
+        },
+        "help_keyboard": {
+            "help_command": "Membantu",
+            "bot_skills": "Apa yang bisa dilakukan bot itu?",
+            "setting_reset": "Atur ulang pengaturan",
+            "are_you_sure": "Ya",
+            "faq": "Pertanyaan Umum",
+            "contact_us": "Hubungi kami",
+            "write_problem": "Tulis tanggapan",
+            "suggest_idea": "Sarankan sebuah ide",
+            "back": "Kembali"
+        },
+        "reply_keyboard": {
+            "get_5": "\uD83D\uDFE2 Dapatkan berita!"
+        }
+    },
+    "hashtag_categories": {
+        "politics & government": [
+            "Politik & Pemerintahan",
+            {
+                "#politics": "#Politik",
+                "#diplomacy": "#Diplomasi",
+                "#government": "#Pemerintah",
+                "#centrism": "#Sentrisme",
+                "#socialism": "#Sosialisme",
+                "#libertarianism": "#Libertarianisme",
+                "#anarchism": "#Anarkisme",
+                "#politicalanalysis": "#Analisis Politik",
+                "#policymaking": "#Pembuatan Kebijakan",
+                "#civicengagement": "#Keterlibatan masyarakat"
+            }
+        ],
+        "economics & finance": [
+            "Ekonomi & Keuangan",
+            {
+                "#economy": "#Ekonomi",
+                "#financialnews": "#Berita Keuangan",
+                "#trade": "#Berdagang",
+                "#crypto": "#Kripto",
+                "#stockmarket": "#Pasar saham",
+                "#financialfreedom": "#Kebebasan finansial",
+                "#investor": "#Investor",
+                "#budgeting": "#Penganggaran",
+                "#wealthbuilding": "#Membangun Kekayaan",
+                "#realestateinvestor": "#Investor RealEstat",
+                "#economicdevelopment": "#Pertumbuhan ekonomi",
+                "#emergingmarkets": "#Pasar negara berkembang",
+                "#globaltrade": "#Perdagangan Global",
+                "#economicpolicy": "#Kebijakan ekonomi",
+                "#startups": "#Startup",
+                "#businessstrategy": "#Strategi bisnis",
+                "#entrepreneurship": "#Kewiraswastaan",
+                "#marketing": "#Pemasaran",
+                "#ecommerce": "#Perdagangan elektronik"
+            }
+        ],
+        "society & social issues": [
+            "Masalah Masyarakat & Sosial",
+            {
+                "#socialissue": "#Isu sosial",
+                "#humanrights": "#Hak asasi Manusia",
+                "#justice": "#Keadilan",
+                "#conservative": "#Konservatif",
+                "#liberal": "#Liberal",
+                "#activist": "#Aktivis",
+                "#feminist": "#Feminis",
+                "#lgbtqsupporter": "#LGBTQSupporter",
+                "#environmentaladvocate": "#Penganjur Lingkungan",
+                "#humanrightsdefender": "#Pembela Hak Asasi Manusia",
+                "#socialjusticewarrior": "#Prajurit Keadilan Sosial",
+                "#globalwarming": "#Pemanasan global",
+                "#refugeecrisis": "#Krisis pengungsi",
+                "#worldhunger": "#Kelaparan Dunia",
+                "#watercrisis": "#Krisis Air",
+                "#globalhealth": "#Kesehatan Global",
+                "#justicesystem": "#Sistem keadilan",
+                "#humanrightslaw": "#Hukum Hak Asasi Manusia"
+            }
+        ],
+        "health & well-being": [
+            "Kesehatan & Kesejahteraan",
+            {
+                "#healthupdate": "#Pembaruan Kesehatan",
+                "#mentalhealth": "#Kesehatan mental",
+                "#publichealth": "#Kesehatan masyarakat",
+                "#mentalhealthawareness": "#Kesadaran Kesehatan Mental",
+                "#wellnessjourney": "#Perjalanan Kesehatan",
+                "#selfcare": "#Perawatan diri",
+                "#healthyliving": "#Hidup Sehat",
+                "#mindfulness": "#Perhatian",
+                "#meditationenthusiast": "#Penggemar Meditasi",
+                "#covid19": "#COVID 19",
+                "#chronicillness": "#Penyakit kronis",
+                "#healthcarereform": "#Reformasi Layanan Kesehatan",
+                "#nutrition": "#Nutrisi",
+                "#fitnesstrends": "#Tren Kebugaran",
+                "#mentalwellness": "#Kesehatan Mental",
+                "#alternativemedicine": "#Obat alternatif",
+                "#healthtech": "#Teknologi Kesehatan"
+            }
+        ],
+        "science & technology & education": [
+            "Sains & Teknologi & Pendidikan",
+            {
+                "#technews": "#Berita Teknologi",
+                "#scienceupdate": "#Pembaruan Sains",
+                "#innovation": "#Inovasi",
+                "#space": "#Ruang angkasa",
+                "#education": "#Pendidikan",
+                "#research": "#Riset",
+                "#learning": "#Sedang belajar",
+                "#lifelonglearner": "#Pelajar Seumur Hidup",
+                "#onlinecourse": "#Kursus online",
+                "#diy": "#buatan sendiri",
+                "#skilldevelopment": "#Pengembangan Keterampilan",
+                "#languagelearner": "#Pelajar Bahasa",
+                "#educator": "#Pendidik",
+                "#studentlife": "#Kehidupan pelajar",
+                "#stem": "#TANGKAI",
+                "#techenthusiast": "#Penggemar Teknologi",
+                "#blockchain": "#Blockchain",
+                "#cybersecurity": "#Keamanan cyber",
+                "#datascience": "#Ilmu Data",
+                "#machinelearning": "#Pembelajaran mesin",
+                "#augmentedreality": "#AugmentedReality",
+                "#internetofthings": "#Internet untuk segala",
+                "#5g": "#5G",
+                "#quantumcomputing": "#Komputasi Kuantum",
+                "#genomics": "#Genomics",
+                "#astrophysics": "#Astrofisika",
+                "#sustainableenergy": "#Energi Berkelanjutan",
+                "#medicalresearch": "#Penelitian medis",
+                "#physics": "#Fisika",
+                "#biotechnology": "#Bioteknologi",
+                "#environmentalscience": "#Ilmu Lingkungan",
+                "#astronomy": "#Astronomi",
+                "#edutech": "#Teknologi Pendidikan",
+                "#onlinelearning": "#Pembelajaran online",
+                "#academicresearch": "#Penelitian Akademik",
+                "#aisafety": "#AIKeamanan",
+                "#rocketscience": "#Ilmu roket",
+                "#programming": "#Pemrograman"
+            }
+        ],
+        "culture": [
+            "Budaya",
+            {
+                "#culturalevent": "#Acara Budaya",
+                "#culturalfestivals": "#Festival Budaya",
+                "#culturalheritage": "#Warisan budaya",
+                "#bookclub": "#Klub buku",
+                "#literaryreadings": "#Bacaan Sastra",
+                "#culturalexplorer": "#Penjelajah Budaya",
+                "#historicaldrama": "#Drama Sejarah",
+                "#culturalexchange": "#Pertukaran budaya",
+                "#culturalhistory": "#Sejarah Budaya",
+                "#ethnography": "#Etnografi",
+                "#museums": "#Museum",
+                "#culturaltraditions": "#Tradisi Budaya",
+                "#folklore": "#Cerita rakyat",
+                "#anthropology": "#Antropologi",
+                "#culturalcelebrations": "#Perayaan Budaya"
+            }
+        ],
+        "arts": [
+            "Seni",
+            {
+                "#art": "#Seni",
+                "#contemporaryart": "#Seni kontemporer",
+                "#artexhibitions": "#Pameran Seni",
+                "#artgalleries": "#Galeri Seni",
+                "#sculpture": "#Patung",
+                "#arthistory": "#Sejarah seni",
+                "#painting": "#Lukisan",
+                "#streetart": "#Seni jalanan",
+                "#photography": "#Fotografi",
+                "#digitalart": "#Seni digital",
+                "#finearts": "#Seni Rupa",
+                "#artistsspotlight": "#Sorotan Artis",
+                "#performanceart": "#PerformanceArt",
+                "#visualarts": "#Seni visual",
+                "#artinstallations": "#Instalasi Seni",
+                "#graphicdesign": "#Desain Grafis",
+                "#artfairs": "#Pameran Seni",
+                "#arttherapy": "#Terapi Seni",
+                "#artcollectors": "#Kolektor Seni",
+                "#artauctions": "#Lelang Seni",
+                "#crafts": "#Kerajinan",
+                "#ceramics": "#Keramik",
+                "#printmaking": "#Pembuatan cetakan",
+                "#illustration": "#Ilustrasi",
+                "#publicart": "#Seni Publik"
+            }
+        ],
+        "entertainment": [
+            "Hiburan",
+            {
+                "#entertainment": "#Hiburan",
+                "#movies": "#Film",
+                "#tv": "#TELEVISI",
+                "#webseries": "#Seri Web",
+                "#podcasts": "#Podcast",
+                "#radioshows": "#Acara Radio",
+                "#music": "#Musik",
+                "#concerts": "#Konser",
+                "#albumrelease": "#AlbumRilis",
+                "#musicvideos": "#Video musik",
+                "#awards": "#Penghargaan",
+                "#popculture": "#Budaya Pop",
+                "#viraltrends": "#TrenViral",
+                "#memes": "#Meme",
+                "#influencerculture": "#InfluencerBudaya",
+                "#vloggers": "#Vlogger",
+                "#streamers": "#Streamer",
+                "#gamingnews": "#Berita Game",
+                "#fanconventions": "#Konvensi Penggemar",
+                "#celebritynews": "#Berita Selebriti",
+                "#moviereviews": "#Ulasan Film",
+                "#tvshows": "#Acara TV",
+                "#realityshows": "#RealityShow",
+                "#talkshows": "#Acara bincang-bincang",
+                "#comedyshows": "#Pertunjukan Komedi",
+                "#theater": "#Teater",
+                "#broadwayshows": "#Pertunjukan Broadway",
+                "#musicals": "#Musikal",
+                "#livecomedy": "#LiveKomedi",
+                "#cinema": "#Bioskop",
+                "#filmfestival": "#Festifal Film",
+                "#musicfestivals": "#Festival Musik",
+                "#nightlife": "#Dunia malam",
+                "#clubbing": "#Klub",
+                "#magicshows": "#Pertunjukan Sulap",
+                "#circus": "#Sirkus",
+                "#varietyshows": "#VarietyShow",
+                "#cosplay": "#Permainan kostum"
+            }
+        ],
+        "sports & athletics": [
+            "Olahraga & Atletik",
+            {
+                "#sports": "#Olahraga",
+                "#athletics": "#Atletik",
+                "#teamsports": "#Olahraga berkelompok",
+                "#individualsports": "#Olahraga individu",
+                "#olympics": "#Olimpiade",
+                "#worldcup": "#Piala Dunia",
+                "#football": "#Sepak bola",
+                "#basketball": "#Bola basket",
+                "#baseball": "#Baseball",
+                "#cricket": "#Jangkrik",
+                "#tennis": "#Tenis",
+                "#golf": "#Golf",
+                "#rugby": "#Ragbi",
+                "#hockey": "#Hoki",
+                "#mma": "#MMA",
+                "#boxing": "#Tinju",
+                "#cycling": "#Bersepeda",
+                "#swimming": "#Renang",
+                "#trackandfield": "#TrackAndField",
+                "#volleyball": "#Bola voli",
+                "#gymnastics": "#Olahraga senam",
+                "#skating": "#Seluncur",
+                "#skiing": "#Ski",
+                "#snowboarding": "#Seluncur Salju",
+                "#surfing": "#Berselancar",
+                "#motorsport": "#Olahraga Motor",
+                "#f1": "#F1",
+                "#nascar": "#NASCAR",
+                "#esports": "#Esports",
+                "#badminton": "#Bulu tangkis",
+                "#tabletennis": "#Tenis meja",
+                "#marathon": "#Maraton",
+                "#triathlon": "#Triatlon",
+                "#equestrian": "#Penunggang kuda",
+                "#skateboarding": "#Skateboard",
+                "#climbing": "#Pendakian",
+                "#wrestling": "#Gulat",
+                "#judo": "#Judo",
+                "#taekwondo": "#Taekwondo",
+                "#karate": "#Karate",
+                "#archery": "#Panahan",
+                "#shootingsports": "#Olahraga Menembak",
+                "#fencing": "#Pagar",
+                "#weightlifting": "#Angkat Berat",
+                "#bodybuilding": "#Gerak badan",
+                "#yoga": "#Yoga",
+                "#pilates": "#Pilates",
+                "#dancesports": "#DanceSports",
+                "#parkour": "#Parkour"
+            }
+        ],
+        "environment & climate": [
+            "Lingkungan & Iklim",
+            {
+                "#climate": "#Iklim",
+                "#environment": "#Lingkungan",
+                "#sustainability": "#Keberlanjutan",
+                "#greentech": "#Teknologi Hijau",
+                "#ecofriendly": "#Ramah lingkungan",
+                "#conservation": "#Konservasi",
+                "#renewableenergy": "#Energi terbarukan"
+            }
+        ],
+        "crime & safety": [
+            "Kejahatan & Keamanan",
+            {
+                "#crime": "#Kejahatan",
+                "#safety": "#Keamanan",
+                "#legalnews": "#Berita Hukum",
+                "#regulations": "#Peraturan",
+                "#compliance": "#Kepatuhan",
+                "#corporatelaw": "#Hukum Perusahaan"
+            }
+        ],
+        "lifestyle & personal characteristics": [
+            "Gaya Hidup & Karakteristik Pribadi",
+            {
+                "#vegan": "#Vegan",
+                "#minimalist": "#Minimalis",
+                "#zerowaste": "#ZeroWaste",
+                "#digitalnomad": "#DigitalNomad",
+                "#parenting": "#Mengasuh Anak",
+                "#petlover": "#Pecinta hewan peliharaan",
+                "#homebody": "#Orang rumahan",
+                "#fitnessenthusiast": "#Penggemar Kebugaran",
+                "#traveljunkie": "#TravelJunkie",
+                "#introvert": "#Tertutup",
+                "#extrovert": "#Ekstrovert",
+                "#ambivert": "#ambivert",
+                "#empath": "#Empat",
+                "#optimist": "#Optimis",
+                "#pessimist": "#Pesimis",
+                "#realist": "#Realis",
+                "#sustainableliving": "#Hidup Berkelanjutan",
+                "#digitallifestyle": "#Gaya Hidup Digital",
+                "#urbangardening": "#UrbanGardening",
+                "#tinyhomes": "#Rumah Kecil",
+                "#selfimprovement": "#Perbaikan diri",
+                "#lifehacks": "#LifeHacks",
+                "#careeradvice": "#Saran Karir",
+                "#successstories": "#Cerita-cerita sukses",
+                "#mindset": "#Kerangka berpikir",
+                "#fashiontrends": "#Tren Mode",
+                "#beautytips": "#Tips Kecantikan",
+                "#streetstyle": "#Gaya Jalanan"
+            }
+        ],
+        "hobbies & interests": [
+            "Hobi & Minat",
+            {
+                "#bookworm": "#Kutu Buku",
+                "#traveler": "#Wisatawan",
+                "#foodie": "#Penggila makanan",
+                "#gamer": "#Pemain permainan",
+                "#musiclover": "#Penggemar musik",
+                "#fitnessfreak": "#KebugaranFreak",
+                "#naturelover": "#Pecinta alam",
+                "#artaficionado": "#Pecinta Seni",
+                "#sportsfan": "#Penggemar olahraga",
+                "#photographyenthusiast": "#Penggemar Fotografi",
+                "#moviebuff": "#Penggemar film",
+                "#diyer": "#DIYer",
+                "#gardeninglover": "#Kekasih Berkebun",
+                "#fashionista": "#Fashionista",
+                "#gourmet": "#Makanan",
+                "#homecooking": "#Masakan rumah",
+                "#veganrecipes": "#Resep Vegan",
+                "#streetfood": "#Makanan Jalanan"
+            }
+        ],
+        "religion & spirituality": [
+            "Agama & Spiritualitas",
+            {
+                "#atheist": "#Ateis",
+                "#agnostic": "#Agnostis",
+                "#christian": "#Kristen",
+                "#muslim": "#Muslim",
+                "#buddhist": "#Buddhis",
+                "#spiritualbutnotreligious": "#SpiritualTapiTidakReligius",
+                "#hindu": "#Hindu",
+                "#pagan": "#Penyembah berhala",
+                "#spiritualseeker": "#Pencari Rohani"
+            }
+        ],
+        "geography & travel": [
+            "Geografi & Perjalanan",
+            {
+                "#expatriate": "#Ekspatriat",
+                "#localtravel": "#Perjalanan Lokal",
+                "#worldtraveler": "#Wisatawan Dunia",
+                "#urbanexplorer": "#Penjelajah Perkotaan",
+                "#ruraladventurer": "#Petualang Pedesaan",
+                "#adventuretravel": "#Perjalanan Petualangan",
+                "#ecotourism": "#Ekowisata",
+                "#citybreaks": "#CityBreaks",
+                "#culinarytravel": "#Perjalanan Kuliner",
+                "#backpacking": "#ransel"
+            }
+        ],
+        "gaming & digital entertainment": [
+            "Permainan & Hiburan Digital",
+            {
+                "#gaming": "#Game",
+                "#gamerelease": "#RilisGame",
+                "#gamereview": "#Ulasan Game",
+                "#platformgaming": "#PlatformGame",
+                "#vrgaming": "#VRGaming",
+                "#gamingcommunity": "#Komunitas Permainan",
+                "#vr": "#VR"
+            }
+        ],
+        "legal & regulatory news": [
+            "Berita Hukum & Peraturan",
+            {}
+        ],
+        "industry-specific news": [
+            "Berita Khusus Industri",
+            {
+                "#automotivenews": "#Berita Otomotif",
+                "#fashionindustry": "#Industri Mode",
+                "#agriculturenews": "#Berita Pertanian"
+            }
+        ],
+        "historical context": [
+            "Konteks Sejarah",
+            {
+                "#onthisday": "#Pada hari ini",
+                "#historyfacts": "#Fakta Sejarah",
+                "#historicalperspective": "#Perspektif Sejarah"
+            }
+        ],
+        "special events & occasions": [
+            "Acara & Acara Khusus",
+            {
+                "#elections2024": "#Pemilu2024",
+                "#earthday": "#Hari Bumi",
+                "#internationalwomensday": "#Hari Perempuan Internasional"
+            }
+        ],
+        "user-generated content": [
+            "Konten Buatan Pengguna",
+            {
+                "#userstory": "#Kisah Pengguna",
+                "#communityvoice": "#Suara Komunitas",
+                "#diyprojects": "#Proyek DIY",
+                "#traveldiaries": "#TravelDiaries",
+                "#foodblogging": "#Blog Makanan",
+                "#fashionblogging": "#FashionBlogging",
+                "#fitnessjourney": "#Perjalanan Kebugaran",
+                "#artshare": "#Berbagi Seni",
+                "#photographylovers": "#FotografiPecinta",
+                "#vlog": "#Vlog",
+                "#personalblog": "#Blog Pribadi",
+                "#makeuptutorial": "#Tutorial Riasan",
+                "#gamingcontent": "#Konten Game",
+                "#techreviews": "#TechReview",
+                "#bookreviews": "#Resensi Buku",
+                "#musiccovers": "#MusikCover",
+                "#dancevideos": "#Video Tari",
+                "#comedyskits": "#KomediSkit",
+                "#petvideos": "#Video Hewan Peliharaan",
+                "#parentingtips": "#Tips Mengasuh Anak",
+                "#gardeningtips": "#Tips Berkebun",
+                "#sustainabilityideas": "#Ide Keberlanjutan",
+                "#healthtips": "#Tips Kesehatan",
+                "#motivationalposts": "#Postingan Motivasi",
+                "#poetry": "#Puisi",
+                "#shortstories": "#Cerita pendek",
+                "#fanart": "#Karya penggemar",
+                "#crafting": "#Kerajinan",
+                "#homedecorideas": "#Ide Dekorasi Rumah",
+                "#fitnesschallenges": "#Tantangan Kebugaran",
+                "#cookingrecipes": "#Resep Masakan",
+                "#travelvlogs": "#TravelVlogs",
+                "#studywithme": "#BelajarDenganku",
+                "#productivitytips": "#Tips Produktivitas",
+                "#languagelearning": "#Pembelajaran Bahasa",
+                "#virtualtours": "#Tur Virtual",
+                "#remotework": "#Kerja jarak jauh",
+                "#volunteering": "#Relawan",
+                "#charitywork": "#Pekerjaan amal",
+                "#socialactivism": "#Aktivisme Sosial"
+            }
+        ],
+        "fact-checking & misinformation": [
+            "Pengecekan Fakta & Misinformasi",
+            {
+                "#factcheck": "#Periksa Fakta",
+                "#misinformation": "#Keterangan yg salah",
+                "#fakenewsalert": "#PeringatanBerita Palsu"
+            }
+        ],
+        "music": [
+            "Musik",
+            {
+                "#pop": "#Pop",
+                "#rock": "#Batu",
+                "#jazz": "#Jazz",
+                "#classical": "#Klasik",
+                "#hiphop": "#HipHop",
+                "#electronic": "#Elektronik",
+                "#country": "#Negara",
+                "#blues": "#Blues",
+                "#indie": "#Indie",
+                "#folk": "#Rakyat",
+                "#reggae": "#Reggae",
+                "#soul": "#Jiwa",
+                "#metal": "#Logam",
+                "#punk": "#Punk",
+                "#rnb": "#RnB",
+                "#latin": "#Latin",
+                "#world": "#Dunia",
+                "#edm": "#EDM",
+                "#kpop": "#K Pop"
+            }
+        ],
+        "regional news": [
+            "Berita Daerah",
+            {
+                "#internationalnews": "#Berita Internasional",
+                "#northamerica": "#Amerika Utara",
+                "#southamerica": "#Amerika Selatan",
+                "#europe": "#Eropa",
+                "#asia": "#Asia",
+                "#africa": "#Afrika",
+                "#middleeast": "#Timur Tengah",
+                "#australia": "#Australia",
+                "#russia": "#Rusia",
+                "#china": "#Cina",
+                "#india": "#India",
+                "#usa": "#AMERIKA SERIKAT",
+                "#uk": "#Inggris",
+                "#germany": "#Jerman",
+                "#france": "#Perancis",
+                "#japan": "#Jepang",
+                "#brazil": "#Brazil",
+                "#canada": "#Kanada",
+                "#italy": "#Italia",
+                "#spain": "#Spanyol",
+                "#mexico": "#Meksiko",
+                "#taiwan": "#Taiwan",
+                "#singapore": "#Singapura",
+                "#egypt": "#Mesir",
+                "#saudiarabia": "#Arab Saudi",
+                "#uae": "#UEA",
+                "#iraq": "#Irak",
+                "#indonesia": "#Indonesia",
+                "#portugal": "#Portugal",
+                "#quebec": "#Quebec",
+                "#austria": "#Austria",
+                "#switzerland": "#Swiss",
+                "#ukraine": "#Ukraina",
+                "#belarus": "#Belarus"
+            }
+        ]
+    },
+    "styles": {
+        "casual": "Kasual",
+        "concise": "Ringkas",
+        "professional": "Profesional",
+        "enthusiastic": "Antusias",
+        "humorous": "Lucu",
+        "empathetic": "Empati",
+        "sarcastic": "Sarkastik"
+    }
+}

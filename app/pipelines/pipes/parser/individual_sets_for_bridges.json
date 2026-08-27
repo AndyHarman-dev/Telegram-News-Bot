@@ -1,0 +1,14 @@
+{
+    "NationalGeographicBridge":
+    {
+        "url": "http://www.nationalgeographic.com/",
+        "viewed_feeds":
+        {
+            "restrict": true,
+            "in_global": false,
+            "in_topic": true,
+            "topic": "topic",
+            "names": ["latest-stories"]
+        }
+    }
+}

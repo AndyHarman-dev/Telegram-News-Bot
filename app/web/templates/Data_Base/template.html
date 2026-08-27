@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+      td {
+        font-weight: normal;
+      }
+    </style>
+</head>
+<body>
+  <table border="1", style="width: {{ new_width }}%">
+    <tbody>
+      {% for row in new_data %}
+        <tr>
+          {% for col in row %}
+            <td>{{ col }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

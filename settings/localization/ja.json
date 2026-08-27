@@ -1,0 +1,810 @@
+{
+    "states": {
+        "start": {
+            "state_display_message": "こんにちは、私はAstroSynth AIです。登録を完了して、私を使い始めてください。\nあなたとコミュニケーションをとり、ニュースを伝えるときは、どのようなスタイルを使用すればよいですか?"
+        },
+        "reset_styles": {
+            "state_display_message": "ボットの設定を自分に合わせて変更するには、以下の質問に正しく答えてください。\nあなたとコミュニケーションをとり、ニュースを伝えるときは、どのようなスタイルを使用すればよいですか?"
+        },
+        "menu": {
+            "state_display_message": "アクションを選択してください..."
+        },
+        "functions": {
+            "state_display_message": "機能を選択してください"
+        },
+        "subscription": {
+            "state_display_message": "サブスクリプションを選択してください"
+        },
+        "settings": {
+            "state_display_message": "設定を選択してください"
+        },
+        "warning_messages": {
+            "model_unavailable": "申し訳ございませんが、選択したモデルは現在ご利用いただけません。すぐに対応する別のモデルに置き換えられます。ご質問がある場合はお問い合わせください。\n\n",
+            "exceeded_daily_quota": "1 日の割り当てを超えました。料金を補充してください。",
+            "exceeded_monthly_quota": "月間割り当てを超えました。料金を補充してください。",
+            "old_menu_deleted": "使用しようとしていたメニューはボットのアップデートにより廃止されたため、削除されました。/1 コマンドを使用して新しいメニューを作成してください。",
+            "old_menu_cannot_be_deleted": "使用しようとしていたメニューは、ボットのアップデートにより古くなっています。/1 コマンドを使用して新しいメニューを作成してください。"
+        },
+        "help": {
+            "state_display_message": "ここで問題を説明してください..."
+        },
+        "contact_us": {
+            "state_display_message": "より良いサービスをご提供できるよう、オプションを選択して、ご経験や改善のためのアイデアを共有してください。"
+        },
+        "init_hashtager": {
+            "state_display_message": "ニュースを受け取りたいトピックを入力してください。",
+            "examples": "興味のリストを含む投稿のデザイン例を以下に示します。\n1)「エクストリーム スポーツ、冒険旅行、アウトドア サバイバル スキル」\n2)「古典文学、詩、書評」\n3)「ロック アート、グラフィティ、政治分析討論」\n興味のリストは、将来いつでも調整できます。",
+            "wait_message": "ボットがあなたの興味に合うハッシュタグを見つけるには時間が必要です。後で見直して編集することができます。\nハッシュタグが選択されるとボットがお知らせしますが、その間にボットの他の機能をチェックしてみてください！",
+            "finish_hashtagization": "適切なハッシュタグが選択されました。"
+        },
+        "reset_hashtager": {
+            "finish_hashtagization": "適切なハッシュタグが選択されました。\nボットの設定が変更されました。"
+        },
+        "init_hashtags": {
+            "state_display_message": {
+                "CategoryState": "カテゴリを選択してください...",
+                "HashtagState": "ハッシュタグを選択してください..."
+            }
+        },
+        "hashtags": {
+            "state_display_message": {
+                "CategoryState": "カテゴリを選択してください...",
+                "HashtagState": "ハッシュタグを選択してください..."
+            }
+        },
+        "blacklist": {
+            "state_display_message": {
+                "CategoryState": "カテゴリを選択してください...",
+                "HashtagState": "ハッシュタグを選択してください..."
+            }
+        },
+        "language": {
+            "state_display_message": "言語を選択してください"
+        },
+        "utc_shift": {
+            "state_display_message": "タイムゾーンを選択してください"
+        },
+        "init_styles": {
+            "state_display_message": "スタイルを選択してください"
+        },
+        "init_utc_shift": {
+            "state_display_message": "ここで UTC シフトを選択してください"
+        },
+        "reset_utc_shift": {
+            "state_display_message": "ここで UTC シフトを選択してください"
+        },
+        "style": {
+            "state_display_message": "スタイルを選択してください"
+        },
+        "pay": {
+            "tariffs_display_message": "料金を選択してください",
+            "provider_display_message": "支払いプロバイダを選択してください",
+            "pay_display_message": "ぜひお金を払って私たちを応援してください",
+            "title": "ボットサブスクリプション",
+            "description": "🌟 **BASIC** プランで、わずか **$0** でメッセージングの冒険を始めましょう。1 日のメッセージ クォータは ✉️ 20 件、月間許容量は 📬 200 件です。メッセージング自動化に初めて取り組む方に最適です。\n\n🚀 **STANDARD** プランにアップグレードすると、わずか **$10** になります。このプランでは、1 日のメッセージ容量が ✉️ 50 件、月間クォータが 📬 500 件に増加します。さらに、📡 5 つのカスタム チャネルにアクセスして、より幅広いコミュニケーション スコープを実現できます。\n\n💼 **PRO** プランで、**$19** でメッセージングのレベルを上げましょう。1 日の許容量は ✉️ 150 件、月間許容量は 🔄 無制限です。また、🌐 20 個のカスタム チャネルへの限定アクセスも解除され、リーチとエンゲージメントの可能性が最大限に高まります。\n\nより上質なものを求め、最高のサービスを求める人のために設計された ✨ **PREMIUM** プランで、贅沢なメッセージング エクスペリエンスをお楽しみください。月額わずか **$50** で、次の特典をお楽しみいただけます:\n\n- 贅沢な 1 日のメッセージ クォータ ✉️ **150 件**\n- 寛大な月間メッセージ許容量 📬 **1500 件**\n- 独占チャネル クォータ 🌐 **50 個のカスタム チャネル**\n\nコミュニケーションをプレミアム ステータスに引き上げ、エレガントかつ効率的につながりましょう。\n\n",
+            "currency_display_message": "通貨を選択してください"
+        },
+        "pay_to_pasha": {
+            "state_display_message": "私たちのボットを気に入っていただけたら、寄付で私たちをサポートしてください。その見返りとして、私たちのチームの現在および将来のTelegramボットでの優先的なサポートと、ボットとのコミュニケーション時のメッセージの最大数（1日あたり、1ヶ月あたり）の増加を得ることができます。\n下のボタンをクリックすると、開発者とのチャットに入り、寄付金額とボット使用時のメッセージ上限数の増加について同意することができます。"
+        },
+        "info": {
+            "state_display_message": "TODO、異なる言語で情報を表示する"
+        },
+        "get_news": {
+            "state_display_message": "ニュースを収集しています..."
+        },
+        "generate_image": {
+            "state_display_message": "画像を生成するためのプロンプトを入力してください"
+        },
+        "models": {
+            "state_display_message": "モデルを選択してください"
+        },
+        "start_guide": {
+            "state_display_message": "ようこそ\nボットの主な機能\n1) ユーザーの言語でユーザーとの自由なコミュニケーション；\n2) ユーザーのリクエストによる画像の生成；\n3) 目的: ユーザーの好みに合わせてニュースを検索し、ユーザーに送信します！"
+        },
+        "new_llm_communication": {
+            "state_display_message": "まず、ボットがあなたのクエリにどのように反応するかを見てみましょう。\n何か質問してみてください！",
+            "auxiliary_message": "ご希望の場合は、以下の質問のいずれかを選択してください。"
+        },
+        "show_llm_communication": {
+            "state_display_message": "ボットはこのようにしてあなたの質問に応答します。何か質問してみてください。",
+            "auxiliary_message": "ご希望の場合は、以下の質問のいずれかを選択してください。"
+        },
+        "news_sending": {
+            "state_display_message": "ボットは最新のニュースを送信することもできます。次に例を示します。"
+        },
+        "new_image_generation": {
+            "state_display_message": "ボットがあなたのリクエストに対するレスポンスを生成すると、チャットに通知が届きます。\nボットが特定のタスクの作業を終えるのを待つ必要はなく、他のボット機能を使い続けることができます！\n作成したい画像のクエリを入力します。",
+            "auxiliary_message": "ご希望の場合は、以下のオプションのいずれかを選択してください",
+            "update_state": {
+                "process": "プロンプトの画像を生成しています:",
+                "success": "生成された画像は次のとおりです。",
+                "wrong": "申し訳ございませんが、接続に問題が発生しました:"
+            }
+        },
+        "image_generation_prompt": {
+            "state_display_message": "それでは、画像を生成してみましょう。生成したい画像のプロンプトを入力してください。",
+            "auxiliary_message": "ご希望の場合は、以下のオプションのいずれかを選択してください"
+        },
+        "guided_generate_image": {
+            "state_display_message": {
+                "process": "プロンプトの画像を生成しています:",
+                "success": "生成された画像は次のとおりです。",
+                "wrong": "申し訳ございませんが、接続に問題が発生しました。もう一度お試しください。"
+            }
+        },
+        "new_end": {
+            "state_display_message": "ボットは、あなたのクエリに対する応答を生成すると同時に、あなたに関連するニュースを見つけようとします。何も待つ必要はなく、ボットの全機能を使い続けることができます！\n以下のコマンドが使えます：\n/1 - メニューを開く；\n/2 - ヘルプを開きます；\n/3 - ボットの設定をリセットします。",
+            "update_state": "すべてのニュースはすでに送信されました。\nこれでボットの主な機能はすべてお分かりいただけたと思います！あなたの目標を達成するために、そのパワーをすべて使ってください！"
+        },
+        "end": {
+            "state_display_message": "ボットへようこそ！頑張って楽しんでください！"
+        },
+        "help_command": {
+            "state_display_message": "本日はどのようなご用件でしょうか?"
+        },
+        "bot_skills": {
+            "state_display_message": "このボットは、選択したトピックに関するニュースを定期的に送信します。夜間にはメッセージは送信されません。\n基本コマンド:\n/menu - メイン メニューを開く\n/help - ヘルプにアクセスする\n/reset - デフォルト設定を復元する\n待たずにすぐにニュースを受け取るには、メニューで「機能」を選択し、「ニュースを取得」を選択します。\n言語、タイム ゾーン、興味、および通信とニュース処理に使用される AI モデルをカスタマイズするには、メニューで「設定」を選択します。\nボットのヘルプ セクションで「お問い合わせ」を選択すると、バグを報告したりアイデアを共有したりできます。"
+        },
+        "setting_reset": {
+            "state_display_message": "すべてのボット設定をリセットしてもよろしいですか? 「はい」と答えると、すべての設定が元の状態に戻り、その後、ボットを再度カスタマイズできるようになります。"
+        },
+        "are_you_sure": {
+            "state_display_message": "しばらくお待ちください。すべての設定がデフォルト状態に戻ります。"
+        },
+        "faq": {
+            "state_display_message": "以下はよくある質問とその回答です。\n\n<b>質問：</b> 毎日（毎月）のメッセージの上限を使い果たしましたが、ボットとのコミュニケーションを続けるにはどうしたらいいですか？\n<i>回答:</i> Help the project \"メニューから少額の寄付をすることでプロジェクトをサポートすることができます。\n\n<b>質問：</b> このボットの開発者をどのようにサポートできますか？\n<i>回答:</i> どのような寄付でもかまいません。\n\n<b>質問：</b> 金銭以外で開発者に報いる方法はありますか？\n<i>回答:</i> はい、ボットのヘルプにある対応するオプションを使って、バグレポートを提出したり、アイデアを提案することができます。\n\nあなたの質問がリストにない場合は、今すぐチャットに書き込むことができます！",
+            "state_update_display_message": "質問はボット管理者に送信されました。まだ質問がある場合は、1 つ以上の質問を送信できます。"
+        },
+        "write_problem": {
+            "state_display_message": "製品の改善にご協力ください。チャットを使用して、開発の専門家と直接フィードバックを共有してください。",
+            "state_update_display_message": "フィードバックをありがとうございます。開発チームは皆様のご意見を受け取り、お客様の体験を向上させるために活用します。他にも共有したいことはありますか? 会話を続けてください。私たちは耳を傾けています!"
+        },
+        "suggest_idea": {
+            "state_display_message": "アイデアを共有したい場合は、今すぐチャットに送信してください。弊社のマネージャーの 1 人が必ずそれを読んでいます。",
+            "state_update_display_message": "革新的なアイデアを共有していただきありがとうございます。お客様のご提案が当社の製品開発チームに無事転送されたことをお知らせいたします。引き続きご意見をお寄せください。今後のメッセージで追加のアイデアを自由に送信してください。感謝のしるしとして、お客様のアイデアが採用された場合、プラン レベルを無料でアップグレードしていただけます。お客様の創造性は、当社の成長と向上に役立ちます。"
+        },
+        "unread_news": {
+            "some_news": "ボットは今日あなたのために特に /1 のニュース項目を選択しました! 「/2」ボタンをクリックして読んでください。",
+            "a_lot_of_news": "ボットは今日、特にあなたのために /1 のニュースを選択しました!最初の 5 件を読むには、「/2」ボタンをクリックしてください。",
+            "no_news": "すぐにボットがあなた専用のニュースを選択します！\n待ちたくない場合は、メニューの対応する機能（/1）を使用すると、ボットがすぐにニュースの選択を開始します！",
+            "update_news": "今日ボットによって追加されなかったすべてのソースは、あなたのニュースポケットから削除されました。\nあなたの興味に関連するトピックが今日表示されない場合は、再度追加される可能性があります。"
+        }
+    },
+    "misc": {
+        "keyboard": {
+            "done": "完了 ✅",
+            "cancel": "キャンセル❌",
+            "back": "戻る",
+            "back_arrow": "⬅️",
+            "info": "情報",
+            "pay": "支払う",
+            "menu": "メニュー",
+            "functions": "機能",
+            "settings": "設定",
+            "subscription": "サブスクリプション",
+            "contact_us": "お問い合わせ",
+            "help": "ヘルプ",
+            "get_news": "ニュースを受け取る",
+            "generate_post": "投稿を生成",
+            "generate_image": "画像を生成する",
+            "hashtags": "ハッシュタグ",
+            "blacklist": "ブラックリスト",
+            "language": "言語",
+            "style": "スタイル",
+            "models": "モデル",
+            "utc_shift": "タイムゾーン",
+            "question_1": "あなたは私にとって何の役に立つのでしょうか？",
+            "question_2": "あなたの視野はどれくらい広いですか？",
+            "question_3": "あなたが最も得意とするトピックは何ですか?",
+            "fast": "速い",
+            "common": "普通",
+            "smart": "賢い",
+            "pay_to_pasha": "\uD83D\uDC9D プロジェクトに協力する",
+            "pay_to_pasha_button": "開発者とチャットする",
+            "pay_to_pasha_text": "こんにちは、おいしいコーヒーでチームを応援したいです。どうすれば寄付金を振り込めますか？",
+            "-11": "アメリカ領サモア、パゴパゴ",
+            "-10": "アメリカ、ハワイ、ホノルル",
+            "-9": "アメリカ、アラスカ、アンカレッジ",
+            "-8": "アメリカ、カリフォルニア、ロサンゼルス",
+            "-7": "アメリカ、コロラド州、デンバー",
+            "-6": "メキシコ、メキシコシティ",
+            "-5": "アメリカ、ニューヨーク、ニューヨーク",
+            "-4": "ベネズエラ カラカス",
+            "-3": "アルゼンチン ブエノスアイレス",
+            "-2": "ブラジル、サンパウロ",
+            "-1": "カーボベルデ、プライア",
+            "0": "イギリス、ロンドン",
+            "1": "フランス・パリ",
+            "2": "エジプト、カイロ",
+            "3": "ロシア、モスクワ",
+            "4": "アラブ首長国連邦、ドバイ",
+            "5": "パキスタン、イスラマバード",
+            "6": "バングラデシュ、ダッカ",
+            "7": "タイ、バンコク",
+            "8": "中国、北京",
+            "9": "日本、東京",
+            "10": "オーストラリア、キャンベラ",
+            "11": "ソロモン諸島、ホニアラ",
+            "12": "ニュージーランド、ウェリントン"
+        },
+        "guide_keyboard": {
+            "question_1": "あなたは私にとって何の役に立つのでしょうか？",
+            "question_2": "あなたの視野はどれくらい広いですか？",
+            "question_3": "あなたが最も得意とするトピックは何ですか?",
+            "image_1": "雲に浮かぶ未来都市",
+            "image_2": "幻想的な生き物が生息する古代の森",
+            "image_3": "発光植物が生息する水中世界",
+            "image_4": "エッフェル塔のスチームパンクバージョン",
+            "image_5": "サイバーパンク都市の日本庭園",
+            "image_6": "空飛ぶ本のある図書館",
+            "image_7": "自然が都市の廃墟を占領する",
+            "image_8": "星の海を航行する都市船",
+            "image_9": "明るい星を周回するステーション",
+            "image_10": "巨大結晶内の量子実験室"
+        },
+        "help_keyboard": {
+            "help_command": "ヘルプ",
+            "bot_skills": "ボットは何ができますか?",
+            "setting_reset": "設定をリセット",
+            "are_you_sure": "はい",
+            "faq": "よくある質問",
+            "contact_us": "お問い合わせ",
+            "write_problem": "フィードバックを書く",
+            "suggest_idea": "アイデアを提案する",
+            "back": "戻る"
+        },
+        "reply_keyboard": {
+            "get_5": "\uD83D\uDFE2 ニュースを入手！"
+        }
+    },
+    "hashtag_categories": {
+        "politics & government": [
+            "政治と政府",
+            {
+                "#politics": "＃政治",
+                "#diplomacy": "＃外交",
+                "#government": "＃政府",
+                "#centrism": "#中道主義",
+                "#socialism": "#社会主義",
+                "#libertarianism": "#リバタリアニズム",
+                "#anarchism": "#アナキズム",
+                "#politicalanalysis": "#政治分析",
+                "#policymaking": "＃政策決定",
+                "#civicengagement": "＃市民参加"
+            }
+        ],
+        "economics & finance": [
+            "経済と金融",
+            {
+                "#economy": "＃経済",
+                "#financialnews": "#金融ニュース",
+                "#trade": "＃貿易",
+                "#crypto": "#暗号通貨",
+                "#stockmarket": "＃株式市場",
+                "#financialfreedom": "＃経済的自由",
+                "#investor": "#投資家",
+                "#budgeting": "#予算編成",
+                "#wealthbuilding": "#富を築く",
+                "#realestateinvestor": "#不動産投資家",
+                "#economicdevelopment": "＃経済発展",
+                "#emergingmarkets": "＃新興市場",
+                "#globaltrade": "＃国際貿易",
+                "#economicpolicy": "#経済政策",
+                "#startups": "#スタートアップ",
+                "#businessstrategy": "#ビジネス戦略",
+                "#entrepreneurship": "#起業家精神",
+                "#marketing": "＃マーケティング",
+                "#ecommerce": "#Eコマース"
+            }
+        ],
+        "society & social issues": [
+            "社会と社会問題",
+            {
+                "#socialissue": "＃社会問題",
+                "#humanrights": "#人権",
+                "#justice": "＃正義",
+                "#conservative": "＃保守的",
+                "#liberal": "＃リベラル",
+                "#activist": "#活動家",
+                "#feminist": "#フェミニスト",
+                "#lgbtqsupporter": "#LGBTQサポーター",
+                "#environmentaladvocate": "#環境擁護者",
+                "#humanrightsdefender": "#人権擁護者",
+                "#socialjusticewarrior": "#ソーシャルジャスティスウォリアー",
+                "#globalwarming": "＃地球温暖化",
+                "#refugeecrisis": "＃難民危機",
+                "#worldhunger": "＃世界の飢餓",
+                "#watercrisis": "#水危機",
+                "#globalhealth": "#グローバルヘルス",
+                "#justicesystem": "#司法制度",
+                "#humanrightslaw": "#人権法"
+            }
+        ],
+        "health & well-being": [
+            "健康と幸福",
+            {
+                "#healthupdate": "#健康アップデート",
+                "#mentalhealth": "＃メンタルヘルス",
+                "#publichealth": "＃公衆衛生",
+                "#mentalhealthawareness": "#メンタルヘルス啓発",
+                "#wellnessjourney": "#ウェルネスジャーニー",
+                "#selfcare": "＃自己治療",
+                "#healthyliving": "＃健康的な生活",
+                "#mindfulness": "#マインドフルネス",
+                "#meditationenthusiast": "#瞑想愛好家",
+                "#covid19": "＃COVID-19（新型コロナウイルス感染症",
+                "#chronicillness": "#慢性疾患",
+                "#healthcarereform": "#医療改革",
+                "#nutrition": "＃栄養",
+                "#fitnesstrends": "#フィットネストレンド",
+                "#mentalwellness": "#メンタルウェルネス",
+                "#alternativemedicine": "#代替医療",
+                "#healthtech": "#ヘルステック"
+            }
+        ],
+        "science & technology & education": [
+            "科学技術と教育",
+            {
+                "#technews": "#テックニュース",
+                "#scienceupdate": "#サイエンスアップデート",
+                "#innovation": "＃革新",
+                "#space": "＃空間",
+                "#education": "＃教育",
+                "#research": "＃研究",
+                "#learning": "＃学ぶ",
+                "#lifelonglearner": "#生涯学習者",
+                "#onlinecourse": "#オンラインコース",
+                "#diy": "#DIY",
+                "#skilldevelopment": "＃能力開発",
+                "#languagelearner": "#言語学習者",
+                "#educator": "#教育者",
+                "#studentlife": "＃学生生活",
+                "#stem": "＃幹",
+                "#techenthusiast": "#技術愛好家",
+                "#blockchain": "#ブロックチェーン",
+                "#cybersecurity": "＃サイバーセキュリティ",
+                "#datascience": "#データサイエンス",
+                "#machinelearning": "#機械学習",
+                "#augmentedreality": "＃拡張現実",
+                "#internetofthings": "＃モノのインターネット",
+                "#5g": "#5G",
+                "#quantumcomputing": "#量子コンピューティング",
+                "#genomics": "#ゲノミクス",
+                "#astrophysics": "#天体物理学",
+                "#sustainableenergy": "#持続可能なエネルギー",
+                "#medicalresearch": "#医療研究",
+                "#physics": "＃物理",
+                "#biotechnology": "#バイオテクノロジー",
+                "#environmentalscience": "＃環境科学",
+                "#astronomy": "＃天文学",
+                "#edutech": "#エデュテック",
+                "#onlinelearning": "＃オンライン学習",
+                "#academicresearch": "＃学術研究",
+                "#aisafety": "#AIセーフティ",
+                "#rocketscience": "＃ロケット科学",
+                "#programming": "＃プログラミング"
+            }
+        ],
+        "culture": [
+            "文化",
+            {
+                "#culturalevent": "#文化イベント",
+                "#culturalfestivals": "#文化祭",
+                "#culturalheritage": "＃文化遺産",
+                "#bookclub": "#ブッククラブ",
+                "#literaryreadings": "#文学読書",
+                "#culturalexplorer": "#文化探検家",
+                "#historicaldrama": "#歴史ドラマ",
+                "#culturalexchange": "＃文化交流",
+                "#culturalhistory": "#文化史",
+                "#ethnography": "#民族誌",
+                "#museums": "#博物館",
+                "#culturaltraditions": "#文化的伝統",
+                "#folklore": "#民間伝承",
+                "#anthropology": "#人類学",
+                "#culturalcelebrations": "#文化のお祝い"
+            }
+        ],
+        "arts": [
+            "芸術",
+            {
+                "#art": "＃美術",
+                "#contemporaryart": "＃現代美術",
+                "#artexhibitions": "#アート展",
+                "#artgalleries": "＃アートギャラリー",
+                "#sculpture": "＃彫刻",
+                "#arthistory": "#美術史",
+                "#painting": "＃絵画",
+                "#streetart": "＃ストリートアート",
+                "#photography": "#写真",
+                "#digitalart": "＃デジタルアート",
+                "#finearts": "＃ファインアート",
+                "#artistsspotlight": "#アーティストスポットライト",
+                "#performanceart": "＃パフォーマンスアート",
+                "#visualarts": "＃視覚芸術",
+                "#artinstallations": "#アートインスタレーション",
+                "#graphicdesign": "＃グラフィックデザイン",
+                "#artfairs": "#アートフェア",
+                "#arttherapy": "#アートセラピー",
+                "#artcollectors": "#アートコレクター",
+                "#artauctions": "#アートオークション",
+                "#crafts": "#工芸品",
+                "#ceramics": "#陶芸",
+                "#printmaking": "#版画",
+                "#illustration": "＃図",
+                "#publicart": "#パブリックアート"
+            }
+        ],
+        "entertainment": [
+            "エンターテインメント",
+            {
+                "#entertainment": "＃エンターテインメント",
+                "#movies": "＃映画",
+                "#tv": "＃テレビ",
+                "#webseries": "#ウェブシリーズ",
+                "#podcasts": "＃ポッドキャスト",
+                "#radioshows": "#ラジオ番組",
+                "#music": "＃音楽",
+                "#concerts": "#コンサート",
+                "#albumrelease": "#アルバムリリース",
+                "#musicvideos": "＃ミュージックビデオ",
+                "#awards": "#賞",
+                "#popculture": "＃ポップカルチャー",
+                "#viraltrends": "#バイラルトレンド",
+                "#memes": "#ミーム",
+                "#influencerculture": "#インフルエンサーカルチャー",
+                "#vloggers": "#ブロガー",
+                "#streamers": "#ストリーマー",
+                "#gamingnews": "#ゲームニュース",
+                "#fanconventions": "#ファンコンベンション",
+                "#celebritynews": "#セレブニュース",
+                "#moviereviews": "#映画レビュー",
+                "#tvshows": "＃テレビ番組",
+                "#realityshows": "#リアリティ番組",
+                "#talkshows": "＃トークショー",
+                "#comedyshows": "#コメディショー",
+                "#theater": "＃劇場",
+                "#broadwayshows": "#ブロードウェイショー",
+                "#musicals": "#ミュージカル",
+                "#livecomedy": "#ライブコメディ",
+                "#cinema": "＃シネマ",
+                "#filmfestival": "＃映画祭",
+                "#musicfestivals": "#音楽フェスティバル",
+                "#nightlife": "#ナイトライフ",
+                "#clubbing": "#クラブ通い",
+                "#magicshows": "#マジックショー",
+                "#circus": "＃サーカス",
+                "#varietyshows": "＃バラエティー番組",
+                "#cosplay": "#コスプレ"
+            }
+        ],
+        "sports & athletics": [
+            "スポーツと陸上競技",
+            {
+                "#sports": "#スポーツ",
+                "#athletics": "＃陸上競技",
+                "#teamsports": "＃チームスポーツ",
+                "#individualsports": "＃個人競技",
+                "#olympics": "#オリンピック",
+                "#worldcup": "＃ワールドカップ",
+                "#football": "＃フットボール",
+                "#basketball": "＃バスケットボール",
+                "#baseball": "＃野球",
+                "#cricket": "＃クリケット",
+                "#tennis": "＃テニス",
+                "#golf": "＃ゴルフ",
+                "#rugby": "＃ラグビー",
+                "#hockey": "＃ホッケー",
+                "#mma": "#総合格闘技",
+                "#boxing": "＃ボクシング",
+                "#cycling": "＃サイクリング",
+                "#swimming": "＃水泳",
+                "#trackandfield": "#陸上競技",
+                "#volleyball": "＃バレーボール",
+                "#gymnastics": "＃体操",
+                "#skating": "＃スケート",
+                "#skiing": "＃スキー",
+                "#snowboarding": "#スノーボード",
+                "#surfing": "＃サーフィン",
+                "#motorsport": "#モータースポーツ",
+                "#f1": "#F1",
+                "#nascar": "＃ナスカー",
+                "#esports": "#eスポーツ",
+                "#badminton": "＃バドミントン",
+                "#tabletennis": "#卓球",
+                "#marathon": "＃マラソン",
+                "#triathlon": "＃トライアスロン",
+                "#equestrian": "#馬術",
+                "#skateboarding": "#スケートボード",
+                "#climbing": "＃クライミング",
+                "#wrestling": "＃レスリング",
+                "#judo": "＃柔道",
+                "#taekwondo": "#テコンドー",
+                "#karate": "＃空手",
+                "#archery": "＃アーチェリー",
+                "#shootingsports": "#シューティングスポーツ",
+                "#fencing": "＃フェンシング",
+                "#weightlifting": "＃重量挙げ",
+                "#bodybuilding": "#ボディビルディング",
+                "#yoga": "#ヨガ",
+                "#pilates": "#ピラティス",
+                "#dancesports": "#ダンススポーツ",
+                "#parkour": "#パルクール"
+            }
+        ],
+        "environment & climate": [
+            "環境と気候",
+            {
+                "#climate": "＃気候",
+                "#environment": "＃環境",
+                "#sustainability": "#持続可能性",
+                "#greentech": "#グリーンテック",
+                "#ecofriendly": "#エコフレンドリー",
+                "#conservation": "＃保全",
+                "#renewableenergy": "＃再生可能エネルギー"
+            }
+        ],
+        "crime & safety": [
+            "犯罪と安全",
+            {
+                "#crime": "＃犯罪",
+                "#safety": "＃安全性",
+                "#legalnews": "#法的ニュース",
+                "#regulations": "＃規則",
+                "#compliance": "＃コンプライアンス",
+                "#corporatelaw": "#企業法務"
+            }
+        ],
+        "lifestyle & personal characteristics": [
+            "ライフスタイルと個人特性",
+            {
+                "#vegan": "#ビーガン",
+                "#minimalist": "＃ミニマリスト",
+                "#zerowaste": "#ゼロウェイスト",
+                "#digitalnomad": "#デジタルノマド",
+                "#parenting": "#子育て",
+                "#petlover": "#ペット好き",
+                "#homebody": "#ホームボディ",
+                "#fitnessenthusiast": "#フィットネス愛好家",
+                "#traveljunkie": "#旅行中毒者",
+                "#introvert": "#内向的",
+                "#extrovert": "#外向的",
+                "#ambivert": "#両向的",
+                "#empath": "#共感力",
+                "#optimist": "#楽観主義者",
+                "#pessimist": "#悲観主義者",
+                "#realist": "#リアリスト",
+                "#sustainableliving": "＃持続可能な生活",
+                "#digitallifestyle": "#デジタルライフスタイル",
+                "#urbangardening": "#アーバンガーデニング",
+                "#tinyhomes": "#タイニーホーム",
+                "#selfimprovement": "＃自己改善",
+                "#lifehacks": "＃ライフハック",
+                "#careeradvice": "#キャリアアドバイス",
+                "#successstories": "#成功事例",
+                "#mindset": "#マインドセット",
+                "#fashiontrends": "＃ファッショントレンド",
+                "#beautytips": "＃美しさのヒント",
+                "#streetstyle": "＃ストリートスタイル"
+            }
+        ],
+        "hobbies & interests": [
+            "趣味と興味",
+            {
+                "#bookworm": "#本の虫",
+                "#traveler": "#旅行者",
+                "#foodie": "＃食通",
+                "#gamer": "＃ゲーマー",
+                "#musiclover": "＃音楽が好きな人",
+                "#fitnessfreak": "#フィットネスフリーク",
+                "#naturelover": "＃自然が好きな人",
+                "#artaficionado": "#アート愛好家",
+                "#sportsfan": "＃スポーツファン",
+                "#photographyenthusiast": "#写真愛好家",
+                "#moviebuff": "＃映画ファン",
+                "#diyer": "#DIYer",
+                "#gardeninglover": "#ガーデニング好き",
+                "#fashionista": "#ファッショニスタ",
+                "#gourmet": "#グルメ",
+                "#homecooking": "＃家庭料理",
+                "#veganrecipes": "#ビーガンレシピ",
+                "#streetfood": "＃屋台の食べ物"
+            }
+        ],
+        "religion & spirituality": [
+            "宗教とスピリチュアル",
+            {
+                "#atheist": "#無神論者",
+                "#agnostic": "#不可知論者",
+                "#christian": "＃キリスト教徒",
+                "#muslim": "#イスラム教徒",
+                "#buddhist": "＃仏教徒",
+                "#spiritualbutnotreligious": "#スピリチュアルだけど宗教的ではない",
+                "#hindu": "#ヒンズー教",
+                "#pagan": "#異教徒",
+                "#spiritualseeker": "#スピリチュアル探求者"
+            }
+        ],
+        "geography & travel": [
+            "地理と旅行",
+            {
+                "#expatriate": "＃国外移住者",
+                "#localtravel": "#ローカル旅行",
+                "#worldtraveler": "＃世界旅行者",
+                "#urbanexplorer": "#アーバンエクスプローラー",
+                "#ruraladventurer": "#田舎の冒険者",
+                "#adventuretravel": "#アドベンチャー旅行",
+                "#ecotourism": "#エコツーリズム",
+                "#citybreaks": "#シティブレイク",
+                "#culinarytravel": "#料理旅行",
+                "#backpacking": "#バックパッキング"
+            }
+        ],
+        "gaming & digital entertainment": [
+            "ゲームとデジタルエンターテイメント",
+            {
+                "#gaming": "#ゲーム",
+                "#gamerelease": "#ゲームリリース",
+                "#gamereview": "#ゲームレビュー",
+                "#platformgaming": "#プラットフォームゲーム",
+                "#vrgaming": "#VRゲーム",
+                "#gamingcommunity": "#ゲームコミュニティ",
+                "#vr": "#VR"
+            }
+        ],
+        "legal & regulatory news": [
+            "法律および規制に関するニュース",
+            {}
+        ],
+        "industry-specific news": [
+            "業界別ニュース",
+            {
+                "#automotivenews": "#自動車ニュース",
+                "#fashionindustry": "#ファッション業界",
+                "#agriculturenews": "#農業ニュース"
+            }
+        ],
+        "historical context": [
+            "歴史的背景",
+            {
+                "#onthisday": "#この日",
+                "#historyfacts": "#歴史の事実",
+                "#historicalperspective": "#歴史的観点"
+            }
+        ],
+        "special events & occasions": [
+            "特別なイベントと行事",
+            {
+                "#elections2024": "#2024年選挙",
+                "#earthday": "＃アースデー",
+                "#internationalwomensday": "＃国際婦人デー"
+            }
+        ],
+        "user-generated content": [
+            "ユーザー作成コンテンツ",
+            {
+                "#userstory": "#ユーザーストーリー",
+                "#communityvoice": "#コミュニティの声",
+                "#diyprojects": "#DIYプロジェクト",
+                "#traveldiaries": "#旅行日記",
+                "#foodblogging": "#フードブログ",
+                "#fashionblogging": "#ファッションブログ",
+                "#fitnessjourney": "#フィットネスジャーニー",
+                "#artshare": "#アートシェア",
+                "#photographylovers": "#写真愛好家",
+                "#vlog": "#ビデオブログ",
+                "#personalblog": "#個人ブログ",
+                "#makeuptutorial": "＃メイクアップチュートリアル",
+                "#gamingcontent": "#ゲームコンテンツ",
+                "#techreviews": "#テックレビュー",
+                "#bookreviews": "＃書評",
+                "#musiccovers": "#ミュージックカバー",
+                "#dancevideos": "#ダンスビデオ",
+                "#comedyskits": "#コメディスキット",
+                "#petvideos": "#ペット動画",
+                "#parentingtips": "#子育てのヒント",
+                "#gardeningtips": "#ガーデニングのヒント",
+                "#sustainabilityideas": "#サステナビリティアイデア",
+                "#healthtips": "#健康のヒント",
+                "#motivationalposts": "#モチベーション投稿",
+                "#poetry": "＃詩",
+                "#shortstories": "＃短編小説",
+                "#fanart": "＃ファンアート",
+                "#crafting": "#クラフト",
+                "#homedecorideas": "#ホームデコレーションのアイデア",
+                "#fitnesschallenges": "#フィットネスチャレンジ",
+                "#cookingrecipes": "#料理レシピ",
+                "#travelvlogs": "#旅行Vlog",
+                "#studywithme": "#一緒に勉強しよう",
+                "#productivitytips": "#生産性のヒント",
+                "#languagelearning": "#言語学習",
+                "#virtualtours": "#バーチャルツアー",
+                "#remotework": "#リモートワーク",
+                "#volunteering": "#ボランティア",
+                "#charitywork": "＃慈善活動",
+                "#socialactivism": "#ソーシャルアクティビズム"
+            }
+        ],
+        "fact-checking & misinformation": [
+            "事実確認と誤報",
+            {
+                "#factcheck": "#ファクトチェック",
+                "#misinformation": "＃誤報",
+                "#fakenewsalert": "#フェイクニュースアラート"
+            }
+        ],
+        "music": [
+            "音楽",
+            {
+                "#pop": "＃ポップ",
+                "#rock": "＃ロック",
+                "#jazz": "＃ジャズ",
+                "#classical": "#クラシック",
+                "#hiphop": "＃ヒップホップ",
+                "#electronic": "#電子",
+                "#country": "＃国",
+                "#blues": "＃ブルース",
+                "#indie": "#インディー",
+                "#folk": "＃フォーク",
+                "#reggae": "＃レゲエ",
+                "#soul": "＃魂",
+                "#metal": "＃金属",
+                "#punk": "＃パンク",
+                "#rnb": "#リズムアンドブルー",
+                "#latin": "＃ラテン",
+                "#world": "＃世界",
+                "#edm": "#EDM",
+                "#kpop": "#Kポップ"
+            }
+        ],
+        "regional news": [
+            "地域ニュース",
+            {
+                "#internationalnews": "＃国際ニュース",
+                "#northamerica": "＃北米",
+                "#southamerica": "＃南アメリカ",
+                "#europe": "＃ヨーロッパ",
+                "#asia": "＃アジア",
+                "#africa": "＃アフリカ",
+                "#middleeast": "＃中東",
+                "#australia": "＃オーストラリア",
+                "#russia": "＃ロシア",
+                "#china": "＃中国",
+                "#india": "＃インド",
+                "#usa": "＃アメリカ合衆国",
+                "#uk": "＃イギリス",
+                "#germany": "＃ドイツ",
+                "#france": "＃フランス",
+                "#japan": "＃日本",
+                "#brazil": "＃ブラジル",
+                "#canada": "＃カナダ",
+                "#italy": "＃イタリア",
+                "#spain": "＃スペイン",
+                "#mexico": "＃メキシコ",
+                "#taiwan": "＃台湾",
+                "#singapore": "＃シンガポール",
+                "#egypt": "＃エジプト",
+                "#saudiarabia": "＃サウジアラビア",
+                "#uae": "#アラブ首長国連邦",
+                "#iraq": "＃イラク",
+                "#indonesia": "＃インドネシア",
+                "#portugal": "＃ポルトガル",
+                "#quebec": "#ケベック",
+                "#austria": "＃オーストリア",
+                "#switzerland": "＃スイス",
+                "#ukraine": "#ウクライナ",
+                "#belarus": "#ベラルーシ"
+            }
+        ]
+    },
+    "styles": {
+        "casual": "カジュアル",
+        "concise": "簡潔",
+        "professional": "プロ",
+        "enthusiastic": "熱狂的",
+        "humorous": "ユーモラス",
+        "empathetic": "共感力",
+        "sarcastic": "皮肉な"
+    }
+}

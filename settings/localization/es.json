@@ -1,0 +1,810 @@
+{
+    "states": {
+        "start": {
+            "state_display_message": "Hola, soy AstroSynth AI. Finaliza el registro para empezar a utilizarme.\n¿Qué estilo debo utilizar al comunicarme con ustedes y presentarles las noticias?"
+        },
+        "reset_styles": {
+            "state_display_message": "Para cambiar la configuración del bot a su medida, responda correctamente las siguientes preguntas.\n¿Qué estilo debo utilizar al comunicarme con ustedes y presentarles las noticias?"
+        },
+        "menu": {
+            "state_display_message": "Por favor elige acción..."
+        },
+        "functions": {
+            "state_display_message": "Por favor, elige una función"
+        },
+        "subscription": {
+            "state_display_message": "Por favor, elige una suscripción"
+        },
+        "settings": {
+            "state_display_message": "Por favor, elige una configuración"
+        },
+        "warning_messages": {
+            "model_unavailable": "Lo sentimos, el modelo que has seleccionado no está disponible en este momento. Será sustituido por otro modelo que responderá en breve. Por favor, póngase en contacto con nosotros si tiene alguna pregunta.\n\n\n",
+            "exceeded_daily_quota": "Has excedido tu cuota diaria. Por favor, recarga tu tarifa.",
+            "exceeded_monthly_quota": "Has excedido tu cuota mensual. Por favor, recarga tu tarifa.",
+            "old_menu_deleted": "El menú que intentaba utilizar está obsoleto debido a una actualización del bot, por lo que se eliminó. Utilice el comando /1 para crear un nuevo menú.",
+            "old_menu_cannot_be_deleted": "El menú que estaba intentando utilizar no está actualizado debido a una actualización del bot. Utilice el comando /1 para crear un nuevo menú."
+        },
+        "help": {
+            "state_display_message": "Describe tu problema aquí..."
+        },
+        "contact_us": {
+            "state_display_message": "Ayúdenos a servirle mejor. Elija una opción para compartir su experiencia o ideas de mejora."
+        },
+        "init_hashtager": {
+            "state_display_message": "Por favor ingresa los temas sobre los que te gustaría recibir noticias.",
+            "examples": "Aquí hay ejemplos de cómo debes diseñar una publicación con una lista de tus intereses:\n1) “Deportes extremos, viajes de aventura, habilidades de supervivencia al aire libre”\n2) “Literatura clásica, poesía, reseñas de libros”\n3) “Arte rupestre, graffiti; debate de análisis político”\nSiempre podrás ajustar tu lista de intereses en el futuro.",
+            "wait_message": "El bot necesita tiempo para encontrar hashtags que coincidan con tus intereses. Puedes revisarlos y editarlos más tarde.\nEl bot te avisará cuando haya seleccionado los hashtags, pero mientras tanto, ¡echa un vistazo a las demás funciones del bot!",
+            "finish_hashtagization": "Se han seleccionado los hashtags apropiados."
+        },
+        "reset_hashtager": {
+            "finish_hashtagization": "Se han seleccionado los hashtags apropiados.\n¡Se ha cambiado la configuración del bot!"
+        },
+        "init_hashtags": {
+            "state_display_message": {
+                "CategoryState": "Por favor, elija categoría...",
+                "HashtagState": "Por favor, elige hashtags..."
+            }
+        },
+        "hashtags": {
+            "state_display_message": {
+                "CategoryState": "Por favor, elija categoría...",
+                "HashtagState": "Por favor, elige hashtags..."
+            }
+        },
+        "blacklist": {
+            "state_display_message": {
+                "CategoryState": "Por favor, elija categoría...",
+                "HashtagState": "Por favor, elige hashtags..."
+            }
+        },
+        "language": {
+            "state_display_message": "Por favor, elige un idioma"
+        },
+        "utc_shift": {
+            "state_display_message": "Por favor, elige una zona horaria"
+        },
+        "init_styles": {
+            "state_display_message": "Por favor, elige un estilo"
+        },
+        "init_utc_shift": {
+            "state_display_message": "Por favor, elija un turno utc aquí"
+        },
+        "reset_utc_shift": {
+            "state_display_message": "Por favor, elija un turno utc aquí"
+        },
+        "style": {
+            "state_display_message": "Por favor, elige un estilo"
+        },
+        "pay": {
+            "tariffs_display_message": "Por favor, elige una tarifa",
+            "provider_display_message": "Por favor, elija un proveedor de pago",
+            "pay_display_message": "Por favor, paga, para apoyarnos.",
+            "title": "Suscripción de bot",
+            "description": "¡Comienza tu aventura de mensajería con nuestro plan 🌟 **BÁSICO** por solo **$0**! Obtendrás una cuota de mensajes diaria de ✉️ 20 mensajes y una asignación mensual de 📬 200 mensajes. Perfecto para aquellos que recién se sumergen en la automatización de mensajes.\n\nAccede a nuestro plan 🚀 **ESTÁNDAR** por solo **$10**. Este plan aumenta tu capacidad de mensajes diarios a ✉️ 50 mensajes y una cuota mensual de 📬 500 mensajes. Además, obtendrás acceso a 📡 5 canales personalizados para un alcance de comunicación más amplio.\n\nMejora tu juego de mensajería con nuestro plan 💼 **PRO** por **$19**. Disfrute de una asignación diaria sólida de ✉️ 150 mensajes y un impresionante límite de mensajes mensuales ilimitados 🔄. También desbloquearás acceso exclusivo a 🌐 20 canales personalizados, maximizando tu alcance y potencial de participación.\n\n Embárcate en una experiencia de mensajería de lujo con nuestro plan ✨ **PREMIUM**, diseñado para quienes aprecian las cosas buenas y exigen el mejor servicio. Por sólo **$50** al mes, disfrute de:\n\n- Una generosa cuota de mensajes diarios de ✉️ **150 mensajes**\n- Una generosa asignación mensual de mensajes de 📬 **1500 mensajes**\n- Una cuota de canales exclusiva de 🌐 **50 canales personalizados**\n\nEleve su comunicación al estado premium y conéctese con elegancia y eficiencia.\n\n",
+            "currency_display_message": "Por favor, elige una moneda"
+        },
+        "pay_to_pasha": {
+            "state_display_message": "Si te gusta nuestro bot, puedes apoyarnos con cualquier donación. A cambio, obtendrás soporte prioritario en los bots de Telegram actuales y futuros de nuestro equipo, así como un aumento en el número máximo de mensajes (por día, por mes) al comunicarte con el bot.\nAl hacer clic en el botón de abajo, entrarás en un chat con el desarrollador, donde podrás acordar el importe de la donación y el aumento del límite de mensajes al utilizar el bot."
+        },
+        "info": {
+            "state_display_message": "TODO, mostrar información en diferentes idiomas"
+        },
+        "get_news": {
+            "state_display_message": "Recogiendo noticias..."
+        },
+        "generate_image": {
+            "state_display_message": "Ingrese el mensaje para generar la imagen"
+        },
+        "models": {
+            "state_display_message": "Por favor, elige un modelo."
+        },
+        "start_guide": {
+            "state_display_message": "Bienvenido.\nLas principales funciones del bot:\n1) Comunicación libre con el usuario en su idioma;\n2) Generación de imágenes a petición del usuario;\n3) Para lo que estás aquí: ¡buscar y enviar noticias al usuario, según sus preferencias!"
+        },
+        "new_llm_communication": {
+            "state_display_message": "En primer lugar, comprueba cómo el bot puede responder a tus consultas.\n¡Prueba a preguntar algo!",
+            "auxiliary_message": "Si lo deseas, puedes elegir una de las siguientes preguntas."
+        },
+        "show_llm_communication": {
+            "state_display_message": "Así es como el bot puede responder a tus consultas. ¡Intenta preguntar algo!",
+            "auxiliary_message": "Si lo deseas, puedes elegir una de las siguientes preguntas."
+        },
+        "news_sending": {
+            "state_display_message": "El bot también puede enviarte las últimas noticias. Aquí hay un ejemplo:"
+        },
+        "new_image_generation": {
+            "state_display_message": "Cuando el bot genere una respuesta a tu solicitud, recibirás una notificación en el chat.\nNo tienes que esperar a que el bot termine de trabajar en una tarea concreta, ¡puedes seguir utilizando otras funciones del bot! \nIntroduce una consulta para la imagen que deseas crear.",
+            "auxiliary_message": "Si lo deseas, puedes elegir una de las siguientes opciones.",
+            "update_state": {
+                "process": "Generando imagen para el mensaje: ",
+                "success": "Aquí está su imagen generada:",
+                "wrong": "Lo sentimos, algo salió mal con la conexión: "
+            }
+        },
+        "image_generation_prompt": {
+            "state_display_message": "Ahora, generemos una imagen. Escriba un mensaje para la imagen que desea generar.",
+            "auxiliary_message": "Si lo deseas, puedes elegir una de las siguientes opciones."
+        },
+        "guided_generate_image": {
+            "state_display_message": {
+                "process": "Generando imagen para el mensaje: ",
+                "success": "Aquí está su imagen generada:",
+                "wrong": "Lo sentimos, algo salió mal con la conexión. Inténtalo de nuevo."
+            }
+        },
+        "new_end": {
+            "state_display_message": "Al mismo tiempo que genera una respuesta a tu consulta, el bot intentará encontrar noticias relevantes para ti. No tienes que esperar nada, ¡puedes seguir utilizando toda la funcionalidad del bot!\nPuedes utilizar los siguientes comandos:\n/1 - abrir menú;\n/2 - abrir ayuda;\n/3 - restablecer la configuración del bot.",
+            "update_state": "Ya se han enviado todas las novedades.\n¡Ahora ya lo sabes todo sobre las principales características del bot! ¡Utiliza toda su potencia para conseguir tus objetivos!"
+        },
+        "end": {
+            "state_display_message": "¡Bienvenido al bot! ¡Buena suerte y diviértete usándolo!"
+        },
+        "help_command": {
+            "state_display_message": "¿Cómo podemos ayudarle hoy?"
+        },
+        "bot_skills": {
+            "state_display_message": "Este bot te envía noticias a intervalos regulares sobre los temas que hayas elegido. Los mensajes no se envían durante las horas nocturnas.\nComandos básicos:\n/menú - abre el menú principal\n/ayuda - acceder a la ayuda\n/reset - restaurar la configuración predeterminada\nPara recibir noticias inmediatamente sin esperar, seleccione \"Funciones\" en el menú y luego elija \"Recibir noticias\".\nPara personalizar su idioma, zona horaria, intereses y el modelo de IA utilizado para la comunicación y el procesamiento de noticias, seleccione \"Configuración\" en el menú.\nPuede informar un error o compartir una idea seleccionando \"Contáctenos\" en la sección de ayuda del bot."
+        },
+        "setting_reset": {
+            "state_display_message": "¿Estás seguro de que deseas restablecer todas las configuraciones del bot? Si responde \"Sí\", todas las configuraciones volverán a su estado original, después de lo cual tendrá la oportunidad de personalizar el bot nuevamente."
+        },
+        "are_you_sure": {
+            "state_display_message": "Espere, todas las configuraciones volverán a su estado predeterminado."
+        },
+        "faq": {
+            "state_display_message": "A continuación figuran las preguntas más frecuentes y sus respuestas.\n\n<b>Pregunta:</b> He agotado mi límite de mensajes diarios (mensuales), ¿cómo puedo seguir comunicándome con el bot?\n<i>Respuesta:</i> Puedes apoyar el proyecto con una pequeña donación en el menú «Ayuda al proyecto», a cambio aumentaremos ligeramente tus límites.\n\n<b>Pregunta:</b> ¿Cómo puedo apoyar a los desarrolladores de este bot? \n<i>Respuesta:</i> Puedes enviar cualquier donación que consideres aceptable.\n\n<b>Pregunta:</b> ¿Existen formas no económicas de recompensar a los desarrolladores?\n<i>Respuesta:</i> Sí, puedes enviar un informe de error o sugerir una idea utilizando la opción correspondiente en la ayuda del bot.\n\nSi tu pregunta no está en la lista, ¡puedes escribirla en el chat ahora mismo!",
+            "state_update_display_message": "La pregunta ha sido enviada al administrador del bot. Si aún tienes preguntas, puedes enviar una o más."
+        },
+        "write_problem": {
+            "state_display_message": "¡Ayude a dar forma a nuestro producto! Utilice el chat para compartir sus comentarios directamente con nuestros expertos en desarrollo.",
+            "state_update_display_message": "¡Agradecemos sus comentarios! Nuestro equipo de desarrollo ha recibido sus ideas y las utilizará para mejorar su experiencia. ¿Tienes más para compartir? Mantenga la conversación: ¡somos todo oídos!"
+        },
+        "suggest_idea": {
+            "state_display_message": "Si quieres compartir una idea, ¡envíala al chat ahora mismo! Seguro que alguno de los directivos de nuestra empresa lo leerá.",
+            "state_update_display_message": "¡Gracias por compartir tu idea innovadora! Nos complace confirmar que su sugerencia se ha enviado correctamente a nuestro equipo de desarrollo de productos. Le animamos a que siga compartiendo sus ideas; no dude en enviar ideas adicionales en mensajes posteriores. Como muestra de nuestro agradecimiento, si alguna de sus ideas es seleccionada para su implementación, puede ser elegible para una actualización gratuita al nivel de su plan. ¡Tu creatividad nos ayuda a crecer y mejorar!"
+        },
+        "unread_news": {
+            "some_news": "¡El robot ha seleccionado /1 noticias especialmente para ti hoy! Haz clic en el botón \"/2\" para leerlas.",
+            "a_lot_of_news": "¡El bot ha seleccionado /1 noticias especialmente para ti hoy! Haga clic en el botón \"/2\" para leer los primeros 5.",
+            "no_news": "¡Pronto el bot seleccionará noticias especialmente para ti!\nSi no quieres esperar, puedes usar la función correspondiente en el menú (/1), ¡y el bot comenzará a seleccionar noticias inmediatamente!",
+            "update_news": "Todas las fuentes que no han sido añadidas hoy por el bot han sido eliminadas de tu buzón de noticias. \nPodrán ser añadidas de nuevo si hoy no aparecen más temas relevantes de su interés."
+        }
+    },
+    "misc": {
+        "keyboard": {
+            "done": "Listo ✅",
+            "cancel": "Cancelar ❌",
+            "back": "Atrás",
+            "back_arrow": "⬅️",
+            "info": "Información",
+            "pay": "Pagar",
+            "menu": "Menú",
+            "functions": "Funciones",
+            "settings": "Ajustes",
+            "subscription": "Suscripción",
+            "contact_us": "Contáctenos",
+            "help": "Ayuda",
+            "get_news": "Obtener noticias",
+            "generate_post": "Generar publicación",
+            "generate_image": "Generar imagen",
+            "hashtags": "Etiquetas",
+            "blacklist": "Lista negra",
+            "language": "Idioma",
+            "style": "Estilo",
+            "models": "Modelos",
+            "utc_shift": "Zona horaria",
+            "question_1": "¿Cómo puedes serme de alguna utilidad?",
+            "question_2": "¿Qué tan amplios son tus horizontes?",
+            "question_3": "¿En qué temas eres más competente?",
+            "fast": "Rápido",
+            "common": "Común",
+            "smart": "Inteligente",
+            "pay_to_pasha": "\uD83D\uDC9D Ayuda al proyecto",
+            "pay_to_pasha_button": "Ve a chatear con el desarrollador",
+            "pay_to_pasha_text": "Hola, me gustaría apoyar a su equipo con una buena taza de café. ¿Cómo puedo transferirte una donación?",
+            "-11": "Samoa Americana, Pago Pago",
+            "-10": "Estados Unidos, Hawái, Honolulu",
+            "-9": "Estados Unidos, Alaska, Anchorage",
+            "-8": "USA, California, Los Angeles",
+            "-7": "USA, Colorado, Denver",
+            "-6": "México, Ciudad de México",
+            "-5": "Estados Unidos, Nueva York, Nueva York",
+            "-4": "Venezuela, Caracas",
+            "-3": "Argentina, Buenos Aires",
+            "-2": "Brasil, Sao Paulo",
+            "-1": "Cabo Verde, Praia",
+            "0": "Reino Unido Londres",
+            "1": "francia paris",
+            "2": "Egipto el Cairo",
+            "3": "Rusia, Moscú",
+            "4": "Emiratos Árabes Unidos, Dubái",
+            "5": "Pakistán, Islamabad",
+            "6": "Bangladesh, Daca",
+            "7": "Tailandia, Bangkok",
+            "8": "China, Pekín",
+            "9": "Japón, Tokio",
+            "10": "Australia, Canberra",
+            "11": "Islas Salomón, Honiara",
+            "12": "Nueva Zelanda, Wellington"
+        },
+        "guide_keyboard": {
+            "question_1": "¿Cómo puedes serme de alguna utilidad?",
+            "question_2": "¿Qué tan amplios son tus horizontes?",
+            "question_3": "¿En qué temas eres más competente?",
+            "image_1": "Una ciudad futurista flotando en las nubes.",
+            "image_2": "Un bosque antiguo con criaturas fantásticas.",
+            "image_3": "Mundo submarino con plantas bioluminiscentes.",
+            "image_4": "Una versión steampunk de la Torre Eiffel",
+            "image_5": "Un jardín japonés en una ciudad cyberpunk",
+            "image_6": "Una biblioteca con libros voladores",
+            "image_7": "La naturaleza se apodera de las ruinas de las ciudades",
+            "image_8": "Un barco urbano navegando en un océano de estrellas",
+            "image_9": "Una estación orbitando una estrella brillante",
+            "image_10": "Un laboratorio cuántico dentro de un cristal gigante"
+        },
+        "help_keyboard": {
+            "help_command": "Ayuda",
+            "bot_skills": "¿Qué puede hacer el robot?",
+            "setting_reset": "Reiniciar ajustes",
+            "are_you_sure": "Sí",
+            "faq": "Preguntas más frecuentes",
+            "contact_us": "Contáctenos",
+            "write_problem": "Escribir comentarios",
+            "suggest_idea": "Sugerir una idea",
+            "back": "Atrás"
+        },
+        "reply_keyboard": {
+            "get_5": "\uD83D\uDFE2 ¡Recibe novedades!"
+        }
+    },
+    "hashtag_categories": {
+        "politics & government": [
+            "Política y gobierno",
+            {
+                "#politics": "#Política",
+                "#diplomacy": "#Diplomacia",
+                "#government": "#Gobierno",
+                "#centrism": "#centrismo",
+                "#socialism": "#Socialismo",
+                "#libertarianism": "#libertarianismo",
+                "#anarchism": "#Anarquismo",
+                "#politicalanalysis": "#AnálisisPolítico",
+                "#policymaking": "#Creación de políticas",
+                "#civicengagement": "#Compromiso civil"
+            }
+        ],
+        "economics & finance": [
+            "Economía y Finanzas",
+            {
+                "#economy": "#Economía",
+                "#financialnews": "#Noticias financieras",
+                "#trade": "#Comercio",
+                "#crypto": "#Cripto",
+                "#stockmarket": "#Bolsa de Valores",
+                "#financialfreedom": "#Libertad financiera",
+                "#investor": "#Inversor",
+                "#budgeting": "#Presupuesto",
+                "#wealthbuilding": "#Construcción de Riqueza",
+                "#realestateinvestor": "#RealEstateInvestor",
+                "#economicdevelopment": "#Desarrollo economico",
+                "#emergingmarkets": "#Mercados emergentes",
+                "#globaltrade": "#Comercio global",
+                "#economicpolicy": "#Política económica",
+                "#startups": "#Inauguración",
+                "#businessstrategy": "#Estrategia de negocios",
+                "#entrepreneurship": "#emprendimiento",
+                "#marketing": "#Marketing",
+                "#ecommerce": "#Comercio electrónico"
+            }
+        ],
+        "society & social issues": [
+            "Sociedad y cuestiones sociales",
+            {
+                "#socialissue": "#Problema social",
+                "#humanrights": "#Derechos humanos",
+                "#justice": "#Justicia",
+                "#conservative": "#Conservador",
+                "#liberal": "#Liberal",
+                "#activist": "#Activista",
+                "#feminist": "#Feminista",
+                "#lgbtqsupporter": "#LGBTQSupporter",
+                "#environmentaladvocate": "#Defensordelmedioambiente",
+                "#humanrightsdefender": "#DefensorDeLosDerechosHumanos",
+                "#socialjusticewarrior": "#GuerreroDeJusticiaSocial",
+                "#globalwarming": "#Calentamiento global",
+                "#refugeecrisis": "#Crisis de refugiados",
+                "#worldhunger": "#Hambre mundial",
+                "#watercrisis": "#Crisis de agua",
+                "#globalhealth": "#Salud global",
+                "#justicesystem": "#Sistema de justicia",
+                "#humanrightslaw": "#LeyDeDerechosHumanos"
+            }
+        ],
+        "health & well-being": [
+            "Salud y Bienestar",
+            {
+                "#healthupdate": "#ActualizaciónDeSalud",
+                "#mentalhealth": "#Salud mental",
+                "#publichealth": "#Salud pública",
+                "#mentalhealthawareness": "#ConcienciaSaludMental",
+                "#wellnessjourney": "#ViajeBienestar",
+                "#selfcare": "#Cuidados personales",
+                "#healthyliving": "#Vida saludable",
+                "#mindfulness": "#Consciencia",
+                "#meditationenthusiast": "#EntusiastaDeLaMeditación",
+                "#covid19": "#COVID-19",
+                "#chronicillness": "#Enfermedad crónica",
+                "#healthcarereform": "#La reforma de salud",
+                "#nutrition": "#Nutrición",
+                "#fitnesstrends": "#Tendencias Fitness",
+                "#mentalwellness": "#BienestarMental",
+                "#alternativemedicine": "#Medicina alternativa",
+                "#healthtech": "#TecnologíaSalud"
+            }
+        ],
+        "science & technology & education": [
+            "Ciencia y tecnología y educación",
+            {
+                "#technews": "#NoticiasTecnológicas",
+                "#scienceupdate": "#ActualizaciónCiencia",
+                "#innovation": "#Innovación",
+                "#space": "#Espacio",
+                "#education": "#Educación",
+                "#research": "#Investigación",
+                "#learning": "#Aprendiendo",
+                "#lifelonglearner": "#Aprendiz de por vida",
+                "#onlinecourse": "#Curso por Internet",
+                "#diy": "#bricolaje",
+                "#skilldevelopment": "#Desarrollo de habilidades",
+                "#languagelearner": "#Estudiante de idiomas",
+                "#educator": "#Educador",
+                "#studentlife": "#Vida de estudiante",
+                "#stem": "#PROVENIR",
+                "#techenthusiast": "#EntusiastaDeLaTecnología",
+                "#blockchain": "#cadena de bloques",
+                "#cybersecurity": "#La seguridad cibernética",
+                "#datascience": "#Ciencia de los datos",
+                "#machinelearning": "#Aprendizaje automático",
+                "#augmentedreality": "#Realidad aumentada",
+                "#internetofthings": "#Internet de las Cosas",
+                "#5g": "#5G",
+                "#quantumcomputing": "#Computación cuántica",
+                "#genomics": "#Genómica",
+                "#astrophysics": "#Astrofísica",
+                "#sustainableenergy": "#Energía sostenible",
+                "#medicalresearch": "#Investigación médica",
+                "#physics": "#Física",
+                "#biotechnology": "#Biotecnología",
+                "#environmentalscience": "#Ciencia medioambiental",
+                "#astronomy": "#Astronomía",
+                "#edutech": "#EduTech",
+                "#onlinelearning": "#Aprender en línea",
+                "#academicresearch": "#Investigación académica",
+                "#aisafety": "#AISafety",
+                "#rocketscience": "#CienciaRocket",
+                "#programming": "#Programación"
+            }
+        ],
+        "culture": [
+            "Cultura",
+            {
+                "#culturalevent": "#Evento cultural",
+                "#culturalfestivals": "#FestivalesCulturales",
+                "#culturalheritage": "#Patrimonio cultural",
+                "#bookclub": "#Club del libro",
+                "#literaryreadings": "#LecturasLiterarias",
+                "#culturalexplorer": "#ExploradorCultural",
+                "#historicaldrama": "#Drama histórico",
+                "#culturalexchange": "#Intercambio cultural",
+                "#culturalhistory": "#Historia cultural",
+                "#ethnography": "#Etnografía",
+                "#museums": "#Museos",
+                "#culturaltraditions": "#Tradiciones culturales",
+                "#folklore": "#Folklore",
+                "#anthropology": "#Antropología",
+                "#culturalcelebrations": "#CelebracionesCulturales"
+            }
+        ],
+        "arts": [
+            "Letras",
+            {
+                "#art": "#Arte",
+                "#contemporaryart": "#Arte contemporáneo",
+                "#artexhibitions": "#Exhibiciones de arte",
+                "#artgalleries": "#Galerías de arte",
+                "#sculpture": "#Escultura",
+                "#arthistory": "#Historia del Arte",
+                "#painting": "#Cuadro",
+                "#streetart": "#Arte callejero",
+                "#photography": "#Fotografía",
+                "#digitalart": "#Arte digital",
+                "#finearts": "#Bellas Artes",
+                "#artistsspotlight": "#Artistas Destacados",
+                "#performanceart": "#ArtePerformance",
+                "#visualarts": "#Artes visuales",
+                "#artinstallations": "#InstalacionesDeArte",
+                "#graphicdesign": "#Diseño gráfico",
+                "#artfairs": "#feriasdearte",
+                "#arttherapy": "#Terapia artística",
+                "#artcollectors": "#Coleccionistasdearte",
+                "#artauctions": "#Subastasdearte",
+                "#crafts": "#Artesanía",
+                "#ceramics": "#Cerámica",
+                "#printmaking": "#Grabado",
+                "#illustration": "#Ilustración",
+                "#publicart": "#Arte publico"
+            }
+        ],
+        "entertainment": [
+            "Entretenimiento",
+            {
+                "#entertainment": "#Entretenimiento",
+                "#movies": "#Películas",
+                "#tv": "#TELEVISOR",
+                "#webseries": "#SeriesWeb",
+                "#podcasts": "#Podcasts",
+                "#radioshows": "#ProgramasdeRadio",
+                "#music": "#Música",
+                "#concerts": "#Conciertos",
+                "#albumrelease": "#lanzamientodelálbum",
+                "#musicvideos": "#Videos musicales",
+                "#awards": "#Premios",
+                "#popculture": "#Cultura pop",
+                "#viraltrends": "#TendenciasViral",
+                "#memes": "#Memes",
+                "#influencerculture": "#CulturaInfluencer",
+                "#vloggers": "#Vlogueros",
+                "#streamers": "#serpentinas",
+                "#gamingnews": "#NoticiasDeJuegos",
+                "#fanconventions": "#Convenciones de fans",
+                "#celebritynews": "#Noticias de celebridades",
+                "#moviereviews": "#Críticas de cine",
+                "#tvshows": "#Programas de televisión",
+                "#realityshows": "#Programa de reality",
+                "#talkshows": "#Programas de entrevistas",
+                "#comedyshows": "#Showsdecomedia",
+                "#theater": "#Teatro",
+                "#broadwayshows": "#Espectáculos de Broadway",
+                "#musicals": "#Musicales",
+                "#livecomedy": "#ComediaEnVivo",
+                "#cinema": "#Cine",
+                "#filmfestival": "#Festival de Cine",
+                "#musicfestivals": "#Festivales de música",
+                "#nightlife": "#La vida nocturna",
+                "#clubbing": "#discotecas",
+                "#magicshows": "#EspectáculosMagicos",
+                "#circus": "#Circo",
+                "#varietyshows": "#Espectáculos de variedades",
+                "#cosplay": "#Cosplay"
+            }
+        ],
+        "sports & athletics": [
+            "Deportes y atletismo",
+            {
+                "#sports": "#Deportes",
+                "#athletics": "#Atletismo",
+                "#teamsports": "#Deportes de equipo",
+                "#individualsports": "#Deportes individuales",
+                "#olympics": "#Juegos Olímpicos",
+                "#worldcup": "#Copa Mundial",
+                "#football": "#Fútbol americano",
+                "#basketball": "#Baloncesto",
+                "#baseball": "#Béisbol",
+                "#cricket": "#Grillo",
+                "#tennis": "#Tenis",
+                "#golf": "#Golf",
+                "#rugby": "#Rugby",
+                "#hockey": "#Hockey",
+                "#mma": "#MMA",
+                "#boxing": "#Boxeo",
+                "#cycling": "#Ciclismo",
+                "#swimming": "#Nadar",
+                "#trackandfield": "#Atletismo",
+                "#volleyball": "#Vóleibol",
+                "#gymnastics": "#Gimnasia",
+                "#skating": "#Patinaje",
+                "#skiing": "#Esquiar",
+                "#snowboarding": "#Snowboarding",
+                "#surfing": "#Surf",
+                "#motorsport": "#deporte de motor",
+                "#f1": "#F1",
+                "#nascar": "#NASCAR",
+                "#esports": "#Deportes electrónicos",
+                "#badminton": "#Bádminton",
+                "#tabletennis": "#Tenis de mesa",
+                "#marathon": "#Maratón",
+                "#triathlon": "#Triatlón",
+                "#equestrian": "#Ecuestre",
+                "#skateboarding": "#patinaje",
+                "#climbing": "#Escalada",
+                "#wrestling": "#Lucha",
+                "#judo": "#Judo",
+                "#taekwondo": "#taekwondo",
+                "#karate": "#Kárate",
+                "#archery": "#Tiro al arco",
+                "#shootingsports": "#TiroDeportes",
+                "#fencing": "#Esgrima",
+                "#weightlifting": "#Levantamiento de pesas",
+                "#bodybuilding": "#Culturismo",
+                "#yoga": "#Yoga",
+                "#pilates": "#pilates",
+                "#dancesports": "#bailedeportes",
+                "#parkour": "#Parkour"
+            }
+        ],
+        "environment & climate": [
+            "Medio ambiente y clima",
+            {
+                "#climate": "#Clima",
+                "#environment": "#Ambiente",
+                "#sustainability": "#Sostenibilidad",
+                "#greentech": "#Tecnología verde",
+                "#ecofriendly": "#Respetuoso del medio ambiente",
+                "#conservation": "#Conservación",
+                "#renewableenergy": "#Energía renovable"
+            }
+        ],
+        "crime & safety": [
+            "Crimen y seguridad",
+            {
+                "#crime": "#Delito",
+                "#safety": "#Seguridad",
+                "#legalnews": "#NoticiasLegales",
+                "#regulations": "#Reglamento",
+                "#compliance": "#Cumplimiento",
+                "#corporatelaw": "#Derecho Corporativo"
+            }
+        ],
+        "lifestyle & personal characteristics": [
+            "Estilo de vida y características personales",
+            {
+                "#vegan": "#Vegano",
+                "#minimalist": "#minimalista",
+                "#zerowaste": "#Cero desperdicio",
+                "#digitalnomad": "#NómadaDigital",
+                "#parenting": "#crianza",
+                "#petlover": "#Amante de mascotas",
+                "#homebody": "#hogareño",
+                "#fitnessenthusiast": "#Entusiastadelfitness",
+                "#traveljunkie": "#TravelJunkie",
+                "#introvert": "#Introvertido",
+                "#extrovert": "#Extrovertido",
+                "#ambivert": "#ambivertido",
+                "#empath": "#Empatía",
+                "#optimist": "#Optimista",
+                "#pessimist": "#Pesimista",
+                "#realist": "#Realista",
+                "#sustainableliving": "#Vida sostenible",
+                "#digitallifestyle": "#EstiloDeVidaDigital",
+                "#urbangardening": "#JardineríaUrbana",
+                "#tinyhomes": "#casaspequeñas",
+                "#selfimprovement": "#SuperaciónAutomática",
+                "#lifehacks": "#Trucos de la vida",
+                "#careeradvice": "#Orientación profesional",
+                "#successstories": "#Historias de éxito",
+                "#mindset": "#Mentalidad",
+                "#fashiontrends": "#Tendencias de la moda",
+                "#beautytips": "#Consejos de belleza",
+                "#streetstyle": "#Estilo callejero"
+            }
+        ],
+        "hobbies & interests": [
+            "Pasatiempos e intereses",
+            {
+                "#bookworm": "#Ratón de biblioteca",
+                "#traveler": "#Viajero",
+                "#foodie": "#Conocedor gourmet",
+                "#gamer": "#Jugador",
+                "#musiclover": "#Amante de la música",
+                "#fitnessfreak": "#Maniático del ejercicio",
+                "#naturelover": "#Amante de la naturaleza",
+                "#artaficionado": "#ArtAficionado",
+                "#sportsfan": "#Fan de los deportes",
+                "#photographyenthusiast": "#EntusiastaDeLaFotografía",
+                "#moviebuff": "#CineBuff",
+                "#diyer": "#bricolaje",
+                "#gardeninglover": "#AmanteDeLaJardinería",
+                "#fashionista": "#fashionista",
+                "#gourmet": "#Gastrónomo",
+                "#homecooking": "#Cocina casera",
+                "#veganrecipes": "#RecetasVeganas",
+                "#streetfood": "#Comida de la calle"
+            }
+        ],
+        "religion & spirituality": [
+            "Religión y espiritualidad",
+            {
+                "#atheist": "#Ateo",
+                "#agnostic": "#Agnóstico",
+                "#christian": "#Cristiano",
+                "#muslim": "#Musulmán",
+                "#buddhist": "#Budista",
+                "#spiritualbutnotreligious": "#Espiritual pero no religioso",
+                "#hindu": "#Hindú",
+                "#pagan": "#Pagano",
+                "#spiritualseeker": "#BuscadorEspiritual"
+            }
+        ],
+        "geography & travel": [
+            "Geografía y viajes",
+            {
+                "#expatriate": "#Expatriado",
+                "#localtravel": "#Viaje Local",
+                "#worldtraveler": "#viajeromundial",
+                "#urbanexplorer": "#ExploradorUrbano",
+                "#ruraladventurer": "#AventureroRural",
+                "#adventuretravel": "#Viaje de aventura",
+                "#ecotourism": "#Ecoturismo",
+                "#citybreaks": "#Escapadas de la ciudad",
+                "#culinarytravel": "#ViajesCulinarios",
+                "#backpacking": "#Mochilero"
+            }
+        ],
+        "gaming & digital entertainment": [
+            "Juegos y entretenimiento digital",
+            {
+                "#gaming": "#Juego de azar",
+                "#gamerelease": "#lanzamientodeljuego",
+                "#gamereview": "#Revisión del juego",
+                "#platformgaming": "#JuegosdePlataforma",
+                "#vrgaming": "#VRJuegos",
+                "#gamingcommunity": "#ComunidadDeJuegos",
+                "#vr": "#VR"
+            }
+        ],
+        "legal & regulatory news": [
+            "Noticias legales y regulatorias",
+            {}
+        ],
+        "industry-specific news": [
+            "Noticias específicas de la industria",
+            {
+                "#automotivenews": "#NoticiasAutomotrices",
+                "#fashionindustry": "#Industria de la moda",
+                "#agriculturenews": "#NoticiasAgricultura"
+            }
+        ],
+        "historical context": [
+            "Contexto histórico",
+            {
+                "#onthisday": "#En este día",
+                "#historyfacts": "#HechosHistoriales",
+                "#historicalperspective": "#Perspectiva historica"
+            }
+        ],
+        "special events & occasions": [
+            "Eventos y ocasiones especiales",
+            {
+                "#elections2024": "#Elecciones2024",
+                "#earthday": "#Día de la Tierra",
+                "#internationalwomensday": "#Día Internacional de la Mujer"
+            }
+        ],
+        "user-generated content": [
+            "Contenido generado por el usuario",
+            {
+                "#userstory": "#Historia del usuario",
+                "#communityvoice": "#VozComunitaria",
+                "#diyprojects": "#ProyectosdeDIY",
+                "#traveldiaries": "#DiariosdeViaje",
+                "#foodblogging": "#Blogging de comida",
+                "#fashionblogging": "#BloggingdeModa",
+                "#fitnessjourney": "#ViajeDeFitness",
+                "#artshare": "#ArtShare",
+                "#photographylovers": "#AmantesdeLaFotografía",
+                "#vlog": "#Vlog",
+                "#personalblog": "#Blog personal",
+                "#makeuptutorial": "#Tutorial de maquillaje",
+                "#gamingcontent": "#Contenido de juegos",
+                "#techreviews": "#Reseñas técnicas",
+                "#bookreviews": "#Reseñas de libros",
+                "#musiccovers": "#PortadasMusicas",
+                "#dancevideos": "#Videosdebaile",
+                "#comedyskits": "#KitsdeComedia",
+                "#petvideos": "#Videosdemascotas",
+                "#parentingtips": "#Consejos para padres",
+                "#gardeningtips": "#Consejosdejardinería",
+                "#sustainabilityideas": "#IdeasSostenibilidad",
+                "#healthtips": "#Consejos de salud",
+                "#motivationalposts": "#PublicacionesMotivacionales",
+                "#poetry": "#Poesía",
+                "#shortstories": "#Cuentos cortos",
+                "#fanart": "#Arte de fan",
+                "#crafting": "#Elaboración",
+                "#homedecorideas": "#Ideasdedecoracióndelhogar",
+                "#fitnesschallenges": "#RetosDeFitness",
+                "#cookingrecipes": "#Recetas de cocina",
+                "#travelvlogs": "#Vlogsdeviajes",
+                "#studywithme": "#EstudiaConmigo",
+                "#productivitytips": "#ConsejosdeProductividad",
+                "#languagelearning": "#Aprendizaje de idiomas",
+                "#virtualtours": "#ToursVirtuales",
+                "#remotework": "#Trabajo remoto",
+                "#volunteering": "#Trabajar como voluntario",
+                "#charitywork": "#TrabajoCaritativo",
+                "#socialactivism": "#Activismo social"
+            }
+        ],
+        "fact-checking & misinformation": [
+            "Verificación de hechos y desinformación",
+            {
+                "#factcheck": "#Revisión de hechos",
+                "#misinformation": "#Desinformación",
+                "#fakenewsalert": "#Alerta de noticias falsas"
+            }
+        ],
+        "music": [
+            "Música",
+            {
+                "#pop": "#Estallido",
+                "#rock": "#Roca",
+                "#jazz": "#Jazz",
+                "#classical": "#Clásico",
+                "#hiphop": "#Hip hop",
+                "#electronic": "#Electrónico",
+                "#country": "#País",
+                "#blues": "#Blues",
+                "#indie": "#Indie",
+                "#folk": "#Gente",
+                "#reggae": "#reggae",
+                "#soul": "#Alma",
+                "#metal": "#Metal",
+                "#punk": "#Punk",
+                "#rnb": "#RnB",
+                "#latin": "#Latín",
+                "#world": "#Mundo",
+                "#edm": "#EDM",
+                "#kpop": "#KPop"
+            }
+        ],
+        "regional news": [
+            "Noticias regionales",
+            {
+                "#internationalnews": "#Noticias internacionales",
+                "#northamerica": "#América del norte",
+                "#southamerica": "#Sudamerica",
+                "#europe": "#Europa",
+                "#asia": "#Asia",
+                "#africa": "#África",
+                "#middleeast": "#Oriente Medio",
+                "#australia": "#Australia",
+                "#russia": "#Rusia",
+                "#china": "#Porcelana",
+                "#india": "#India",
+                "#usa": "#EE.UU",
+                "#uk": "#REINO UNIDO",
+                "#germany": "#Alemania",
+                "#france": "#Francia",
+                "#japan": "#Japón",
+                "#brazil": "#Brasil",
+                "#canada": "#Canada",
+                "#italy": "#Italia",
+                "#spain": "#España",
+                "#mexico": "#México",
+                "#taiwan": "#Taiwán",
+                "#singapore": "#Singapur",
+                "#egypt": "#Egipto",
+                "#saudiarabia": "#Arabia Saudita",
+                "#uae": "#EAU",
+                "#iraq": "#Irak",
+                "#indonesia": "#Indonesia",
+                "#portugal": "#Portugal",
+                "#quebec": "#Québec",
+                "#austria": "#Austria",
+                "#switzerland": "#Suiza",
+                "#ukraine": "#Ucrania",
+                "#belarus": "#Bielorrusia"
+            }
+        ]
+    },
+    "styles": {
+        "casual": "Casual",
+        "concise": "Conciso",
+        "professional": "Profesional",
+        "enthusiastic": "Entusiasta",
+        "humorous": "Humorístico",
+        "empathetic": "Empático",
+        "sarcastic": "Sarcástico"
+    }
+}

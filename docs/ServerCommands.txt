@@ -1,0 +1,18 @@
+#Fast go to bot's catalog
+cd ../botAI/SMM_Chat_Bot
+
+#launch app in background
+sudo nohup python3 app/main.py > output.log 2>&1 &
+
+#search process
+ps aux | main.py
+
+#kill process
+kill 12345
+
+
+#start rss bridge
+sudo docker start rss-bridge
+
+sudo chown -R artparse90:sharedgroup .git
+sudo chown -R artparse90:sharedgroup .
